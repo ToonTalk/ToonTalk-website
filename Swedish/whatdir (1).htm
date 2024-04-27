@@ -1,0 +1,32 @@
+<html>
+   <head>
+      <title>Welcome to ToonTalk 3</title>
+      <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+      <LINK href="../dialog.css" type="text/css" rel="stylesheet">
+         <script language="javascript" id="clientEventHandlersJS">
+<!--
+function sendBack(message) {
+    window.returnValue = message; 
+    window.close();
+}
+function loadBody() {
+//     FolderPath.select();
+}
+-->
+      </script>      
+   </head>
+   <body onLoad="loadBody()">
+<P align=left>ToonTalk needs a file folder to keep your ToonTalk files. Please choose one of the following:</P>
+<blockquote>
+<P align=left>
+        <input type="button" value="Use the folder My Documents\ToonTalk" onClick="sendBack('My Documents')" name=Submit1 size="20"> 
+</P>
+      <form>
+<P align=left>
+        <input type="text" class="text" size="60" name="FolderPath" id="FolderPath" value="Type the path to a folder here">
+        <input type="button" value="OK" onClick="sendBack(this.form.FolderPath.value)" onEmter="sendBack(this.form.FolderPath.value)" id=Submit1 name=Submit2 size="20"> (While it would be slow you 
+        can even use a floppy by entering a:.)</P>
+      </form>
+</blockquote>
+   </body>
+</html>

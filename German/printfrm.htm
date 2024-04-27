@@ -1,0 +1,238 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.5 [en] (WinNT; I) [Netscape]">
+   <title>ToonTalk Fax Order Form</title>
+</head>
+<body bgcolor="#FFFFFF">
+<script>
+    function processForm(form) {
+        var checkBlanks = "First_Name Last_Name Address City State Zip Country Quantity";
+        for (var i = 0; i < form.elements.length; i++) {
+           if (form.elements[i].type == "text" &&
+               checkBlanks.indexOf(form.elements[i].name) != -1 &&
+               form.elements[i].value == "") {
+              alert("You need to fill in the " + form.elements[i].name + " field.");
+              form.elements[i].focus();
+//              form.elements[i].select();
+              return false;
+           } else if (form.elements[i].name == "Quantity") {
+              var number = parseInt(form.elements[i].value,10);
+              if (isNaN(number) || number < 1) {
+                 alert("The Quantity field must be a number greater than zero.");
+                 form.elements[i].focus();
+                 form.elements[i].select();
+                 return false;
+              }
+           } else if (form.elements[i].name == "Email" && 
+                      form.elements[i].value != "" &&
+                      form.elements[i].value.indexOf('@', 0) == -1) {
+              alert("The email address you entered does not contain @.");
+              form.elements[i].focus();
+              form.elements[i].select();
+              return false;
+           } else if (form.elements[i].name == "Payment_Method") {
+              var index = form.elements[i].selectedIndex;
+              if (index == 0) {
+                 alert("Please choose a payment method.");
+                 form.elements[i].focus();
+                 return false;
+              } else if (index >= 1 && index <= 4) { // credit card
+                 for (var j = i+1; j < i+3; j++) { // make sure next 2 elements are not blank
+                    if (form.elements[j].value == "") {
+                       alert("For credit card orders, you need to fill in the " + 
+                             form.elements[j].name + " field.");
+                       form.elements[j].focus();
+                       return false;
+                    }
+                 }
+              } else if (index == 5) { // phone me for credit card info
+                 if (form.elements[2].value == "") { // 2 is phone number
+                    alert("You need to fill in your phone number so we can call you for credit card information.");
+                    form.elements[2].focus();
+                    return false;
+                 }
+              }
+           }
+        }
+        alert("The form can now be printed out by clicking on your browser's Print button.  Please fax it to 510-548-7117.");
+        return false; // since not really submitting anything
+     }
+</script>
+
+<center>
+<h1>
+<b><font face="Comic Sans MS"><font size=+2>ToonTalk Bestellformular</font></font></b></h1></center>
+<font face="Comic Sans MS"><font size=+0>Alle <font color="#FF0000">roten</font>
+(mit <font color="#FF0000">*</font>) Felder &uuml;&szlig;en ausgef&uuml;llt
+werden. Bitte benutzen Sie dieses Formular nicht, falls ToonTalk nach Europa,
+Afrika, Australien, Neuseeland, Hong Kong, Singapur, Indien oder Malaysien
+verschickt werden soll. Besuchen Sie <a href="http://www.toontalk.com/English/buy.htm">www.toontalk.com/English/buy.htm</a>
+oder <a href="http://www.toontalk.com/German/buy.htm">www.toontalk.com/German/buy.htm</a>
+f&uuml;r weitere Details.</font></font>
+<br><form name="Form" onsubmit="return processForm(this)">
+<table BORDER=0 >
+<tr>
+<td><font face="Comic Sans MS"><font color="#FF0000"><font size=+0>First
+Name *....................</font></font></font></td>
+
+<td><input type="text" size="40" name="First_Name"></td>
+</tr>
+
+<tr>
+<td><font face="Comic Sans MS"><font color="#FF0000"><font size=+0>Last
+Name *......................</font></font></font></td>
+
+<td><input type="text" size="40" name="Last_Name"></td>
+</tr>
+
+<tr>
+<td><font face="Comic Sans MS"><font size=+0>Phone Number ...............</font></font></td>
+
+<td><input type="text" size="40" name="Phone_Number"></td>
+</tr>
+
+<tr>
+<td><font face="Comic Sans MS"><font size=+0>Company or School .....</font></font></td>
+
+<td><input type="text" size="40" name="Company_Name"></td>
+</tr>
+
+<tr>
+<td><font face="Comic Sans MS"><font size=+0>Email Address ...............</font></font></td>
+
+<td><input type="text" size="40" name="Email"></td>
+</tr>
+
+<tr>
+<td><font face="Comic Sans MS"><font size=+0>Fax Number ....................</font></font></td>
+
+<td><input type="text" size="40" name="Fax"></td>
+</tr>
+
+<tr>
+<td><font face="Comic Sans MS"><font color="#FF0000"><font size=+0>Ship
+to Address *........</font></font></font></td>
+
+<td><input type="text" size="40" name="Address"></td>
+</tr>
+
+<tr>
+<td><font face="Comic Sans MS"><font size=+0>Additional Address ....</font></font></td>
+
+<td><input type="text" size="40" name="Address2"></td>
+</tr>
+
+<tr>
+<td><font face="Comic Sans MS"><font color="#FF0000"><font size=+0>City
+*.....................................</font></font></font></td>
+
+<td><input type="text" size="40" name="City"></td>
+</tr>
+
+<tr>
+<td><font face="Comic Sans MS"><font color="#FF0000"><font size=+0>State
+or Province *......</font></font></font></td>
+
+<td><input type="text" size="40" name="State"></td>
+</tr>
+
+<tr>
+<td><font face="Comic Sans MS"><font color="#FF0000"><font size=+0>Zip
+or Postal Code *....</font></font></font></td>
+
+<td><input type="text" size="40" name="Zip"></td>
+</tr>
+
+<tr>
+<td><font face="Comic Sans MS"><font color="#FF0000"><font size=+0>Country
+*............................</font></font></font></td>
+
+<td><input type="text" size="40" name="Country"></td>
+</tr>
+</table>
+
+<p><font face="Comic Sans MS"><font size=+0>The information provided above
+will only be used in connection with shipping ToonTalk or informing you
+(via email or postal mail) of ToonTalk product news.</font></font>
+<p><input type="checkbox"
+  name="Shipping_Address_Residence?" value="ON"><font face="Comic Sans MS"><font size=+0>Please
+check this box if this address is a residence.</font></font>
+<p><input type="checkbox"
+  name="Credit_statement_to_ship_to_address?" value="ON"><font face="Comic Sans MS"><font size=+0>Check
+this box if paying by credit card and the credit card statement goes to
+this address.</font></font>
+<p><font face="Comic Sans MS"><font size=+0>Please choose a payment method
+below. Please print out this form and fax it to 1-510-559-4190. Or mail
+it to Software Shippers, 805 Camelia St, Berkeley, CA 94710, USA. If you
+wish to use a Purchase Order, then you must fax us your order on stationary
+from your company or organization.</font></font>
+<p><select name="Payment_Method" size="1"><option selected><font face="Comic Sans MS"><font size=+0>Choose
+Payment Method</option><option>Visa</option><option>MasterCard</option><option>American
+Express</option><option>Discover or Novus</option><option>Please call me
+for credit card info</option><option>Sending a check made out to Animated
+Programs</font></font></option></select>
+<br>&nbsp;
+<table BORDER=0 >
+<tr>
+<td><font face="Comic Sans MS"><font size=+0>Credit Card Number .........................................</font></font></td>
+
+<td><input type="text" size="40"
+      name="Credit_Card_Number"></td>
+</tr>
+
+<tr>
+<td><font face="Comic Sans MS"><font size=+0>Credit Card Expiration (month/year)
+....</font></font></td>
+
+<td><input type="text" size="40"
+      name="Credit_Card_Expiration_Month_Year"></td>
+</tr>
+
+<tr>
+<td><font face="Comic Sans MS"><font size=+0>Name on Credit Card (if different)
+.......</font></font></td>
+
+<td><input type="text" size="40"
+      name="Credit_Card_Name_if_different"></td>
+</tr>
+</table>
+
+<p><font face="Comic Sans MS"><font size=+0>Shipping and handling is $5
+for shipping First Class by the US Postal Service within the US. You may
+choose other shipping options below and will be charged the difference
+in shipping costs. Shipments will be made on the same day for orders received
+by 1PM Pacific Standard Time, Monday through Friday.</font></font>
+<p><select name="Shipping_Method" size="1"><option selected><font face="Comic Sans MS"><font size=+0>US
+Postal Service First Class</option><option>US Postal Service Priority Mail</option><option>US
+Postal Service Express Mail</option><option>International Air Mail</option><option>UPS
+Express International</option><option>UPS Ground</option><option>UPS Third
+Day Delivery</option><option>UPS Blue</option><option>UPS Red</option><option>Federal
+Express</option><option>Other (please specify in special instructions section)</font></font></option></select>
+<p><font face="Comic Sans MS"><font size=+0>The ToonTalk CD-ROM and manual
+cost $49.95. Additional copies are $29.95. Orders for 10 or more copies
+cost $24.95 a copy. The CD-ROM and manual are not sold separately in quantities
+less than 10. If shipping to an address in California, then California
+sales tax will be added.</font></font>
+<p><font face="Comic Sans MS"><font size=+0><font color="#FF0000">Quantity
+Ordered</font> ....&nbsp;</font></font><input type="text" size="4" name="Quantity" value="1">
+<p><select name="How_heard" size="1"><option selected><font face="Comic Sans MS"><font size=-1>Please
+tell us how you heard about ToonTalk</option><option>World Wide Web</option><option>Newspaper
+or magazine</option><option>Friend or relative</option><option>Teacher
+or lecturer</option><option>Television</option><option>Other</font></font></option></select>
+<p><font face="Comic Sans MS"><font size=+0>If you wish for us to handle
+your order in any special way, then please use the space below. For example,
+if you are sending ToonTalk as a gift, please say so below and provide
+a different billing address below. If you wish, we will write by hand a
+brief note to be included with the product.</font></font><textarea 
+  name="Special_Instructions" rows="6" cols="63" wrap="virtual"></textarea><input 
+  type="submit" name="CheckForm" value="Check Form">
+<center><font face="Comic Sans MS"><font size=-1><a href="toontalk.htm">home</a>
+| <a href="search.htm">search</a> | <a href="buy.htm">purchase</a> | <a href="doc.htm">manual</a>
+| <a href="whatsnew.htm">news</a> | <a href="infodesk.htm">info</a> | <a href="faq.htm">faq</a>
+| <a href="support.htm">support</a> | <a href="free.htm">downloads</a>
+| <a href="press.htm">press</a> | <a href="address.htm">contact us</a></font></font></center>
+&nbsp;</form>
+</body>
+</html>

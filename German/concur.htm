@@ -1,0 +1,159 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Version" content="8.0.4308">
+   <meta name="Date" content="7/8/97">
+   <meta name="Template" content="C:\Program Files\Microsoft Office\Office\HTML.DOT">
+   <meta name="GENERATOR" content="Mozilla/4.5 [en] (WinNT; I) [Netscape]">
+   <title>Concurrency and ToonTalk</title>
+</head>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000FF" vlink="#800080">
+
+<center><b><font size=+1>Nebenl&auml;ufigkeit und ToonTalk</font></b></center>
+
+<p>Bevor ich die nebenl&auml;ufige Berechnung in ToonTalk erl&auml;utere
+und daruf eingehe weshalb es schwierig ist, sequentielle Sprachen auf Parallelit&auml;t
+zu erweitern, werde ich die Beziehung zwischen Nebenl&auml;ufigkeit, Parallelit&auml;t
+und verteiltes Berechnen erkl&auml;ren.Parallele Prozesse sind Prozesse,
+die alle auf dem selben Computersystem ausgef&uuml;hrt werden. Das System
+hat typischerweise mehr als einen Prozessor. Verteilte Prozesse sind Prozesse,
+die auf verschiedenen Computersystemen, die durch ein Netzwerk verbunden
+sind, ablaufen. Der Unterschied zwischen parallel und verteilt ist wichtig,
+da eine verteilte Berechnung typischerweise eigentums- oder organisations&uuml;bergreifend
+durchgef&uuml;hrt wird. Deshalb mu&szlig; nur bei der veteilten Berechnung
+Sicherheit, Allokierung von Ressourcen, Recovery bei Hardwarefehlern etc.
+ber&uuml;cksichtigt werden.Wo im folgenden der Unterschied nicht wichtig
+ist, werde ich diese Prozesse als nebenl&auml;ufige Prozesse bezeichnen,
+d.h. Prozesse, die entweder parallel oder verteilt ausgef&uuml;hrt werden.
+<p>ToonTalk ist durch und durch eine nebenl&auml;ufige Programmiersprache,
+da alle Teilberechnungen als neue unabh&auml;ngige Prozesse ausgedr&uuml;ckt
+werden. Falls ein Roboter einen anderen Roboter ben&ouml;tigt, um einige
+Teilberechnungen auszuf&uuml;hren, mu&szlig; er so trainiert werden, da&szlig;
+er einen Lastwagen mit den anderen Robotern bel&auml;dt. Das neue Haus,
+das von dieser Crew im Lastwagen gebaut wird, ist ein neuer Proze&szlig;.
+<p>Im Gegensatz zu &uuml;blichen Programmiersprachen (C, Java, Logo, Lisp,
+Fortran, Cobol, Perl, Basic, etc.) gibt es in ToonTalk keine M&ouml;glichkeit,
+eine Unterroutine aufzurufen.&nbsp; Ein Prozeduraufruf &uuml;bertr&auml;gt
+die Kontrolle an die Prozedur, so da&szlig; das Program so lange warten
+mu&szlig; bis die Prozedur beendet ist. Manchmal liefert sie nach dem Beenden
+auch einen Wert zur&uuml;ck. Danach f&uuml;hrt das aufrufende Programm
+seine Ausf&uuml;hrung dort fort, wo sie sie vor dem Prozeduraufruf unterbrochen
+hat. Man kann das selbe Verhalten generieren, wenn man einen Roboter trainiert,
+einen Lastwagen mit Robotern und einer Schachtel mit einem Vogel darin
+zu beladen. Der Roboter braucht nicht anderes zu tun, als&nbsp; das Nest
+des Vogels in seine Schachtel zu legen. Der Roboter oder andere Mitglieder
+seines Team m&uuml;ssen dann nur noch so programmiert werden, da&szlig;
+er auf Gegenst&auml;nde in dem Nest wartet. Dieser Proze&szlig; unterbricht
+solange die Berechnung bis einer der Roboter, mit denen der Lastwageen
+beladen wurde, dem V&ouml;gel etwas f&uuml;r das Nest geben. Nachdem der
+Vogel dann etwas in das Nest legt, f&uuml;hrt der wartende Roboter die
+Berechnung fort. Mit anderen Worten ist der Aufruf einer Unterroutine oder
+einer Prozedur nur eine bestimmte Benutzung von Lastwagen, V&ouml;geln
+und Robotern. ToonTalk stellt dem Programmierer hier nur die viel generellere
+Funktionalit&auml;t des Aufspannens von neuen Prozessen zur Verf&uuml;gung.
+<p>Das Fehlen von Unterroutinen f&uuml;hrt dazu, da&szlig; man in ToonTalk
+die M&ouml;glichkeit hat, viel mehr Prozesse aufzuspannen als in konventionellen
+Programmiersprachen. In konventionellen Programmiersprachen ist der Aufruf
+von Unterroutinen mit einer Dataenstruktur implementiert, die man als Keller
+bezeichnet. Ein Keller ist eine sehr effiziente Art, den Aufruf von Unterroutinen
+inklusive rekursiver Aufrufe zu implementieren. Das Problem bei mehreren
+Prozessen hierbei ist, da&szlig; jeder Proze&szlig; (auch wenn er wartet
+) im Prinzip seinen eigenen Keller ben&ouml;tigt. Das f&uuml;hrt dazu,
+da&szlig; Prozesse ziemlich aufwendig in der Implementierung sind. In ToonTalk
+ben&ouml;tigt jeder Proze&szlig; nur 2 Zeiger: zum Programm (Team der Roboter)
+und zu den Daten (einer Schachtel). Ein Proze&szlig; ben&ouml;tigt keinen
+Keller; und sonst auch nichts. Wir haben ToonTalk mit zehntausenden von
+H&auml;usern (d.h. Prozessen) getestet. Im Gegesatz dazu war Java schon
+bei wenigen hundert Prozessen nicht mehr funktionsf&auml;hig.
+<p>Konventionelle Programmiersprachen haben einen <i>gemeinsamen Zustandsraum</i>.
+Die gleichen Variablen, Datenstrukturen und Objekte k&ouml;nnen von verschiedenen
+Prozessen aus zugegriffen werden. Der gemeinsame Zustandsraum ist in diesen
+Sprachen f&uuml;r die Kommunikation von sog. <i>Threads</i> notwendig (Prozesse
+mit gemeinsamen Daten werden oft auch als Threads bezeichnet). Das Teilen
+eines gemeinsamen Bereichen mit anderen Therads kann aber auch sehr gef&auml;hrlich
+sein.&nbsp; Es kann zu sog. <i>Race Bedingungen</i> f&uuml;hren. Betrachtet
+man z. B. eine Variable A, die den aktuellen Stand auf einem Bankkonto
+speichert (<i>A</i> kann eine globale Variable oder die Instanz eines Objekts
+sein &szlig; beides f&uuml;hrt zu Problemen). Eine Unterroutine kann z.
+B. einen Betrag <i>X</i> von dem Konto nur dann abheben, falls <i>X </i>kleiner
+oder gleich dem aktuellen Kontostand von <i>A</i> ist, d. h. das Abheben
+ist nur erlaubt, falls genug Geld auf dem Konto ist. Das Abheben wird z.
+B. durch die Operation 
+<i>A-X </i>imlementiert. Jetzt kommt Parallelit&auml;t
+ins Spiel. Angenommen auf dem Konto sind 10 Euros, ein Proze&szlig; m&ouml;chte
+gern 9 Euros und eine anderer Proze&szlig; m&ouml;chte gern 8 Euros abheben.
+Wenn es ungl&uuml;cklich l&auml;uft, k&ouml;nnen beide Aktionen durchgef&uuml;hrt
+werden. Wenn es ganz ungl&uuml;cklich kommt, kann der endg&uuml;ltige Kontostand
+nach dem Beenden der beiden Aktionen1 Euro, 2 Euros oder sogar -7 Euros
+sein. Wie kann das sein? Man stelle sich folgende Reihenfolge vor:
+<p>Proze&szlig; 1 &uuml;berpr&uuml;ft, da&szlig; <i>X</i> weniger als <i>A</i>
+ist und berechnet <i>A-X</i> (10-9=1) mit 1. Bevor aber 1 and <i>A</i>
+zugewiesen wird, f&auml;ngt Proze&szlig; 2 mit der Berechnung an, sieht,
+da&szlig; <i>A</i> immer noch 10 ist, berechnet 10-8=2 und setzt den Kontostand
+<i>A</i> auf 2. Dies wird von Proze&szlig; 1 nicht bemerkt, der den Kontostand
+<i>A</i> schlie&szlig;lich auf 1 setzt.
+<p>Wie gehen konevtionelle Sprachen mit diesen Race Bedingungen um? Sie
+f&uuml;hren neue Programmierkonstrukte wie L<i>ock</i>s oder <i>kritische
+Regionen</i> ein. Z. B. kann der Prozeduraufruf eines Proze&szlig;es zum
+Abheben ein <i>Lock</i> auf <i>A</i> durchf&uuml;hren (d. h. die Variable
+<i>A</i> sperren), so da&szlig; kein anderer Proze&szlig; auf die Variable&nbsp;
+zugreifen darf. Der Proze&szlig; kann jetzt die Variable <i>A</i> sicher
+mit dem Wert <i>X</i> vergleichen, <i>A-X</i> berechnen, und das Ergebnis
+<i>A</i> zuweisen. Schlie&szlig;lich mu&szlig; der Lock auf <i>A</i> aufgehoben
+werden sonst kann nie wieder ein anderer Proze&szlig; auf die Variable
+<i>A</i> zugreifen. Dieses Verfahren bedeutet nicht nur erh&ouml;hten Programmieraufwand,
+sondern es f&uuml;hrt auch zu einem neuen Problem, dem sog. <i>Deadlock
+</i>Angenommen Proze&szlig; 1 f&uuml;hrt ein Lock auf <i>A</i> durch und
+ben&ouml;tigt bei der Berechnung den Wert von Variable <i>B</i>, auf die
+ein Lock von Proze&szlig; 2 durchgef&uuml;hrt wurde. Daraufhin suspendiert
+Proze&szlig; 1 wartet bis der Lock von&nbsp; Proze&szlig; 2 augehoben wird.
+Was passiert aber, wenn umgekehrt Proze&szlig; 1 den Wert von Variable
+A ben&ouml;tigt? Variable A ist mit einem Lock belegt, so da&szlig; Proze&szlig;
+2 auch suspendiert. Dieser Zustand wird auch als t&ouml;dliche Umarmung
+bezeichnet. Man k&ouml;nnte meinen, da&szlig; es einfach ist, so zu programieren,
+um diese Art von Abh&auml;ngigkeit zu erkennen und zu vermeiden. Die Abh&auml;ngigkeit
+kann aber hunderte von Proze&szlig;en betreffen.
+<p>Wieso treten diese Probleme nicht bei ToonTalk auf? Der Grund ist, da&szlig;
+Proze&szlig;e in ToonTalk keinen gemeinsamen Zustand haben. Eine Schachtel
+kann immer nur an einem Ort sein. Und Roboter in gleichen Haus haben eine
+Reihenfolge - sie arbeiten niemals mit der gleichen Box zur selben Zeit.
+Hierdurch werden in ToonTalk <i>Races</i> und <i>Deadlocks</i> vermieden.
+Aber leidet heirdurch nicht die Ausdrucksst&auml;rke der Sprache? Dies
+w&uuml;rde der Fall sein, wenn es keine V&ouml;gel g&auml;be. Die Tatsache,
+da&szlig; Kopien eines Vogel zum selben Nest fliegen k&ouml;nnen, stellt
+die M&ouml;glichkeit einer n:1-Kommunikation zur Verf&uuml;gung, die anstelle
+von gemeinsamen Variablen (eines gemeinsamen Zustands) verwendet werden
+k&ouml;nnen. Betrachtet man z. B. das Beispiel des ToonTalk Bankkontos.
+Mehrere Prozesse k&ouml;nnen von ein und dem selben Konto Geld abheben.
+Roboter aus verschiedenen H&auml;usern k&ouml;nnen Auftr&auml;ge zum Abheben
+senden indem sie einen Vogel mit einer Schachtel, die den abzuhebenden
+Betrag beinhaltet, absenden. Jeder Proze&szlig; hat die Kopie eines Vogels
+dessen Nest sich in der Schachtel befindet, die dem Konto entspricht. Roboter
+in verschiedenen H&auml;usern k&ouml;nnen den V&ouml;geln Auftr&auml;ge
+in form von Schachteln mit abzuhebenden Betr&auml;gen &uuml;bergeben. Es
+kann nicht vorhergesagt werden, welcher Auftrag als oberstes auf dem Nest
+landet - es werden aber alle auf dem Nest gestapelt, d.h. die Auftr&auml;ge
+werden auf dem Nest gesammelt und k&ouml;nnen dann abgearbeitet werden.
+Die Roboter sehen die ankommenden Auftr&auml;ge, die auf dem Nest gesammelt
+werden und arbeiten sie dann einyeln der Reihe nach ab. Dies f&uuml;hrt
+somit zu keinem Problem slebst dann nicht, wenn der neue Kontostand zus&auml;tzliche
+Teilberechnungen ben&ouml;tigt. Der Roboter bel&auml;dt dann einen Lastwagen
+mit einem Beh&auml;lter und anderen Robotern zur Berechnung des neuen Kontostands.
+Das Nest mit der Antwort des neuen Kontostands wird dann an dem Ort plaziert
+an dem der aktuelle Kontostand gespeichert ist. Der n&auml;chste Auftrag
+wird nicht bearbeitet bevor nicht der Wert des neuen Kontostands von dem
+Vogel zur&uuml;ckgeliefert wurde.
+<p>Zusammenfassend l&auml;&szlig;t sich festhalten, da&szlig; alle Versuche
+Programmiersprachen mit Unterroutinen und gemeinsamen Zustandsraum um Nebenl&auml;ufigkeit
+zu erweitern zu erh&ouml;hter Komplexit&auml;t,&nbsp; aufwendigen Implementierungen
+und Fehlern im Programmieren, die schwer zu beheben sind, f&uuml;hrten.
+Im Gegegsatz hierzu wurde ToonTalk hinsichlichlich inh&auml;renter Nebenl&auml;ufigkeit
+neu entworfen.ToonTalk ben&ouml;tigt keine Locks oder kritische Abschnitte
+und verhindert Race Bedingungen und Deadlocks; die so implementierten Proze&szlig;e
+kosten wenig Ressourcen.
+<br>&nbsp;
+<p><font size=-1><a href="toontalk.htm">ToonTalk Homepage</a></font>
+<p><font size=-2>WM 12/4/99</font>
+</body>
+</html>

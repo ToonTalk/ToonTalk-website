@@ -1,0 +1,95 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="Template" content="C:\PROGRAM FILES\MICROSOFT OFFICE\OFFICE\html.dot">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<title>Att anv&auml;nda sensorer och fj&auml;rrkontroller i ToonTalk</title>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080">
+
+<p align="center"><font size="5" face="Comic Sans MS"><b>Att anv&auml;nda sensorer och fj&auml;rrkontroller </b></font>
+<OBJECT id=AgentControl codeBase=#VERSION=2,0,0,0 classid=clsid:D45FD31B-5C6E-11D1-9EC1-00C04FD7081F VIEWASTEXT></OBJECT>
+
+<SCRIPT language=javascript src="../agent.js"></SCRIPT>
+<SCRIPT language=javascript src="strings.js"></SCRIPT>
+<SCRIPT language=JavaScript event="Click(CharacterID, Button, Shift, X, Y)" for=AgentControl> 
+
+<!-- 
+
+reactToAgentClicked(CharacterID, Button, Shift, X, Y); 
+
+--> </SCRIPT><SCRIPT language=JavaScript event=IdleStart(CharacterID) for=AgentControl> 
+
+<!-- 
+
+idleAgent(CharacterID); 
+
+--> 
+
+</SCRIPT>
+<INPUT onclick=agentStart() type=image alt="Peedy can read this page for you." src="../reading.gif" name=Image1 width="58" height="51"></p>
+
+<p><font face="Comic Sans MS" size="3">Om du v&auml;nder p&aring; en <a href="picture.htm">bild</a>, ser du en <a href="notebook.htm">anteckningsbok </a>som flyger ut. I anteckningsboken hittar du sensorer och fj&auml;rrkontroller f&ouml;r bilder. Sensorer visar hela tiden n&aring;got som g&auml;ller f&ouml;r bilden. Fj&auml;rrkontroller l&aring;ter dig &auml;ndra bilden. Ibland kan de vara b&aring;da sakerna samtidigt. Kontroller &auml;r sensorer, fj&auml;rrkontroller och ibland b&aring;da tv&aring;. Speciella sensorer finns i  <a href="sensor.htm">anteckningsboken f&ouml;r speciella sensorer</a>.</font></p>
+
+<p><font face="Comic Sans MS" size="3">De flesta kontroller visar en siffra som du kan &auml;ndra som vilken siffra som helst.  N&auml;r du &auml;ndrar siffran s&aring; &auml;ndras det som kontrollen styr hos bilden, t ex hastigheten den r&ouml;r sig med. Och om du i st&auml;llet r&ouml;r bilden med musen &auml;ndras siffran f&ouml;r hastigheten i den kontrollen ocks&aring;. En del kontroller visar text eller bilder. M&aring;nga kontroller kan du &auml;ndra om du trycker p&aring; mellanslag medan du pekar p&aring; bilden eller h&aring;ller i den. </font></p>
+
+<p><font face="Comic Sans MS" size="3"><b>Tips.</b> F&ouml;r att ta reda p&aring; vad en kontroll styr hos bilden kan du ta ut kontrollen ur anteckningsboken f&ouml;r bilden och l&auml;gga den p&aring; golvet. V&auml;nd sen tillbaka bilden  och  l&auml;gg ner den. &Auml;ndra p&aring; kontrollen och se vad som h&auml;nder med bilden. Eller &auml;ndra p&aring; bilden och se vad som h&auml;nder med kontrollen.</font></p>
+
+<p><font face="Comic Sans MS" size="3"><b>Tips.</b> Kontroller k&auml;nner av eller styr bilden som de ligger p&aring; baksidan p&aring;. Om kontrollen aldrig har varit p&aring; baksidan av bilden m&aring;ste den komma fr&aring;n den bildens anteckningsbok. D&aring; kommer den styra den bilden. </font></p>
+
+<p><font face="Comic Sans MS" size="3"><strong>Avancerat tips.</strong> Om du vill  ta en sensor f&ouml;r bilden A och l&auml;gga den p&aring; bilden B d&aring; m&aring;ste sensorn ligga i ett f&aring;gelbo f&ouml;r i annars kommer den att fungera som en sensor f&ouml;r den bild som den ligger p&aring; baksidan p&aring;, i detta fall bilden B. Vi rekommenderar detta enbart n&auml;r ditt program ska best&aring; av moduler. Det skydd du f&aring;r genom att anv&auml;nda f&aring;gelbon f&ouml;r att beh&aring;lla den ursprungliga kopplingen mellan sensorn och bilden fungerar oberoende av om det &auml;r en f&aring;gel som placerar sensorn i ett f&aring;gelbo eller om det &auml;r du som g&ouml;r det.</font></p>
+
+<p><font face="Comic Sans MS" size="3">H&auml;r kommer en lista &ouml;ver de sensorer du hittar i bildens anteckningsbok:</font>
+
+<dl>
+  <dt><strong><font face="Comic Sans MS" size="3"><a name="XSensor">Sidan 2 - avst&aring;nd fr&aring;n v&auml;nster</a>
+</font></strong></dt>
+  <dd><font face="Comic Sans MS" size="3">Bildens avst&aring;nd fr&aring;n den v&auml;nstra kanten av sk&auml;rmen. Om bilden &auml;r ensam och inte hopslagen med en annan bild s&aring; &auml;r 0 den v&auml;nstra kanten p&aring; sk&auml;rmen och 1000 den h&ouml;gra kanten. &Auml;r bilden hopslagen med en annan bild d&aring; &auml;r 0 den bildens v&auml;nstra kant och 1000 &auml;r dess h&ouml;gra kant. </font></dd>
+  <dt><font face="Comic Sans MS" size="3"><strong>Sidan 4 - avst&aring;nd fr&aring;n botten</strong> </font></dt>
+  <dd><font face="Comic Sans MS" size="3">Bildens avst&aring;nd fr&aring;n botten av sk&auml;rmen. Om bilden &auml;r ensam och inte hopslagen med en annan bild s&aring; &auml;r 0 botten p&aring; sk&auml;rmen och 1000 toppen p&aring; sk&auml;rmen. &Auml;r bilden hopslagen med en annan bild d&aring; &auml;r 0 botten p&aring; bilden och 1000 &auml;r toppen p&aring; bilden.</font></dd>
+  <dt><font face="Comic Sans MS" size="3"><a name="XSpeed"><strong>Sidan 6 - Hastigheten &aring;t h&ouml;ger</strong></a>
+</font></dt>
+  <dd><font face="Comic Sans MS" size="3">F&aring;r bilden att r&ouml;ra sig &aring;t h&ouml;ger. 1000 betyder att bilden r&ouml;r sig fr&aring;n v&auml;nstra kanten till den h&ouml;gra p&aring; 1 sekund. Ett negativt tal med minustecken framf&ouml;r f&aring;r bilden att r&ouml;ra sig &aring;t motsatt h&aring;ll, dvs &aring;t v&auml;nster. </font></dd>
+  <dt><strong><font face="Comic Sans MS" size="3">Sidan 8 - Hastigheten upp&aring;t </font></strong></dt>
+  <dd><font face="Comic Sans MS" size="3">F&aring;r bilden att r&ouml;ra sig upp&aring;t. 1000 1000 betyder att bilden r&ouml;r sig fr&aring;n botten av sk&auml;rmen till toppen p&aring; 1 sekund. Ett negativt tal med minustecken framf&ouml;r f&aring;r bilden att r&ouml;ra sig &aring;t motsatt h&aring;ll, dvs uppifr&aring;n och ner&aring;t. </font></dd>
+  <dt><strong><font face="Comic Sans MS" size="3">Sidan 10 - <a name="Width">Bredd</a> </font></strong></dt>
+  <dd><font face="Comic Sans MS" size="3">Bildens bredd. 1000 betyder att bilden &auml;r lika bred som sk&auml;rmen. Eller om det &auml;r en bild som ligger p&aring; en annan bild, &auml;r det att bilden &auml;r lika bred som den bild den ligger p&aring;.</font></dd>
+  <dt><strong><font face="Comic Sans MS" size="3">Sidan 12 - H&ouml;jd </font></strong></dt>
+  <dd><font face="Comic Sans MS" size="3">Bildens h&ouml;jd. 1000 betyder att bilden &auml;r lika h&ouml;g som sk&auml;rmen. Eller om det &auml;r en bild som ligger p&aring; en annan bild, &auml;r det att bilden &auml;r lika h&ouml;g som den bild den ligger p&aring;.</font></dd>
+  <dt><strong><small><a name="WhichPicture"></a></small><font face="Comic Sans MS" size="3">Sidan 14 - Vilken bild?</font></strong></dt>
+  <dd><font face="Comic Sans MS" size="3">En del bilder eller animeringar har olika s&auml;tt att visa sig. En del kan r&ouml;ra sig i 4 eller 8 olika riktningar. Den h&auml;r kontrollen visar vilket nummer den bild har som visas. F&ouml;r rektanglar, cirklar och linjer styr den vilken f&auml;rg de har. F&ouml;r text- eller sifferkort styr den vilken f&auml;rg bokstaven eller siffran har. Om man &auml;ndrar p&aring; v&auml;rdet p&aring; denna kontroll f&ouml;r bilder som har f&auml;rdiggjorda animeringar (t ex en animerad explosion) kommer den &aring;terst&auml;lla animeringsf&ouml;rloppet s&aring; att den b&ouml;rjar fr&aring;n b&ouml;rjan igen.</font></dd>
+  <dt><strong><font face="Comic Sans MS" size="3">Sidan 16 - Kolliderar? </font></strong></dt>
+  <dd><font face="Comic Sans MS" size="3">Den h&auml;r kontrollen en enkel animering av antingen en kollision eller en miss, dvs att bilden inte st&ouml;ter emot en annan sak. Du kan &auml;ndra fr&aring;n kollision till miss genom att peka p&aring; den och trycka p&aring; mellanslag.  </font></dd>
+  <dt><strong><font face="Comic Sans MS" size="3">Sidan</font></strong><font face="Comic Sans MS" size="3"><strong> 18 - <a name="TouchingWho">St&ouml;ter ihop med vem? </a></strong></font></dt>
+  <dd><font face="Comic Sans MS" size="3">Den h&auml;r sensorn visar vem bilden st&ouml;ter ihop med. Den &auml;r svart om den inte st&ouml;ter ihop med n&aring;gonting. Om bilden st&ouml;ter ihop med flera saker visas bara en. Du kan anv&auml;nda Pumpas f&ouml;r att dammsuga upp den bild som ligger h&ouml;gst f&ouml;r att se de andra bilderna. Du kan ocks&aring; v&auml;nda p&aring; de bilder du suger upp. Du kommer f&aring; en fj&auml;rrkontroll f&ouml;r <a href="#RemoteLooks">utseendet</a> p&aring; den bild som kolliderar. &Auml;r det  <a href="picture.htm#BirdOnTheBack">en f&aring;gel p&aring; baksidan</a> kan det vara v&auml;ldigt anv&auml;ndbart. </font></dd>
+  <dt><strong><font face="Comic Sans MS" size="3">Sidan 20 - Tr&auml;ff i v&auml;nster - h&ouml;ger riktning? </font></strong></dt>
+  <dd><font face="Comic Sans MS" size="3">Samma som kontrollen p&aring; sidan 16 bortsett fr&aring;n att den visar en kollision bara om den i huvudsak orsakas av r&ouml;relse i riktning h&ouml;ger - v&auml;nster. </font></dd>
+  <dt><strong><font face="Comic Sans MS" size="3">Sidan 22 - Tr&auml;ff i riktning upp - ner? </font></strong></dt>
+  <dd><font face="Comic Sans MS" size="3">Samma som kontrollen p&aring; sidan 16 bortsett fr&aring;n att den visar en kollision bara om den i huvudsak orsakas av r&ouml;relse i riktning upp - ner.</font></dd>
+  <dt><strong><font face="Comic Sans MS" size="3">Sidan 24 - <a name="Visible">Synlig?</a></font></strong></dt>
+  <dd><font face="Comic Sans MS" size="3">Denna avg&ouml;r om bilden syns eller om den &auml;r osynlig. Ocks&aring; om bakgrunden syns eller &auml;r osynlig. </font></dd>
+  <dt><a name="AnimationFinished"><strong><font face="Comic Sans MS" size="3">Sidan 26 - Animeringen slut? </font></strong></a></dt>
+  <dd><font face="Comic Sans MS" size="3">Den h&auml;r sensorn svarar p&aring; fr&aring;gan &quot;Har min animation avslutats?&quot;. En del animationer, som n&auml;r din person g&aring;r, de bara h&aring;ller p&aring; hela tiden. Andra d&auml;remot, som explosioner, de k&ouml;rs bara en g&aring;ng. </font></dd>
+  <dt><strong><font face="Comic Sans MS" size="3">Sidan 28 - H&aring;lls i handen? </font></strong></dt>
+  <dd><font face="Comic Sans MS" size="3">Den h&auml;r sensorn svarar p&aring; fr&aring;gan &quot;H&aring;lls den h&auml;r bilden i handen.?&quot;. </font></dd>
+  <dt><strong><font face="Comic Sans MS" size="3">Sidan 30 - Markerad? </font></strong></dt>
+  <dd><font face="Comic Sans MS" size="3">Den h&auml;r sensorn svarar p&aring; fr&aring;gan &quot;Skakar den h&auml;r bilden och &auml;r den beredd p&aring; att bli upplockad eller anv&auml;nd ?&quot;. </font></dd>
+  <dt><strong><font face="Comic Sans MS" size="3">Sidan 32 - Nyss sl&auml;ppt? </font></strong></dt>
+  <dd><font face="Comic Sans MS" size="3">Den h&auml;r sensorn svarar p&aring; fr&aring;gan &quot;Har den h&auml;r bilden nyss blivit sl&auml;ppt?&quot;. </font></dd>
+  <dt><strong><small><a name="RemoteLooks"></a></small><font face="Comic Sans MS" size="3">Sidan 34 - Utseende </font></strong></dt>
+  <dd><font face="Comic Sans MS" size="3">Den h&auml;r visar hur bilden ser ut just nu. Du (eller en robot som du l&auml;rt upp) kan sl&auml;ppa en annan bild (eller ett text- eller sifferkort) h&auml;r s&aring; kommer den nuvarande bilden att bli t&auml;ckt av den nya bilden. Om du suddar i utseendesensorn f&ouml;r framsidan av bild A och sl&auml;pper en annan bild B ovanp&aring;, s&aring; kommer A att se ut som B. K&ouml;r du version 2.34 elle Beta 26 eller senare s&aring; kan den h&auml;r sensorn visa b&aring;da sidorna av en bild. Du kan v&auml;nda p&aring; den genom att trycka p&aring; 'f' medan du h&aring;ller i den. P&aring; s&aring; s&auml;tt kan du tr&auml;na en robot att kolla upp och &auml;ndra antingen en bilds framsida eller dess baksida. Om du suddar i sensorn som visar baksidan p&aring; en bild s&aring; suddas allt p&aring; baksidan bort. Den h&auml;r sensorn &auml;r j&auml;ttebra f&ouml;r att f&aring; saker att explodera eller siffror som &auml;ndras n&auml;r po&auml;ngen &auml;ndras och en massa andra coola saker. </font></dd>
+  <dt><strong><font face="Comic Sans MS" size="3">Sidan 36 - <a name="Parts">Delar</a></font></strong></dt>
+  <dd><font face="Comic Sans MS" size="3">Den h&auml;r har en vanlig l&aring;da som inneh&aring;ller fj&auml;rrkontroller f&ouml;r utseendet f&ouml;r alla bilder som ligger direkt ovanp&aring; denna bild. Den har en fj&auml;rrkontroll f&ouml;r utseendet av varje bild i facken p&aring; l&aring;dan. Eller, om bilden &auml;r v&auml;nd, har den en l&aring;da med ett fack f&ouml;r varje sak som ligger p&aring; baksidan. Du kan suga bort l&aring;dan fr&aring;n sensorn och &auml;ndra p&aring; inneh&aring;llet (men att &auml;ndra p&aring; inneh&aring;llet eller l&auml;gga till eller ta bort fack, det p&aring;verkar inte bilden). T ex om du vill att en robot ska ta bort en viss del kan du tr&auml;na roboten att hitta den delen genom att g&aring; igenom alla sakerna i l&aring;dan tills du hittar det du vill ta bort. Sen l&auml;gger du en l&aring;da med en robot p&aring; baksidan som har l&auml;rt sig att spr&auml;nga en bomb. Anv&auml;nder du Pumpas f&ouml;r att sudda i sensorn kommer du ta bort alla delarna fr&aring;n bilden. Du kan ocks&aring; v&auml;nda p&aring; sensorn (genom att rycka p&aring; 'f') och den kommer visa det som finns p&aring; anda sidan av bilden.</font></dd>
+			<dd>
+			<dt><strong><font face="Comic Sans MS" size="3">Sidan 38 - <a name="Containers">Containrar</a></font></strong></dt>
+  <dd><font face="Comic Sans MS" size="3">Den h&auml;r har en l&aring;da. Om bilden &auml;r en del av en annan bild kommer det f&ouml;rsta facket ha den bilden. Det andra facket i l&aring;dan bilden kommer ha den bild den &auml;r en del av och s&aring; vidare. Du kan suga bort l&aring;dan och &auml;ndra i den. </font></dd>
+</dl>
+
+<dl>
+  <dd><p align="center"><a href="toontalk.htm"><font face="Comic Sans MS" size="2">hem</font></a><font face="Comic Sans MS" size="2"> | <a href="search.htm">s&ouml;k</a> | <a href="buy.htm">k&ouml;p</a> | <a href="doc.htm">manual</a> | <a href="whatsnew.htm">nyheter</a> | <a href="infodesk.htm">info</a> | <a href="games.htm">spel</a> | <a href="faq.htm">fr&aring;gor</a> | <a href="support.htm">support</a> | <a href="free.htm">downloads</a> | <a href="endorse.htm">utm&auml;rkelser</a> | <a href="press.htm">press</a> | <a href="address.htm">kontakt</a></font></p>
+  </dd>
+</dl>
+</body>
+</html>

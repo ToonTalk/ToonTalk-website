@@ -1,0 +1,491 @@
+<html>
+<head>
+<title>ToonTalk - Como criar extens&otilde;es do ToonTalk</title>
+<link rel="stylesheet" type="text/css" href="ToonTalk.css">
+</head>
+<body link="#0000ff" vlink="#800080" bgcolor="#ffffff">
+
+<div align="center">
+<a name="topo"></a>
+<table width=468 cellspacing=0 cellpadding=0 border=0><tr><td>
+
+<p>
+<table cellspacing =0 cellpadding=0 border=0><tr>
+          <td>
+<div align=center>
+<A class=menu href="toontalk.html" onmouseover="window.status=' Início'; return true">início</A><span class=bola> •</span>
+<A class=menu href="search.html" onmouseover="window.status=' Busca'; return true">busca</A><span class=bola> •</span>
+<A class=menu href="buy.html" onmouseover="window.status=' Compra'; return true">compra</A><span class=bola> •</span>
+<A class=menu href="doc.html" onmouseover="window.status=' Manual'; return true">manual</A><span class=bola> •</span>
+<A class=menu href="whatsnew.html" onmouseover="window.status=' Novidades'; return true">novidades</A><span class=bola> •</span>
+<A class=menu href="faq.html" onmouseover="window.status=' Dúvidas'; return true">dúvidas</A><span class=bola> •</span>
+<A class=menu href="support.html" onmouseover="window.status=' Suporte'; return true">suporte</A><span class=bola> •</span>
+<A class=menu href="free.html" onmouseover="window.status=' Download'; return true">download</A><span class=bola> •</span>
+<A class=menu href="press.html" onmouseover="window.status=' Imprensa'; return true">imprensa</A><span class=bola> •</span>
+<A class=menu href="address.html" onmouseover="window.status=' Contato'; return true">contato</A>
+<hr size=1></div>
+    </td></tr>
+	</table>
+
+
+<H2>Como criar extensões do ToonTalk</H2>
+
+<P><B><I>Somente para usuários muito avançados:</I></B></P>
+
+<P>Os programadores da linguagem C ou Pascal podem definir novas <A href=
+"extend.html"  extend.html??>extensões</A> para o ToonTalk. Um usuário do
+ToonTalk pensa que uma extensão é um lugar distante, impossível
+de se visitar. Mas um usuário pode obter um pombo que irá
+"voando" até lá. O pombo pode até mesmo acompanhar
+outros pombos, que podem retornar com coisas feitas por uma extensão.
+As extensões podem realizar qualquer recurso do sistema operacional
+básico (por exemplo, o Windows) disponível para os usuários
+dentro do ToonTalk. Os exemplos incluem arquivos, gerenciamento de janelas,
+acesso à Internet, produção de músicas ou imagens
+3D e muito mais. Se você for criar uma extensão do ToonTalk,
+<I>por favor</I>, compartilhe-a com a imensa comunidade ToonTalk enviando-a
+para <A href="mailto:support@toontalk.com">support@toontalk.com</A>.</P>
+
+<P>As extensões são implementadas como DLLs (dynamic link
+libraries) do Microsoft Windows. A biblioteca precisa apenas exportar um
+procedimento. O procedimento precisa ser do tipo:</P>
+
+<P><B>BOOL __declspec(dllexport) receive(HANDLE handle, void **data_in,
+char *types_in, char *label, char *country_code, void ***data_out, char
+**types_out, char **to_say, BOOL *ok_to_speak, HINSTANCE string_library);</B></P>
+
+<P>Se um pombo conectado a uma extensão for presenteado com uma caixa,
+então o destinatário associado ao pombo é chamado com
+os seguintes argumentos:</P>
+
+<P><B>HANDLE handle.</B></P>
+
+<P>Um handle associado ao pombo. Será NULL a menos que o pombo tenha
+sido criado por uma extensão. Usado, por exemplo, por uma extensão
+do arquivo para controlar o handle do arquivo.</P>
+
+<P><B>void **data_in</B></P>
+
+<P><I>data_in</I> é um arranjo de ponteiros. Para ser interpretado
+conforme os tipos descritos abaixo.</P>
+
+<P><B>char *types_in</B></P>
+
+<P>Uma string terminada em null descrevendo os tipos de caixa do ToonTalk
+recebidas pelo pombo. <I>L</I> é para um inteiro longo a partir de
+um número pad do ToonTalk. <I>S</I> é para uma string para
+um texto pad do ToonTalk. <I>H</I> é para um handle de um pombo para
+uma extensão. Colchetes (<I>[])</I> agrupam os elementos de uma caixa.
+Um sinal de subtração (<I>-)</I> indica um buraco vazio de
+uma caixa. <I>B</I> indica um pombo normal.<I>?</I> é para todos
+os outros objetos do ToonTalk. Para L, S, B, - e ? há um item de
+dado correspondente no argumento de dado descrito acima. Os elementos de
+uma caixa dentro de outra caixa ocorrem no lugar de <I>data_in.</I> Um handle
+(H) requer 3 itens de dados: o procedimento recebedor, o handle associado
+e uma string que identifica o handle.</P>
+
+<P><B>char *label</B></P>
+
+<P>Uma string terminada em null identificando seu pombo. Pode ser vista
+normalmente na camiseta do pombo.</P>
+
+<P><B>char *country_code</B></P>
+
+<P>Uma string de letras terminada em 2 indicando o código do país
+da sua versão do ToonTalk. Por exemplo, "US", "UK",
+"SE", "DE" e "BR". Este argumento é
+fornecido no caso de a extensão exigir que o Márcio fale ou
+coloque uma caixa de diálogo de modo sensível à linguagem.</P>
+
+<P><B>void ***data_out</B></P>
+
+<P>Este é um arranjo de ponteiros – uma para cada pombo na caixa
+dada ao pombo de extensão. Isto permite que uma extensão especifique
+quais itens precisam ser dados aos pombos que as recebem. Cada elemento
+de <I>data_out</I> precisa ser definido para outro arranjo de ponteiros,
+cujo tamanho e elementos são consistentes com os elementos correspondentes
+em <I>types_out</I> (descrito abaixo). Note que o armazenamento alocado
+para os valores de <I>types_out</I> precisam ser alocados na heap global
+do Windows. (Por exemplo, usando GlobalAlloc.)</P>
+
+<P><B>char **types_out</B></P>
+
+<P>Este é um arranjo de ponteiros – uma para cada pombo na caixa
+dada ao pombo de extensão. Para especificar o que um pombo precisa
+receber, configure o elemento correspondente (sua ocorrência enquanto
+faz a leitura da esquerda para a direita) para uma string terminada em null
+alocada globalmente que descreve os tipos exatamente da mesma maneira que
+<I>types_in</I>. Para cada elemento em <I>types_out</I>, um item do ToonTalk
+é criado utilizando-se os dados em <I>data_out</I>.</P>
+
+<P><B>char **to_say</B></P>
+
+<P>Deve ser configurado para uma string terminada em null alocada globalmente
+se a extensão quiser que Márcio diga algo.</P>
+
+<P><B>BOOL *ok_to_speak</B></P>
+
+<P>Este deve ser configurado como não-zero se, quando Márcio
+for falar a string <I>to_say</I>, ele precisar usar um mecanismo de
+text-to-speech. Caso não configure, Márcio usará
+os balões de diálogo.</P>
+
+<P><B>HINSTANCE string_library</B></P>
+
+<P>Este é um handle da string de recurso de DLL carregada atualmente
+no ToonTalk. Deve ser ignorado a menos que o gravador da extensão
+tenha acesso à tabela de strings do ToonTalk.</P>
+
+<P><B><I>Returns.</I></B></P>
+
+<P>O procedimento recebedor precisa retornar não-zero, caso as variáveis
+<I>data_out</I> e <I>types_out</I> tenham sido configuradas.</P>
+
+<P><B><I>Remarks.</I></B></P>
+
+<P>Se <I>types_in</I> for NULL, o procedimento é chamado para que
+Márcio possa descrever o que esse pombo faz. Se <I>types_in</I> for
+"H", então o último pombo associado ao <I>handle</I>
+será destruído. Aqui está uma oportunidade para limpar
+(por exemplo, fechar o arquivo de handles).</P>
+
+<P>O arquivo DEF para a DLL precisa conter a seguinte linha:</P>
+
+<P>EXPORTS receive@1</P>
+
+<P>A DLL deve ser nomeada como "TT" seguida pelo nome de extensão.
+Se a DLL vai ser usada pela versão 16-bit do ToonTalk, ela deve ser
+nomeada "T16" seguida pela extensão do nome. Basta incluir
+o arquivo de DLL no diretório do ToonTalk para instalá-la.</P>
+
+<P><B><I>Código de exemplo.</I></B></P>
+
+<P>Veja a seguir uma definição de exemplo de uma extensão
+de arquivo escrita em C++ (embora fique um pouco diferente, ele também
+pode ser definido em C).</P>
+
+<P>// Copyright (c) 1992,1998. Ken Kahn, Animated Programs, Todos os direitos
+reservados.</P>
+
+<P>// Você pode copiar e modificar este arquivo desde que mantenha
+este termo de copyright.</P>
+
+<P>#include &lt;windows.h&gt;</P>
+
+<P>extern "C" int __declspec(dllexport) WEP (int nParam);</P>
+
+<P>extern "C" BOOL __declspec(dllexport) receive(HANDLE handle,
+void **data, char *types, void ***out, char **out_types, char **to_say,
+HINSTANCE string_library);</P>
+
+<P>int FAR PASCAL LibMain (HANDLE , WORD , WORD , LPSTR ) {</P>
+
+<DIR>
+  <LI>return 1 ;</LI>  
+</DIR>
+
+<P>}</P>
+
+<P>int __declspec(dllexport) WEP (int) {</P>
+
+<DIR>
+  <LI>return 1 ;</LI>  
+</DIR>
+
+<P>}</P>
+
+<P>char *copy_string(char *source, int length) {</P>
+
+<DIR>
+<LI>if (source == NULL) return(NULL);
+<P>if (length &lt;= 0) length = strlen(source);
+<P>char *destination = (char *) GlobalAlloc(0,length+1); // Não
+pode usar armazenamento local da biblioteca
+<P>memcpy(destination,source,length);
+<P>destination[length] = '\0'; // finaliza a string
+<P>return(destination);</P></LI>
+</DIR>
+
+<P>};</P>
+
+<P>// Este procedimento de recebimento está associado a arquivos
+abertos</P>
+
+<P>BOOL file_receive(HANDLE handle, void **data, char *types, char *label,
+char *country_code,</P>
+
+<P>void ***out, char **out_types, char **to_say, BOOL *ok_to_speak, HINSTANCE
+string_library) {</P>
+
+<UL>
+<LI>if (types == NULL) { // quer ajuda
+<DIR>
+<LI>*to_say = copy_string("This is a file handle.",0); // poderia
+oferecer uma ajuda melhor
+<P>return(TRUE);</P></LI>
+</DIR>
+<P>};
+<P>if (strcmp(types,"[SLB]") == 0) {
+<DIR>
+<LI>if (stricmp((char *) data[0],"Read") == 0) { // a caixa contém
+"Read", um número, seguido por um pombo
+<DIR>
+<LI>long number_of_bytes_to_read = (long) data[1];
+<P>DWORD number_of_bytes_read;
+<P>char *buffer = (char *) GlobalAlloc(0,number_of_bytes_to_read+1);
+<P>if(!ReadFile(handle,buffer,number_
+of_bytes_to_read&amp;number_of_bytes_read,NULL)){
+<DIR>
+<LI>// configure *to_say para descrever o erro.</LI>      
+</DIR>
+
+<P>};
+<P>// dê ao pombo no terceiro buraco da caixa uma string contendo
+os caracteres que acabaram de ser lidos
+<P>out_types[0] = copy_string("S",1);
+<P>out[0] = (void * *) GlobalAlloc(0,sizeof(void*));
+<P>buffer[number_of_bytes_read] = '\0'; // finaliza a string
+<P>out[0][0] = (void *) buffer;
+<P>return(TRUE);</P></LI>
+</DIR>
+<P>} else if (stricmp((char *) data[0],"Read Bytes") ==               0) {
+<DIR>
+<LI>long number_of_bytes_to_read = (long) data[1];
+<P>DWORD number_of_bytes_read;
+<P>char *buffer = (char *) GlobalAlloc(0,number_of_bytes_to_read+1);
+<P>if (!ReadFile(handle,buffer,number_of_bytes_to_
+read,&amp;number_of_bytes_read,NULL)){
+<DIR>
+<LI>// configure *to_say para descrever o erro.</LI>      
+</DIR>
+<P>};
+<P>// dê ao pombo uma caixa na qual para cada caractere lido há
+um inteiro cujo valor é o código ASCII do caractere
+<P>out_types[0] = (char *) GlobalAlloc(0,number_of_bytes_read+3); // 3
+extras para [] e finalizador
+<P>out[0] = (void * *) GlobalAlloc(0,sizeof(void*)*number_of_bytes_read);
+<P>int out_type_index = 0;
+<P>out_types[0][out_type_index++] = '[';
+<P>for (DWORD i = 0; i &lt; number_of_bytes_read; i++) {
+<DIR>
+<LI>out_types[0][out_type_index++] = 'L';
+<DL>
+<DT>
+<DT>out[0][i] = (void *) buffer[i];</DT>   
+</DL></LI>
+</DIR>
+<P>};
+<P>out_types[0][out_type_index++] = ']';
+<P>out_types[0][out_type_index++] = '\0'; // finaliza a string
+<P>return(TRUE);</P></LI>
+</DIR>
+<P>};</P></LI>
+</DIR>
+<P>} else if (strcmp(types,"[SSB]") == 0) {
+<DIR>
+<LI>if (stricmp((char *) data[0],"Write") == 0) { // a caixa
+é Write, seguida por um text pad, seguido por um pombo
+<DIR>
+<LI>char *buffer = (char *) data[1];
+<P>long number_of_bytes_to_write = strlen(buffer);
+<P>DWORD number_of_bytes_written;
+<P>if (WriteFile(handle,buffer,number_of_bytes_to_write,
+&amp;number_of_bytes_written,NULL)){
+<DIR>
+<LI>out_types[0] = copy_string("L",1);
+<DL>
+<DT>
+<DT>out[0] = (void * *) 
+GlobalAlloc(0,sizeof(void*));</DT>    
+</DL>
+<P>out[0][0] = (void *) number_of_bytes_written;
+<P>return(TRUE);</P></LI>
+</DIR>
+<P>} else {
+<DIR>
+<LI>// configure *to_say para descrever o erro
+<DL>
+<DT>
+<DT>return(FALSE);</DT>
+</DL></LI>
+</DIR>
+<P>};</P></LI>
+</DIR>
+<P>};</P></LI>
+</DIR>
+<P>} else if (strncmp(types,"[S[",3) == 0) { // procurando por
+[S[LL...LL]B] onde S são Write Bytes
+<DIR>
+<LI>if (stricmp((char *) data[0],"Write Bytes") ==      0) {
+<DIR>
+<LI>int index = 3; // já verificados 3 caracteres do tipo
+<DL>
+<DT>
+<DT> while (types[index] !=   '\0')   {&lt; /DT&gt;&lt; /DT&gt;</DT>  
+</DL>
+<DIR>
+<LI>if (types[index] == ']') { // Tudo OK por enquanto
+<DIR>
+<LI>if (types[index+1] == 'B' &amp;&amp; types[index+2] == ']') { // tudo
+bem
+<DIR>
+<LI>index -= 3; // o índice agora é do tamanho da caixa de
+números
+<DL>
+<DT>
+<DT>unsigned char *buffer = new unsigned  char[index];&lt;
+/DT  &gt;&lt; /DT 
+&gt;<  /DT >   
+</DL>
+<P>for (int i = 0; i &lt; index; i++) {
+<DIR>
+<LI>buffer[i] = (unsigned char) data[i+1];</LI>   
+</DIR>
+<P>};
+<P>DWORD number_of_bytes_written;
+<P>if (WriteFile(handle,buffer,index,
+&amp;number_of_bytes_written,NULL)){
+<DIR>
+<LI>// dê ao pombo um número que exibe quantos foram escritos
+<P>out_types[0] = copy_string("L",1);
+<P>out[0] = (void * *) GlobalAlloc(0,sizeof(void*));
+<P>out[0][0] = (void *) number_of_bytes_written;
+<P>return(TRUE);</P></LI>
+</DIR>
+<P>} else {
+<DIR>
+<LI>// configure *to_say para descrever o erro
+<DL>
+<DT>
+<DT>return(FALSE);</DT>
+</DL></LI>
+</DIR>
+<P>};</P></LI>
+</DIR>
+<P>} else break; // falha</P></LI>    
+</DIR>
+<P>} else if (types[index] == 'L') {
+<DIR>
+<LI>index++;</LI>
+</DIR>
+<P>} else { // ruim
+<DIR>
+<LI>break; // falha no código que deveria 
+configurar *to_say</LI>        
+</DIR>
+<P>};</P></LI>
+</DIR>
+<P>};</P></LI>
+</DIR>
+<P>};</P></LI>
+</DIR>
+<P>} else if (strcmp(types,"H") == 0) { // isto significa que
+o último pombo associado a este handle foi destruído
+<DIR>
+<LI>if (!CloseHandle(handle)) {
+<DIR>
+<LI>// Configure *to_say para descrever o problema</LI>      
+</DIR>
+<P>};
+<P>return(FALSE);</P></LI>
+</DIR>
+<P>};
+<P>// Configure *to_say para oferecer ajuda sobre como
+utilizar esta extensão
+<P>return(FALSE);</P></LI>
+</UL>
+
+<P>};</P>
+
+<P>// Aqui está o procedimento exportado para abrir handles de arquivo</P>
+
+<P>BOOL __declspec(dllexport) receive(HANDLE handle, void **data, char *types,
+char *label, char *country_code,</P>
+
+<P>void ***out, char **out_types, char **to_say, BOOL *ok_to_speak, HINSTANCE
+string_library) {</P>
+
+<DIR>
+<LI>if (types == NULL) { // solicitando ajuda
+<DIR>
+<LI>// Configure *to_say para auxiliar a string
+<P>return(TRUE);</P></LI>
+</DIR>
+<P>};
+<P>if (strcmp(types,"[SSB]") == 0) {
+<DIR>
+<LI>char *selector = (char *) data[0];
+<P>DWORD creation;
+<P>char *device_control_string = NULL;
+<P>char name[MAX_PATH];
+<P>if (stricmp(selector,"Create File") == 0) { // recebeu uma
+caixa com "Create File", seguida pelo nome do arquivo, seguido
+por um pombo
+<DIR>
+<LI>creation = CREATE_NEW;
+<P>strcpy(name,(char *) data[1]);</P></LI>  
+</DIR>
+<P>} else if (stricmp(selector,"Open") == 0) { // recebeu uma
+caixa com "Open", seguido pelo nome do arquivo, seguido por um
+pombo
+<DIR>
+<LI>creation = OPEN_EXISTING;
+<DL>
+<DT>
+<DT>strcpy(name,(char *) data[1]);</DT>  
+</DL></LI>
+</DIR>
+<P>} else {
+<DIR>
+<LI>// configure *to_say para descrever o problema
+<DL>
+<DT>
+<DT>return(FALSE);</DT>
+</DL></LI>
+</DIR>
+<P>};
+<P>HANDLE file=
+CreateFile(name,GENERIC_READ|GENERIC_WRITE,0,NULL,creation
+FILE_ATTRIBUTE_NORMAL,NULL);
+<P>if (file == INVALID_HANDLE_VALUE) {
+<DIR>
+<LI>// configure *to_say para descrever o problema 
+return(FALSE);</LI>       
+</DIR>
+<P>};
+<P>// dê ao pombo no terceiro buraco uma caixa com um novo pombo
+que está associado ao handle de arquivo
+<P>out_types[0] = copy_string("[H]",3);
+<P>out[0] = (void * *) GlobalAlloc(0,3*sizeof(void*));
+<P>out[0][0] = (void *) file_receive; // comportamento definido acima
+<P>out[0][1] = (void *) file; // handle d arquivo
+<P>out[0][2] = copy_string(name,0); // use o nome do arquivo como um rótulo
+<P>return(TRUE);</P></LI>
+</DIR>
+<P>} else if (strcmp(types,"H") == 0) { // destruído
+<DIR>
+<LI>return(FALSE);</LI>
+</DIR>
+<P>};
+<P>// Configure *to_say para dar ajuda
+<P>return(FALSE);</P></LI>
+</table>
+
+<table width=468>
+<hr size=1><div align=center>
+<A class=menu href="toontalk.html" onmouseover="window.status=' Início'; return true">início</A><span class=bola> •</span>
+<A class=menu href="search.html" onmouseover="window.status=' Busca'; return true">busca</A><span class=bola> •</span>
+<A class=menu href="buy.html" onmouseover="window.status=' Compra'; return true">compra</A><span class=bola> •</span>
+<A class=menu href="doc.html" onmouseover="window.status=' Manual'; return true">manual</A><span class=bola> •</span>
+<A class=menu href="whatsnew.html" onmouseover="window.status=' Novidades'; return true">novidades</A><span class=bola> •</span>
+<A class=menu href="faq.html" onmouseover="window.status=' Dúvidas'; return true">dúvidas</A><span class=bola> •</span>
+<A class=menu href="support.html" onmouseover="window.status=' Suporte'; return true">suporte</A><span class=bola> •</span>
+<A class=menu href="free.html" onmouseover="window.status=' Download'; return true">download</A><span class=bola> •</span>
+<A class=menu href="press.html" onmouseover="window.status=' Imprensa'; return true">imprensa</A><span class=bola> •</span>
+<A class=menu href="address.html" onmouseover="window.status=' Contato'; return true">contato</A></div></td>
+
+</tr></table>
+</div>
+</body></html>
+
+<!--  FuturArte Editora Ltda.                                     Divertire  -->

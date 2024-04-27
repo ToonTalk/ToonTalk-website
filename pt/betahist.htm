@@ -1,0 +1,193 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="Template" content="C:\Program Files\Microsoft Office\Office\HTML.DOT">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<title>The History of ToonTalk Beta Releases</title>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080">
+
+<p align="center"><font size="5" face="Comic Sans MS"><b>The History of ToonTalk Beta
+Releases</b></font></p>
+
+<p><font face="Comic Sans MS">Beta 20 mostly <a href="bugs.htm#Beta20">fixes many bugs and
+adds some minor features</a>. Beta 20A fixes a few more bugs including one that made the
+puzzle game nearly unplayable.</font></p>
+
+<p><font face="Comic Sans MS">Beta 19 supports screen sizes of 800x600, 1024x768,
+1152x864, 1280x1024, and 1600x1200. (Please let us know if some screen size you like is
+missing.)&nbsp; You can select your screen size by clicking on 'Set Options' when starting
+ToonTalk. 'Set Options' now also gives you a selection of text-to-speech voices if more
+than one has been installed on your computer. Beta 19 also supports subtitles and closed
+captioning. And <a href="bugs.htm#Beta18">bugs were fixed</a>.</font></p>
+
+<p><font face="Comic Sans MS">Beta 18 now supports URLs wherever ToonTalk accepts file
+names. For example, <a href="sensor.htm#PictureFile">the &quot;File to Picture&quot;
+sensor</a> can now be given a URL like http://www.toontalk.com/ghost.bmp and it will
+create a picture from that URL. URLs should work on <a href="command.htm">command line
+options</a> specifying which city or puzzle or demo file you want ToonTalk to use. There
+is a new command line option <a href="command.htm#SpokenLanguage">-spoken_language</a>
+which enables you to specify you want ToonTalk text and talk balloons to be one language
+while the spoken language is another language. You can now train robots to leave things on
+the floor. A <a href="robot.htm">robot</a> will no longer automatically clean up things it
+left on the floor if you ended its training while the robot was holding <a
+href="dusty.htm">Dusty the Vacuum</a>. If you are running ToonTalk with a text-to-speech
+engine that processes control tags they are no longer ignored. Tags can be inserted in the
+text to change the pitch, speed, emphasis, etc of the speech. </font><font
+face="Comic Sans MS" size="3">E.g</font><font face="Comic Sans MS"><font size="4">. </font><font
+size="3">\Spd=360\ \Vce=Gender=&quot;Female&quot;\ which says the voice should change to a
+speed of 360 and a female voice. Tags are ignored by some speech engines.</font> This
+release should be able to run all of the games on <a
+href="http://www.ioe.ac.uk/playground/games.htm">the Playground Website</a>. And of course
+<a href="bugs.htm#Beta17">more bugs were fixed</a>.</font></p>
+
+<p><font face="Comic Sans MS">Beta 17 mostly <a href="bugs.htm#Beta16">fixes bugs</a> but
+introduces a few enhancements. Now if you drop a nest on a nest, Bammer comes and smashes
+them together. Birds of those nests now think that the resulting nest is theirs and will
+deliver things there. This is a simpler and faster alternative than training a robot to
+take things off of one nest and hand them a bird of the other nest. ToonTalk has always
+had the convention that the space bar turns things on. Period or stop, '.', now turns
+things off. This includes pictures, sounds, force effects, </font><font
+face="Comic Sans MS" size="3">sensors, Dusty, Pumpy, and pictures. Pictures now can be
+turned on (i.e. any robots on the back are activated) by pressing the space bar. Note that
+this means you must use '+' and not space to cycle through different images or colors.</font><font
+face="Comic Sans MS"> You can now have ToonTalk <a href="bugs.htm#CityFileMax">maintain
+the last n versions</a> of the city in case you want to go back in time to a previous
+saved state.</font></p>
+
+<p><font face="Comic Sans MS">Beta 16 <a href="bugs.htm">fixes many bugs</a> particularly
+those involving <a href="sensor.htm">picture sensors</a> needed for game programming. </font><font
+face="Comic Sans MS" size="3">F4 now calls for the main notebook that lives inside of
+Tooly. You can now save a city to the clipboard. Currently the only interface to this is
+to sit on the ground outside and press control-c without holding anything in your hand. If
+a city is on the clipboard when ToonTalk is started you'll start off in the clipboard
+city. ToonTalk now supports Unicode so it can display all the alphabets of the world at
+once. If the &quot;-language&quot; is Japanese this is enabled or if </font><font
+face="Comic Sans MS">-unicode_code_page &lt;number&gt; is on the command line. For
+example, -unicode_code_page 932 enables the Japanese code page so that you can cut and
+paste Japanese text. </font><font face="Comic Sans MS" size="3">If ClippingDir=&lt;a
+directory name&gt; in the Directories section of the toontalk.ini file then when ToonTalk
+puts something on the clipboard it also puts a copy in a file in ClippingDir with the
+users name (or if a city was put on the clipboard the users name followed by
+&quot;_city&quot;).</font></p>
+
+<p><font face="Comic Sans MS">Beta 15 introduces the ability to label nests and birds by
+typing while holding them. You can also name a robot by typing while holding it. You can
+associate comments with any object by pressing F8 to stop Marty (and all robots). You can
+then give Marty something and he'll ask for something to associate with that object. If
+you associate a text pad with an object then Marty will use that text when describing the
+object. <a href="remote.htm">Several sensors</a> have been changed and some new ones
+added. It now works to put a flipped over picture on the back of another flipped over
+picture to give a picture a behavior. You can now use control-c to copy something to the
+clipboard and control-v to paste it into ToonTalk. You can now control how many <a
+href="command.htm">houses are on a block</a>. And <a href="bugs.htm">lots of bugs</a> have
+been fixed.</font></p>
+
+<p><font face="Comic Sans MS">Beta 14 <a href="bugs.htm#Beta14">mostly fixes bugs</a>. It
+supports a new format for putting ToonTalk objects in the Windows clipboard. This new
+format should be safe for sending through email. Beta 14 can read the old format as well
+but Beta 13 cannot read ToonTalk objects saved by Beta 14 or later. Beta 14 also changes
+the meaning of the visibility remote control for pictures. The setting &quot;SEE
+SOME&quot; now make the background (black if a picture imported by a user) transparent.
+And the setting &quot;SEE NOTHING&quot; no longer makes pictures that have been added to
+the invisible picture invisible as well. Beta 14A <a href="bugs.htm#Beta14A">fixes several
+bugs</a>. Beta 14B fixes <a href="bugs.htm#Beta14B">a few more bugs</a>.</font></p>
+
+<p><font face="Comic Sans MS">Beta 13 gives you the ability to <a
+href="robot.htm#ReTraining">re-train robots</a>. And more <a href="bugs.htm#Beta13">bugs
+were fixed and small enhancements added</a>. Beta 13A fixes <a href="bugs.htm#Beta13A">a
+few more bugs</a>.</font></p>
+
+<p><font face="Comic Sans MS">Beta 12 adds a few features for very advanced users. Robots
+can now be <a href="robot.htm#MetaProgramming">trained to manipulate teams of other robots</a>.
+Thought bubbles can be edited and teams re-arranged. You can now arrange for any behavior
+to happen when <a href="picture.htm#BirdOnTheBack">2 pictures collide</a>. Many bugs were
+fixed and minor features have also been added. <a href="bugs.htm#Beta12">Click here</a>
+for details.</font></p>
+
+<p><font face="Comic Sans MS">Beta 11 has two new features. ToonTalk now supports force
+feedback joysticks. You can feel force effects when you use ToonTalk but you will also
+find <a href="force.htm">a notebook of remote controls for using force effects</a> in your
+own programs. There is now a way to load <a href="extend.htm">extensions into ToonTalk</a>.
+The only extension currently defined enables you to read and write files and communication
+ports from inside of ToonTalk. As always, <a href="bugs.htm#Beta11">various bugs</a> were
+fixed as well. Beta 11A just <a href="bugs.htm#Beta11A">fixes several bugs</a>.</font></p>
+
+<p><font face="Comic Sans MS">Beta 10 has updated and improved demos. And <a
+href="bugs.htm#Beta10">lots of bugs fixed</a>. Beta 10A <a href="bugs.htm#Beta10A">fixes
+even more bugs</a>. (Special thanks to Shelly C. Wallace for reporting many of them.)</font></p>
+
+<p><font face="Comic Sans MS">Beta 9 allows you to decorate houses (the roof and front
+wall), rooms (the wall), and cities. All decoration can have robots on the back and so can
+be given any behavior you like. You can now save cities. An automatic trouble-shooting
+facility was added. You can now move around on the floor. You can now see what's on the
+floor while standing in a room. A new options dialog was added to make it easier to
+customize ToonTalk. And of course many <a href="bugs.htm#Beta9">bugs</a> were fixed. Beta
+9A fixed <a href="bugs.htm#Beta9A">a few more bugs</a>. And Beta 9B fixed <a
+href="bugs.htm#Beta9B">more bugs</a>.</font></p>
+
+<p><font face="Comic Sans MS">Beta 8 has support for combining &quot;behaviors&quot;. The
+idea is that you can define a behavior (like chasing, bouncing, and exploding) as before
+by placing robots on the back of a picture. Now you can combine behaviors by putting lots
+of flipped pictures on the back of another picture. Check out these <a
+href="programs.htm#Behaviors">examples of combining behavior.</a></font><font size="1"
+face="Comic Sans MS"> </font><font face="Comic Sans MS">Beta 8 also has many
+&quot;synthetic&quot; pictures in the <i>Pictures </i>notebook now. In addition to the
+rectangle that has been in ToonTalk for years, there are now ovals, rounded rectangles,
+lines and more.</font></p>
+
+<p><font face="Comic Sans MS"><a href="bugs.htm#Beta8A">Beta 8A mostly fixes bugs</a> in
+Beta 8.</font></p>
+
+<p><font face="Comic Sans MS">Beta 8B adds 9 new puzzles, a much more robust Java applet
+maker, and <a href="bugs.htm#Beta8B">some bug fixes</a>. It also uses a new much more
+flexible installation program most of whose advantages are only on the CD-ROM version. The
+removal of ToonTalk from your computer is now supported.</font></p>
+
+<p><font face="Comic Sans MS">Beta 8C now supports joysticks -- but only the 32-bit
+version of ToonTalk. You can use <a href="joystick.htm">a joystick to control the
+programmer</a> as well as use <a href="joysense.htm">joystick sensors</a> to build games
+that use the joystick. The way mouse buttons are used has changed. The right mouse button
+now by default turns things on and off (like space bar), flips pages in notebooks, and
+turns over pictures, numbers and text pads. The way <a href="sound.htm">sound effects</a>
+are made and used has been changed as well. And <a href="bugs.htm#Beta8C">some bugs</a>
+were fixed.</font></p>
+
+<p><font face="Comic Sans MS">Starting with version 6B there is now <a href="langs.htm">multi-lingual
+support</a> and the ability to generate <a href="java.htm">Java applets</a>.</font></p>
+
+<p><font face="Comic Sans MS">ToonTalk now has a puzzle game starting with version 4C. You
+can even <a href="make_pzl.htm">make your own puzzles</a>! </font></p>
+
+<p align="center"><img src="../rainbow.gif" alt="rainbow.gif (1998 bytes)" WIDTH="623"
+HEIGHT="6"></p>
+
+<p><a name="Beta11"></a><font face="Comic Sans MS">ToonTalk is in beta testing and is
+changing all the time. <a href="bugs.htm">Bugs</a> are fixed. <a href="programs.htm">Neat
+things </a>are made all the time in ToonTalk. There are many <a href="ideas.htm">ideas</a>
+of how to improve ToonTalk. </font></p>
+
+<p><font face="Comic Sans MS">It would be great if you helped by <a
+href="mailto:KenKahn@ToonTalk.com">reporting bugs</a>, <a href="contrib.htm">contributing
+neat things</a>, and <a href="ideas.htm">coming up with ideas</a>. </font></p>
+
+<p><font face="Comic Sans MS">If you already have ToonTalk and want the latest version
+then <a href="http://www.toontalk.com/English/patches.htm">click here</a>. </font></p>
+
+<p><font face="Comic Sans MS">If you want to learn how to get the narration for the <i>Introductory
+Tour</i> and the <i>Ping Pong</i> demo then <a href="narrate.htm">click here</a>.</font></p>
+
+<p>&nbsp;</p>
+
+<p align="center"><font face="Comic Sans MS"><small><a href="toontalk.htm">principal</a></small><small>
+| <a
+href="http://www.imagina.pt/produtos/toontalk/">procura</a></small><small> | <a href="buy.htm">compra</a></small><small>
+| <a href="doc.htm">manual</a> | <a href="whatsnew.htm">notícias</a></small><small>
+| <a href="infodesk.htm">informação</a></small><small>
+| <a href="faq.htm">perguntas</a></small><small> | <a href="support.htm">apoio</a></small><small>
+| <a href="free.htm">downloads</a>
+| <a href="press.htm">imprensa</a></small><small> | <a href="address.htm">contacto</a></small></font></p>
+</body>
+</html>

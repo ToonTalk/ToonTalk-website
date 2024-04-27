@@ -1,0 +1,74 @@
+<html>
+	<head>
+		<title>H&auml;lsa p&aring; i ToonTalks Playground</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<LINK rel="stylesheet" type="text/css" href="../dialog.css">
+			<script id="clientEventHandlersJS" language="javascript">
+<!-- 
+function sendBack(message) {
+    window.returnValue = message; 
+    window.close();
+}
+-->
+        </script>
+</head>
+	<body>
+		<div align="center">
+			<CENTER>
+				<H1>H&auml;lsa p&aring; i ToonTalks Playground <OBJECT id=AgentControl codeBase=#VERSION=2,0,0,0 classid=clsid:D45FD31B-5C6E-11D1-9EC1-00C04FD7081F VIEWASTEXT></OBJECT>
+
+<SCRIPT language=javascript src="../agent.js"></SCRIPT>
+<SCRIPT language=javascript src="strings.js"></SCRIPT>
+<SCRIPT language=JavaScript event="Click(CharacterID, Button, Shift, X, Y)" for=AgentControl> 
+
+<!-- 
+
+reactToAgentClicked(CharacterID, Button, Shift, X, Y); 
+
+--> 
+
+                </SCRIPT><SCRIPT language=JavaScript event=IdleStart(CharacterID) for=AgentControl> 
+
+<!-- 
+
+idleAgent(CharacterID); 
+
+--> 
+
+                </SCRIPT>
+<INPUT onclick=agentStart() type=image alt="Peedy can read this page for you." src="../reading.gif" name=Image1 width="58" height="51"></H1>
+			</CENTER>
+			<CENTER>&nbsp;</CENTER>
+			<DIV align="left">
+				Playground var ett europeiskt forskningsprojekt som utvecklade material i ToonTalk f&ouml;r att hj&auml;lpa barn att g&ouml;ra sina egna dataspel. Du kan bes&ouml;ka staden de byggt. Den &auml;r fylld med dataspel och dataspelsbitar som du  kan s&auml;tta ihop p&aring; olika s&auml;tt. B&auml;st fungerar de p&aring; en n&aring;gorlunda snabb dator. I anteckningsboken Playground finns samma saker som i staden. Bli inte f&ouml;rv&aring;nad f&ouml;rsta g&aring;ngen du bes&ouml;ker staden om det tar ganska l&aring;ng tid att ladda ner allt som beh&ouml;vs.</DIV>
+			<CENTER>
+				<TABLE id="Table1" cellSpacing="10" cellPadding="1" width="300" border="0">
+					<TR>
+						<TD align="center">
+                        <INPUT id="Image1" onclick="sendBack('-free_play 1 -time_travel_enabled 0 -default_user Playground2001X -must_be_new_user 1')"
+								type="image" alt="Visit the Playground City" src="../playcity.jpg" name="Image1" width="200" height="150"></TD>
+						<TD align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						</TD>
+						<TD align="center">
+                        <INPUT id="Image2" onclick="sendBack('-free_play 1 -time_travel_enabled 0 -default_user PlaygroundBookX -must_be_new_user 1')"
+								type="image" alt="The Playground Notebook" src="../playbook.jpg" name="Image1" width="200" height="150"></TD>
+					</TR>
+					<TR>
+						<TD align="center"><INPUT id="Button1" onclick="sendBack('-free_play 1 -time_travel_enabled 0 -default_user Playground2001X -must_be_new_user 1')"
+								type="button" value="Bes&ouml;k Playground staden" name="Button1"></TD>
+						<TD align="center"></TD>
+						<TD align="center"><INPUT id="Button2" onclick="sendBack('-free_play 1 -time_travel_enabled 0 -default_user PlaygroundBookX -must_be_new_user 1')"
+								type="button" value="Playground anteckningsbok" name="Button1"></TD>
+					</TR>
+				</TABLE>
+			</CENTER>
+			<CENTER>
+				<CENTER>&nbsp;</CENTER>
+				<CENTER><INPUT id="Button3" onclick="sendBack('-browse playgrnd.htm')" type="button" value="Mera info om Playgroundprojektet"
+						name="Button3"></CENTER>
+				<CENTER>&nbsp;</CENTER>
+				<CENTER><input type="button" value="Tillbaka" onClick="sendBack('-previous_dialog')"></CENTER>
+			</CENTER>
+		</div>
+	</body>
+</html>

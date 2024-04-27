@@ -1,0 +1,69 @@
+<HTML>
+<HEAD>
+<TITLE>Anpassen der ToonTalk Installation</TITLE>
+</HEAD>
+<BODY LINK="#0000ff" VLINK="#800080">
+
+<B><FONT SIZE=4><P ALIGN="CENTER">Anpassen der ToonTalk Installation</P>
+</FONT><I><P>Nur f&uuml;r vorgschrittene Benutzer:</B></I> </P>
+<P>Sie k”nnen die Datei toontalk.ini editieren, die Sie im Windows Verzeichnis
+finden.</P>
+
+<UL>
+<B><LI>32BitDefault</B>. Wenn der Wert 0 ist, wird die 16-Bit Version
+von ToonTalk gestartet. Wenn der Wert 1 ist, wird die 32-Bit Version
+gestartet. Der Wert kann durch
+-32 &lt;0,1&gt; in der Kommandozeile &uuml;berschrieben werden. </LI>
+<B><LI>GenerateLogs</B>. Dieser Eintrag erzeugt Dateien, die wiederabgespielt
+werden k&ouml;nnen, mit dem Namen
+log&lt;Nummer&gt;.dmo im ToonTalkverzeichnis.
+Eignet sich, um Probleme reproduzieren zu k&ouml;nnen.
+Der Wert entspricht der Anzahl an Logs, die gespeichert werden.</LI>
+<B><LI>AutoDemoMaxIdle</B>. Der Wert entspricht der Zeit in Sekunden,
+die gewartet wird bevor mit -autodemo 1 oder 2 gestartete
+Demos neu gestartet werden. </LI>
+<B><LI>ShowSubtitles</B>. 
+Falls der Wert 0 ist zeigt ToonTalk keine Subtitel bei Demos.
+</LI>
+<B><LI>NarrationFileSuffix</B>. Der Wert mu&szlig; zur Zeit
+SPK f&uuml;r englische und TAL f&uuml;r schwedische Erz&auml;hlungen sein.
+Dies ist die Voreinstellung f&uuml;r die -language Option. </LI>
+<B><LI>SubtitlesSuffix</B>. 
+Der Wert mu&szlig; zur Zeit entweder UST f&uuml;r englische oder
+SET f&uuml;r schwedische Subtitel sein. Subtitel k&ouml;nnen in einer anderen Sprache
+als die Erz&auml;hlung sein. </LI>
+<B><LI>TextToSpeechMode</B>. 
+Dieser Eintrag ist nur relevant, wenn Sie einen Text-nach-Sprache Konverter
+installiert haben und diesen den in der 32-Bit ToonTalk Version
+befindlichen Konverter vorziehen. </LI>
+<B><LI>JoystickDeadZone.</B> 
+Dieser Eintrag ist nur relevant, wenn sie die 32-Bit Version
+von ToonTalk ausf&uuml;hren und einen
+<A HREF="joystick.htm">Joystick 
+oder Game Controller</A> angeschlossen haben. Ein Joystick zeigt
+manchmal eine Bewegung an, ohne da&szlig; man ihn ber&uuml;hrt hat.
+Der Eintrag sagt ToonTalk, welche kleineren Bewegungen 
+noch ignoriert werden sollen. Der Wert kann von 0 bis
+10.000 gehen. Die Voreinstellung ist 2.500.  </LI>
+<B><LI><A NAME="ButtonEquivalents"></A>[ButtonKeyboardEquivalents]. 
+</B>
+Dies erlaubt die Funktion von
+<A HREF="joystick.htm">Joystick</A>taste 3 und h&ouml;her einzustellen
+(Joysticktaste 3 entspricht der 3. Maustaste.).
+Es k&ouml;nnen Spezialtasten definiert werden indem sie in
+"&lt;&gt;" eingeschlossen werden. Die verf&uuml;gbaren Spezialtasten sind
+&lt;F1&gt;, 
+&lt;F2&gt;, ... &lt;F12&gt;, &lt;Escape&gt; und 
+&lt;Leertaste&gt;. Die Voreinstellungen sind
+zum Beispiel</LI><DIR>
+<DIR>
+
+
+<UL>
+<LI>3='-' </LI>
+<LI>4=&lt;F1&gt;</LI></UL>
+</DIR>
+</DIR>
+</UL>
+</BODY>
+</HTML>

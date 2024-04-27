@@ -1,0 +1,130 @@
+<html>
+<head>
+<title>ToonTalk - Como utilizar extensões do ToonTalk</title>
+<link rel="stylesheet" type="text/css" href="ToonTalk.css">
+</head>
+
+<body link="#0000ff" vlink="#800080" bgcolor="#ffffff">
+
+<div align="center">
+<a name="topo"></a>
+<table width=468 cellspacing=0 cellpadding=0 border=0><tr><td>
+
+<p>
+<table cellspacing =0 cellpadding=0 border=0><tr>
+          <td>
+<div align=center>
+<A class=menu href="toontalk.html" onmouseover="window.status=' Início'; return true">início</A><span class=bola> •</span>
+<A class=menu href="search.html" onmouseover="window.status=' Busca'; return true">busca</A><span class=bola> •</span>
+<A class=menu href="buy.html" onmouseover="window.status=' Compra'; return true">compra</A><span class=bola> •</span>
+<A class=menu href="doc.html" onmouseover="window.status=' Manual'; return true">manual</A><span class=bola> •</span>
+<A class=menu href="whatsnew.html" onmouseover="window.status=' Novidades'; return true">novidades</A><span class=bola> •</span>
+<A class=menu href="faq.html" onmouseover="window.status=' Dúvidas'; return true">dúvidas</A><span class=bola> •</span>
+<A class=menu href="support.html" onmouseover="window.status=' Suporte'; return true">suporte</A><span class=bola> •</span>
+<A class=menu href="free.html" onmouseover="window.status=' Download'; return true">download</A><span class=bola> •</span>
+<A class=menu href="press.html" onmouseover="window.status=' Imprensa'; return true">imprensa</A><span class=bola> •</span>
+<A class=menu href="address.html" onmouseover="window.status=' Contato'; return true">contato</A>
+<hr size=1></div>
+    </td></tr>
+	</table>
+
+<h2>Como utilizar extensões do ToonTalk</h2>
+
+<p><b><i>Apenas para usuários avançados:</i></b>
+
+<p>As extensões do ToonTalk são <A href="bird.html">pombos</A> que podem voar para "fora" 
+            do ToonTalk, para o sistema operacional. Você começa com apenas um pombo "estrangeiro". Mas ele pode trazer para você um pombo conectado a qualquer extensão do ToonTalk instalada em seu sistema.
+Você pode encontrá-lo próximo ao final de sua <A href="sensor.html">agenda sensora</A> . Ele tem 
+            uma interrogação em sua camiseta. Para "abrir" uma extensão, dê ao pombo uma caixa com duas aberturas: a primeira deve possuir o nome da extensão e a segunda outro pombo, que voltará com um novo pombo (em uma
+caixa). Os tipos de mensagens (caixas) que devem ser dadas ao novo pombo dependem do tipo de extensões&nbsp;para as quais ele voa. 
+
+<p>Qualquer programador que posde fazer DLLs do Windows (Dynamic Link Libraries) pode <A href="extend2_trad.html">fazer novas 
+extensões.</A> Talvez, com o passar do tempo, os 
+            programadores acrescentem novas extensões, por exemplo, para a geração de música, ou conexão com a Internet, ou para fazer gráficos em 3D. Atualmente, há apenas uma <A href="extendin.html">extensão 
+que pode ser instalada:</A>
+
+<p><a name="FileExtension"></a><b>A extensão de ARQUIVO.</b> 
+              Esta extensão permite que você abra arquivos, lendo-os 
+            e escrevendo-os. Você deve dar a um pombo conectado a esta extensão uma caixa com três aberturas. A primeira abertura deve conter um dos nomes de mensagens citados abaixo. A segunda abertura deve conter o nome do arquivo que você deseja. A terceira abertura deve conter um pombo que receberá uma caixa com outro pombo nela. Este novo pombo levará mensagens&nbsp;para o arquivo. 
+
+<dl>
+  <dt><b>Criar Arquivo.</b>
+  <dd>Se a primeira abertura contém as 
+                palavras "criar arquivo", então um arquivo 
+                será criado para você. A segunda abertura deve 
+                conter o nome do arquivo que você deseja criar. Um arquivo 
+                com aquele nome já não deve existir. O nome deve 
+                seguir as regras para nomeação de arquivos do 
+                sistema operacional. 
+ 
+  <dt><b>Abrir.</b>
+  <dd>Se a primeira abertura contém a palavra 
+                "abrir", então um arquivo será aberto 
+                para você. A segunda abertura deve conter o nome de um 
+                arquivo já existente. O arquivo será aberto utilizando 
+                o procedimento Criar Arquivo do Windows. Isso significa 
+                que o nome pode ser o nome de um arquivo, pipe, slot 
+                de correio,&nbsp;dispositivo de comunicação (por 
+                exemplo,&nbsp;"LPT1" ou "COM1"), dispositivo de disco, 
+                console ou diretório para ser aberto. 
+ 
+  <dt><b>Abrir Porta Serial.</b>
+  <dd>Se a primeira abertura contém as palavras 
+        "abrir porta serial", então uma porta serial será aberta com as 
+        características especificadas no nome encontrado na segunda abertura. 
+        Por exemplo, se a segunda abertura contém "Com1:baud=      
+                                          1200 parity=N data=  8 stop=1", então a porta serial número um de seu computador será aberta com uma taxa de 1220 baud, com paridade zero, 8 bits de dados e parada igual a 1. Esta característica se baseia no procedimento <i>BuildCommDCB</i> do 
+                Windows para interpretar descrições de portas. </dd>
+</dl>
+
+<p><b>Mensagens para Arquivos.</b>  Depois de abrir ou criar um arquivo com 
+            sucesso, você deve ter um pombo que voe para aquele arquivo. Ele deve ter  o nome do arquivo em sua camiseta. Você pode dar ao pombo uma mensagem com três aberturas. A primeira abertura pode ser qualquer dos nomes de mensagens listados abaixo. O conteúdo apropriado da segunda abertura depende da primeira. A terceira abertura deve conter um pombo que receberá a resposta.
+
+<dl>
+  <dt><b>Ler.</b>
+  <dd> A segunda abertura deve conter 
+                um número que diz quantas letras ou caracteres ler. 
+                Um grupo de texto é dado ao pombo com as letras 
+                lidas. Se se atingiu o final do arquivo, então o 
+                número de letras será menor. 
+ 
+  <dt><b>Escrever.</b>
+  <dd>A segunda abertura deve conter um grupo 
+                de texto para adicionar ao arquivo. Um grupo de números 
+                é dado ao pombo, que exibe o número de 
+                letras realmente adicionado ao arquivo. 
+ 
+  <dt><b>Ler Bytes.</b>
+  <dd>  A segunda abertura deve 
+                conter um número que diz quantas letras ou caracteres 
+                ler. Uma caixa é dada ao pombo com uma 
+                abertura para cada caractere lido. Dentro de cada abertura 
+                há um número ASCII para o caractere. Se o final do 
+                arquivo foi atingido, então o número de letras 
+                será menor. 
+ 
+  <dt><b>Escrever Bytes.</b>
+  <dd>  A segunda abertura deve 
+                conter uma caixa com uma abertura para cada byte a ser adicionado ao arquivo. Cada abertura deve conter um número entre 0 e 255. Se um número é muito grande, apenas o byte&nbsp;inferior será escrito. Você pode utilizar o código de caracteres ASCII aqui. Um grupo de números é dado ao pombo, que exibe o número de letras realmente adicionado ao arquivo. </dd>
+</dl>
+
+<p>A capacidade de ler e escrever bytes é particularmente importante quando se lida com portas de comunicação  seriais ou paralelas.
+
+<p>
+<hr size=1><div align=center>
+<A class=menu href="toontalk.html" onmouseover="window.status=' Início'; return true">início</A><span class=bola> •</span>
+<A class=menu href="search.html" onmouseover="window.status=' Busca'; return true">busca</A><span class=bola> •</span>
+<A class=menu href="buy.html" onmouseover="window.status=' Compra'; return true">compra</A><span class=bola> •</span>
+<A class=menu href="doc.html" onmouseover="window.status=' Manual'; return true">manual</A><span class=bola> •</span>
+<A class=menu href="whatsnew.html" onmouseover="window.status=' Novidades'; return true">novidades</A><span class=bola> •</span>
+<A class=menu href="faq.html" onmouseover="window.status=' Dúvidas'; return true">dúvidas</A><span class=bola> •</span>
+<A class=menu href="support.html" onmouseover="window.status=' Suporte'; return true">suporte</A><span class=bola> •</span>
+<A class=menu href="free.html" onmouseover="window.status=' Download'; return true">download</A><span class=bola> •</span>
+<A class=menu href="press.html" onmouseover="window.status=' Imprensa'; return true">imprensa</A><span class=bola> •</span>
+<A class=menu href="address.html" onmouseover="window.status=' Contato'; return true">contato</A></div></td>
+
+</tr></table>
+</div>
+</body></html>
+
+<!--  FuturArte Editora Ltda.                                     Divertire  -->

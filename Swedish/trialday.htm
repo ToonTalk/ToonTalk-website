@@ -1,0 +1,54 @@
+<html>
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<LINK rel="stylesheet" type="text/css" href="../dialog.css">
+<script language="javascript" id="clientEventHandlersJS">
+<!--
+function sendBack(which_button) {
+    window.returnValue = which_button; 
+    window.close();
+}
+var parameters = null;
+function currentParameter(name) {
+   if (parameters == null) { // new on 011002
+      if (typeof window.dialogArguments == "undefined") {
+         return("***DEFINED ONLY WHEN RUN FROM TOONTALK***")
+      };
+      parameters = window.dialogArguments.split(";")
+   };
+   for (var i = 0; i < parameters.length; i = i+2) {
+      if (parameters[i] == name) {
+         return(parameters[i+1]) // like an alist
+      }    
+   };
+   return(0) // just in case
+}
+
+
+//-->
+			</script>
+
+<title>Antal dagar kvar p&aring; din testversion</title>
+</head>
+
+<body>
+		<p><strong><big><font size="5">Din testversion av ToonTalk har 
+						<script language="javascript" id="clientEventHandlersJS">
+<!--
+document.writeln(currentParameter("daysLeft"));
+//-->
+			</script>
+						dagar kvar.</font></big></strong></p>
+		<p align="center"><strong><big><INPUT onclick="sendBack('1')" type="button" value="Jag vill k&ouml;pa ToonTalk nu" name="Button1"
+				ID="Button1"></big></strong></p>
+		<p align="center"><strong><big><INPUT onclick="sendBack('2')" type="button" value="Jag vill k&ouml;ra ToonTalk nu (och kanske k&ouml;pa senare)" name="Button2"
+				ID="Button2"></big></strong></p>
+		<strong><big></p></big></strong>
+		<p><strong><big>&nbsp;</big></strong></p>
+		<p><strong><big><font size="5">Skriv in din aktiveringskod om du har den: <input id="UserName" type="text" class="text" size="20" name="Code"> <input onclick="sendBack(Code.value)" type="button" value="Skicka in" name="B1"></form></font></big></strong></p>
+	</body>
+
+</html>

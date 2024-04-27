@@ -1,0 +1,108 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="Template" content="C:\PROGRAM FILES\MICROSOFT OFFICE\OFFICE\html.dot">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<title>Personalizar a instalação do ToonTalk</title>
+</head>
+
+<body link="#0000FF" vlink="#800080">
+
+<p align="center"><font size="5" face="Comic Sans MS"><b>Personalizar a
+instalação do ToonTalk</b></font></p>
+
+<p><font size="4" face="Comic Sans MS"><strong><i>APENAS PARA UTILIZADORES
+AVANÇADOS.</i></strong></font></p>
+
+<p><font size="3" face="Comic Sans MS">Podes editar o ficheiro toontalk.ini na
+directoria do Windows.</font>
+
+<ul>
+  <li><font size="3" face="Comic Sans MS"><b>GenerateLogs</b>. Isto gera
+    ficheiros de registo chamados log&lt;número&gt;.dmo na directoria do
+    ToonTalk que podem ser reproduzidos. É uma boa solução para reproduzir
+    problemas. O valor é o número de registos guardados.</font></li>
+  <li><font size="3" face="Comic Sans MS"><b>AutoDemoMaxIdle</b>. Define o
+    número de segundos que espera antes de reiniciar os exemplos quando -autodemo
+    1 ou 2.</font></li>
+  <li><font size="3" face="Comic Sans MS"><b>SubtitlesSpeed.</b>  Percentagem da
+    velocidade das legendas. Se maior que 100 as legendas são mais rápidas. Se
+    for 0 o ToonTalk não mostra as legendas. </font></li>
+  <li><font size="3" face="Comic Sans MS"><b>NarrationFileSuffix</b>. O valor
+    deve ser SPK para as narrações em Inglês, TAL para as narrações em
+    Sueco e PTN para as narrações em Português Europeu. O valor padrão está
+    associado à opção -language. </font></li>
+  <li><font size="3" face="Comic Sans MS"><b>SubtitlesSuffix</b>. O valor deve
+    ser UST para os subtítulos em Inglês Americano, UKT para Inglês do Reino
+    Unido, SET as narrações em Sueco e PTT para Português Europeu. O texto
+    escrito que acompanha a narração pode estar numa língua diferente. </font></li>
+  <li><font size="3" face="Comic Sans MS"><b>TextToSpeechMode</b>. Ete item só
+    tem interesse, no caso de alguém ter instalado um sistema text-to-speech e
+    pretender usá-lo em vez do sistema que a versão 32-bit utiliza. Aqui
+    indicar-se-á, nesse caso o nome da voz.</font></li>
+  <li><a name="GeneralTextToSpeechEngine"><font face="Comic Sans MS"><strong>GeneralTextToSpeechEngine</strong>.
+    Se o valor for 1, o ToonTalk assume que existe um sistema text-to-speech
+    capaz de pronunciar qualquer palavra. Com o sistema construído
+    expressamente para o ET, caso este valor seja 1, o ET soletrará muitas palavras
+    que não conhece.</font></a></li>
+  <li><font size="3" face="Comic Sans MS"><b>JoystickDeadZone.</b> Este item só
+    funciona com a versão de 32-bits e um <a href="joystick.htm"> joystick ou um
+    controlador de jogos</a>. Por vezes o joystick relata um pequeno movimento,
+    mesmo sem ter sido tocado. Este item permite que estes pequenos movimentos
+    sejam ignorados. O valor pode variar entre 0 e 10.000. O valor padrão é 2.500. </font></li>
+  <li><font size="3" face="Comic Sans MS"><b>MaximumNumberOfHoles.</b>  As
+    caixas com demasiados buracos (mais de cem),tornam o ToonTalk demasiado
+    lento. Podes utilizar esta opção para substituir o valor padrão que é 2.048. </font></li>
+  <li><font size="3" face="Comic Sans MS"><b>TurnOffJoystickAutoCenter.</b> Só
+    tem aplicação com um joystick force feedback . A opção Autocenter
+    utiliza os motores do joystick para simular as molas de um joystick normal.
+    Colocando o valor off o efeito é melhor, mas mais difícil de controlar.</font></li>
+  <li><a name="DefaultUser"></a><font size="3" face="Comic Sans MS"><b>DefaultUser.</b> 
+    Permite indicar um nome de utilizador para ser utilizado numa sala de aula
+    ou numa demosntração.</font></li>
+  <li><a name="ButtonKeyboardEquivalents"></a><font size="3" face="Comic Sans MS"><b>[ButtonKeyboardEquivalents].
+    </b>Permite definir os 3 botões do <a href="joystick.htm">joystick</a> e os
+    outros (e também o botão do meio de um rato que é tratado da mesma forma
+    que o botão número 3 do joystick). Podem ser atribuídas teclas especiais
+    entre &quot;&lt;&gt;&quot;. As teclas possíveis são &lt;F1&gt;, &lt;F2&gt;, ... &lt;F12&gt;, &lt;Escape&gt;, and
+    &lt;espaço&gt;. Os valores padrão são:
+    </font><ul>
+      <li><font face="Comic Sans MS">3=&lt;F11&gt;</font></li>
+      <li><font face="Comic Sans MS">4=&lt;espaço&gt;</font></li>
+      <li><font face="Comic Sans MS">5=.</font></li>
+      <li><font face="Comic Sans MS">6=+</font></li>
+      <li><font face="Comic Sans MS">7=-</font></li>
+      <li><font face="Comic Sans MS">8=&lt;Escape&gt;</font></li>
+      <li><font face="Comic Sans MS">9=&lt;F1&gt;</font></li>
+      <li><font face="Comic Sans MS">10=&lt;F2&gt;</font></li>
+      <li><font face="Comic Sans MS">11=&lt;F3&gt;</font></li>
+      <li><font face="Comic Sans MS">12=&lt;F4&gt;</font></li>
+      <li><font face="Comic Sans MS">13=&lt;F5&gt;</font></li>
+      <li><font face="Comic Sans MS">14=&lt;F6&gt;</font></li>
+    </ul>
+  </li>
+  <li></il></il><font size="3" face="Comic Sans MS"><strong>ClippingDir</strong>.
+    Se ClippingDir=&lt;nome de uma directoria&gt; na secção Directories do
+    ficheiro toontalk.ini, então, quando o ToonTalk coloca alguma coisa na
+    Área de Transferência, coloca também uma cópia nessa directoria com o
+    nome do utilizador (ou o nome do utilizador seguido da palavra &quot;city&quot;,
+    no caso de ter sido copiada uma cidade). Esta directoria pode ser local ou
+    numa rede para facilitar trocas.</font></li>
+  <li><font face="Comic Sans MS"><strong>VariableFont</strong>  e <strong>FixedFont.</strong>
+    Pode atribuir-se aqui o nome de uma fonte para ser utilizada. O primeiro
+    valor aplica-se ao texto de tamanho variável e o segundo ao texto de
+    tamanho fixo.</font></li>
+  <li><font face="Comic Sans MS"><strong>SpokenLanguage</strong>. O ToonTalk
+    pode usar uma língua para falar e outra para o resto.</font></li>
+</ul>
+
+<p align="center"><font face="Comic Sans MS"><small><a href="toontalk.htm">principal</a></small><small>
+| <a
+href="http://www.imagina.pt/produtos/toontalk/">procura</a></small><small> | <a href="buy.htm">compra</a></small><small>
+| <a href="doc.htm">manual</a>
+| <a href="whatsnew.htm">notícias</a></small><small> | <a href="infodesk.htm">informação</a></small><small> | <a href="faq.htm">perguntas</a></small><small>
+| <a href="support.htm">apoio</a></small><small> | <a href="free.htm">downloads</a> | <a
+href="press.htm">imprensa</a></small><small> | <a href="address.htm">contacto</a></small></font></p>
+</body>
+</html>

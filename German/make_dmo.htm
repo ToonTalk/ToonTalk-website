@@ -1,0 +1,85 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>Wie Du deine eigene Demo machst</TITLE>
+<META NAME="Version" CONTENT="8.0.4308">
+<META NAME="Date" CONTENT="7/8/97">
+<META NAME="Template" CONTENT="C:\Program Files\Microsoft Office\Office\HTML.DOT">
+</HEAD>
+<BODY TEXT="#000000" LINK="#0000ff" VLINK="#800080" BGCOLOR="#ffffff">
+
+<B><FONT SIZE=4><P ALIGN="CENTER">Wie Du Deine eigene Demo machst</P>
+</FONT><P>Fortgeschrittene Benutzer:</P>
+</B><P>Um eine Demo zu generieren, f&uuml;ge -o &lt;<I>dateiname</I>&gt; 
+zur <A HREF="command.htm#OutputLog">Kommandozeile</A> beim Starten
+von ToonTalk hinzu.
+Durch diesen Befehl wird die Datei
+dateiname.DMO  in Verzeichnis "demos" von ToonTalk erzeugt.
+Die "dmo"-Datei zeichnet alles was Du machst auf (jede Bewegung mit
+der Maus, Tastaturbefehle, etc.). Bei einem Doppelklick auf 
+die Datei wird dann die entsprechende Demo gestartet. Alternativ dazu kann man
+auch ToonTalk mit -I &lt;dateiname&gt; in der Kommandozeile 
+als Demo starten. Sehe Dir bitte zuerst alle Dateien im Verzeichnis
+"demos" an, damit Du keine existierenden Dateien &uuml;berschreibst.
+</P>
+<P>Wenn Du eine Demo auf einem schnellen Computer erzeugt hast
+und sie auf einem langsameren ablaufen lassen willst,
+dann empfehlen wir beim Starten der Aufzeichnung 
+zur Kommandozeile
+<A HREF="command.htm#FrameDurationMinimum">-y 50</A>  oder einen 
+&auml;hnlichen Wert hinzuzuf&uuml;gen, um Deinen Computer langsamer zu 
+machen.</P>
+<B><P>Hinzuf&uuml;gen von Subtiteln zur Demo</B>. 
+Wenn Du eine Demo mit dem Namen X startest sucht ToonTalk nach einer
+Datei X.ust.
+("ust" ist die Voreinstellung f&uuml;r Dateierweiterungen bei
+(amerikanischen) englischen Subtiteln).
+Du kannst die Voreinstellung &uuml;berschreiben, wenn Du 
+einen "SubtitlesSuffix" Eintrag im Abschnitt "FileExtensions"
+der Datei ToonTalk.ini in Deinem Windows Verzeichnis 
+einf&uuml;gst.
+Eine Subtitel-Datei besteht aus mit Leerzeilen getrennten 
+Eintr&auml;gen. Jeder Eintrag besteht aus der Zeit in Millisekunden
+seit Start der Demo gefolgt von dem Text des Subtitels.
+Es wird empfohlen, Zeilen nicht l&auml;nger als 60 Zeichen zu machen.
+Das Verzeichnis "demos" enth&auml;lt viele Beispiele f&uuml;r
+Subtiteldateien. Ein Weg, um die Zeiten in Millisekunden zu erhalten,
+ist, F9 zu dr&uuml;cken w&auml;hrend die Demo abspielt.
+Das speichert die Zeit in der Datei &lt;<I>benutzername</I>&gt;.log 
+im Verzeichnis "users". </P>
+<B><P>Hinzuf&uuml;gen von Erz&auml;hlungen zur Demo</B>. 
+Sobald ToonTalk eine Demo mit dem Namen X startet,
+sucht es nach der Datei X.spk
+("spk" ist die Voreinstellung der Dateierweiterung f&uuml;r
+(amerikanische) englische Dateien mit Erz&auml;hlungen).
+Du kannst die Voreinstellung f&uuml;r Deinen Computer
+&uuml;berschreiben, wenn Du einen Eintrag
+"SubtitlesSuffix" im Abschnitt " NarrationFileSuffix " 
+der ToonTalk.ini Datei im Windowsverzeichnis hinzuf&uuml;gst.
+Um eine Datei mit Erz&auml;hlungen zu erzeugen, solltest Du
+Erz&auml;hlungen in Abschnitten (bis zu 256) aufnehmen und
+sie "s01.wav", "s02.wav" usw. benennen.
+Die Dateien sollten im ToonTalk Hauptverzeichnis stehen.
+W&auml;hrend Du Deine Demo abspielst solltest Du F11
+dr&uuml;cken, um den n&auml;chsten Teil der Erz&auml;hlung
+zu starten. Wenn Du es stattdessen vorziehst, die 
+aufgezeichnete Erz&auml;hlung
+selbst zu synchronisieren, f&uuml;ge -d 451 und.
+-o &lt;dateiname&gt; zur Kommandozeile hinzu und dr&uuml;cke
+F11, wenn Du den n&auml;chsten Teil der Erz&auml;hlung 
+hinzuf&uuml;gen willst. Nach Beenden von ToonTalk erzeugt es
+eine neue "spk"-Datei im Demos Verzeichnis. </P>
+<B><P>Koordination von Subtiteln und Erz&auml;hlungen</B>. 
+Wenn Du Subtitel und Erz&auml;hlungen erzeugen willst,
+empfehlen wir zuerst die Erz&auml;hlung zu erzeugen und dann die
+Demo mit "-d 3210" abspielen zu lassen. Das speichert Dir die Startzeit
+jedes Teils der Erz&auml;hlung in der Datei
+&lt;<I>benutzername</I>&gt;.log im Verzeichnis "users". 
+Diese Zeiten kannst Du dann in Deiner Subtiteldatei verwenden.</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P></BODY>
+</HTML>

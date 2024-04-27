@@ -1,0 +1,48 @@
+<HTML>
+	<HEAD>
+		<TITLE>ToonTalk har stannat</TITLE>
+		<META content="Microsoft FrontPage 5.0" name="GENERATOR">
+		<LINK href="../dialog.css" type="text/css" rel="stylesheet">
+			<script language="javascript" id="clientEventHandlersJS">
+<!--
+// Translators: please translate the following 
+var ToonTalkStopped = "ToonTalk har stannats.";
+
+function sendBack(which_button) {
+    window.returnValue = which_button; 
+    window.close();
+}
+
+//-->
+			</script>
+	</HEAD>
+	<BODY>
+		<p align="center">
+			<script>
+if (window.dialogArguments == "") {
+   document.writeln(ToonTalkStopped); // needs to be translated (or pass in from ToonTalk)
+} else {
+   document.writeln(window.dialogArguments);
+};
+			</script>
+		</p>
+		<p align="center"></p>
+		<table id="Table1" height="0" cellspacing="1" cellpadding="1" width="300" border="0">
+			<tr>
+				<td><input onclick="sendBack('1')" type="button" value="Tillbaka till ToonTalk" name="Button1"></td>
+				<td><input onclick="sendBack('2')" type="button" value="Komma tillbaka senare" name="Button2"></td>
+				<td><input onclick="sendBack('3')" type="button" value="Avsluta ToonTalk" name="Button3"></td>
+			</tr>
+		</table>
+		</P>
+		<p align="center">&nbsp; <input id="Button2" onclick="sendBack('102')" type="button" value="Hoppa &ouml;ver detta uppdrag" name="Button1"></p>
+		<p align="left">Du kommer spara hur l&aring;ngt du kommit med uppdragen s&aring; n&auml;sta g&aring;ng du startar Uppdrag kommer du b&ouml;rja med det uppdrag som &auml;r i tur f&ouml;r dig att forts&auml;tta med.</p>
+		&nbsp;<input id="SaveIt" onclick="if (DontSaveMediaToo.checked) { sendBack('7') } else { sendBack('8')}" type="button" value="Spara det du h&aring;ller i din hand som en fil" name="SaveIt">&nbsp;&nbsp;<!--
+		<DIV align="center">&nbsp;</DIV>
+		<DIV align="center">
+			<INPUT id="FileName" type="file" name="FileName"></DIV>
+
+//-->
+		<p align="center"><input id="DontSaveMediaToo" type="checkbox" name="DontSaveMediaToo" value="ON">Jag t&auml;nker inte skicka detta till n&aring;gon p&aring; n&aring;gon annan dator s&aring; jag vill ha en s&aring; liten fil som m&ouml;jligt.</p>
+	</BODY>
+</HTML>

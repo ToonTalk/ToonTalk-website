@@ -1,0 +1,141 @@
+<HTML>
+
+<HEAD>
+
+<TITLE>Wie man Sensoren und Steuerungen in ToonTalk benutzt</TITLE>
+
+<body bgcolor="#ffffff" text="#000000">
+
+<P>
+<CENTER><B><FONT SIZE=4>Wie man Sensoren und Steuerungen benutzt</FONT></B></CENTER>
+<P>
+Wenn Du ein <A HREF="picture.htm">Bild</A> umdrehst, siehst Du wie
+Dir ein <A HREF="notebook.htm">Notizbuch</A> entgegen kommt. 
+In diesem Notizbuch findest Du Sensoren und Steuerungen 
+f&uuml;r das
+Bild. Sensoren geben Dir Informationen &uuml;ber das Bild. Mit einer
+Steuerung kannst Du die Eigenschaften eines Bildes 
+ver&auml;ndern.
+Manchmal gibt es auch kombinierte Sensoren und Steuerungen.
+Sensoren, Steuerungen und Kombinationen beider bezeichnen wir auch 
+allgemein als Ger&auml;te.
+<P>
+Die meisten Ger&auml;te zeigen eine Zahl, die Du wie jede andere Zahl
+einfach ver&auml;ndern kannst. Wenn Du hier etwas ver&auml;nderst, 
+ver&auml;ndert sich auch automatisch das Bild. Das funktioniert auch 
+umgekehrt.
+Wenn Du irgendetwas am Bild ver&auml;nderst, ver&auml;ndert sich auch 
+automatisch die 
+Zahl. Einige Ger&auml;te zeigen auch Zahlen oder Text.
+Die meisten k&ouml;nnen dadurch
+ ver&auml;ndert werden, indem man die Leertaste
+dr&uuml;ckt w&auml;hrend man das Feld in der Hand h&auml;lt oder darauf zeigt.
+<P>
+<B>Tip.</B> Ger&auml;te zeigen oder ver&auml;ndern die Eigenschaften
+des Bildes auf dessen R&uuml;ckseite sie sich befinden.
+Wenn die Ger&auml;te noch nicht auf der R&uuml;ckseite eines Bildes waren,
+dann m&uuml;ssen sie aus dem Notizbuch, das sich
+auf der R&uuml;ckseite des Bildes
+befindet, genommen werden. Sie k&ouml;nnen dann das Bild manipulieren.
+<P>
+<B>Tip.</B> Um herauszufinden, was ein Ger&auml;te macht, nimm es 
+zuerst aus dem
+Notizbuch und lege es dann auf den Fu&szlig;boden. Drehe das Bild um
+und lege das Ger&auml;t drauf. Ver&auml;ndere das Ger&auml;t und 
+beobachte, was passiert.
+<P>
+Hier ist die Liste aller Ger&auml;te, die Du im Bildernotizbuch findest.
+<UL>
+<LI><B>Seite 2.</B> 
+Der Abstand des Bildes vom linken Rand.
+Wenn das Bild nicht ein Teil eines anderen Bildes ist, dann ist 0
+der linke und 1000 der rechte Bildschirmrand.
+Falls das Bild zu einem anderen Bild geh&ouml;rt, dann ist 0 der
+linke Rand und 1000 der rechte Rand dieses Bildes.
+<LI><B>Seite 4.</B> 
+Der Abstand des Bildes vom unteren Rand.
+Wenn das Bild nicht ein Teil eines anderen Bildes ist, dann ist 0
+der untere und 1000 der obere Bildschirmrand.
+Falls das Bild zu einem anderen Bild geh&ouml;rt, dann ist 0 der
+untere Rand und 1000 der obere Rand dieses Bildes.
+<LI><B>Seite 6.</B> 
+Die Geschwindigkeit, mit der sich das Bild nach rechts bewegt.
+1000 bedeutet, da&szlig& das Bild den Bildschirm in 1 Sekunde 
+&uuml;berquert.
+Negative Zahlen bedeuten, da&szlig& sich das Bild nach links bewegt.
+<LI><B>Seite 8.</B> 
+Die Geschwindigkeit, mit der sich das Bild nach oben bewegt.
+1000 bedeutet, da&szlig& das Bild den Bildschirm in 1 Sekunde &uuml;berquert.
+Negative Zahlen bedeuten, da&szlig& sich das Bild nach unten bewegt.
+<LI><B>Seite 10.</B> 
+Die Bildbreite. 1000 bedeutet, da&szlig& das Bild genauso breit ist
+wie der
+Bildschirm; oder, wenn es zu einem anderen Bild geh&ouml;rt,
+genauso breit ist wie das Bild darunter.
+<LI><B>Seite 12.</B> 
+Die Bildh&ouml;he. 1000 bedeutet, da&szlig& das Bild genauso hoch ist
+wie der
+Bildschirm; oder, wenn es zu einem anderen Bild geh&ouml;rt,
+genauso hoch wie das Bild darunter ist.
+<LI><B>Seite 14.</B> 
+Diese Ger&auml;te zeigt eine einfache Animation von einer Kollision oder
+deren Vermeidung. Du kannst eine Kollision vermeiden, wenn Du auf
+den Detektor zeigst und dabei die Leertaste dr&uuml;ckst.
+<LI><B>Seite 16.</B> 
+Dieser Sensor zeigt mit wem das Bild zusammenst&ouml;&szlig&t.
+Er zeigt ein schwarzes Bild, wenn es mit nichts zusammenst&ouml;&szlig&t. 
+Falls das Bild mit mehr als einem Objekt zusammenst&ouml;&szlig&t, wird 
+immer nur
+ein Objekt angezeigt.
+<LI><B>Seite 18.</B> 
+Funktioniert &auml;hnlich wie das Ger&auml;t auf Seite 16.
+Das Ger&auml;t reagiert aber auf Kollisionen, wenn das andere
+Bild, das die Kollision verursacht, sich vorwiegend in einer 
+Links- oder Rechtsbewegung befindet.
+<LI><B>Seite 20.</B> 
+Funktioniert &auml;hnlich wie das Ger&auml;t auf Seite 16.
+Das Ger&auml;te reagiert aber auf Kollisionen, wenn das andere
+Bild, das die Kollision verursacht, sich vorwiegend in einer 
+Oben- oder Untenbewegung befindet.
+<LI><B>Seite 22.</B> 
+Hier wird gezeigt, wie das Bild gerade aussieht. Du oder
+ein Roboter, den Du trainiert hast k&ouml;nnen hier ein anderes
+Bild (oder eine Zahl oder ein Textfeld) drauflegen worauf sich das
+Aussehen des Bildes ver&auml;ndert. Hiermit kann man Dinge
+explodieren lassen, Zahlen ver&auml;ndern sobald sich zum Beispiel 
+der Spielstand &auml;ndert und viele tausend andere Sachen machen.
+Du kannst auch <A HREF="tips.htm#PicturesOnPictures">
+einem Bild mehrere andere Bilder auf diese Weise hinzuf&uuml;gen</A>,
+wenn Du ihre Gr&ouml;&szlig;e oder Position ver&auml;nderst,
+so da&szlig; sie das Originalbild nicht ganz verdecken.
+<LI><A NAME="Visible"><B>Seite 24.</B> 
+Das Ger&auml;te beinflu&szlig&t, ob ein Bild sichtbar oder unsichtbar ist
+und auch ob der Hintergrund sichtbar oder unsichtbar ist.</A>
+<LI><B>Seite 26.</B> 
+Dieser Sensor beantwortet die Frage &quot;Wurde
+meine Animation beendet?&quot;. 
+Einige Animationen, wie zum Beispiel das Herumlaufen, enden
+niemals. Andere, wie zum Beispiel eine Explosion, enden
+und sind nicht zyklisch.
+<LI><B>Seite 28.</B> 
+Dieser Sensor beantwortet die Frage &quot;Wird das Bild
+gerade in der Hand gehalten?&quot;.
+<LI><B>Seite 30.</B> 
+Dieser Sensor beantwortet die Frage &quot;Wackelt das Bild gerade
+und ist es bereit aufgenommen oder benutzt zu werden?&quot;
+<LI><B>Seite 32.</B> 
+Dieser Sensor beantwortet die Frage &quot;Wurde das Bild gerade
+hingelegt?&quot;.
+<LI><B>Seite 34.</B> 
+Einige Bilder und Animationen haben unterschiedliches Aussehen.
+Manche &auml;ndern sich zum Beispiel mit den 4 unterschiedlichen 
+Richtungen,
+in die sie sich bewegen k&ouml;nnen.
+Dieses Ger&auml;t liefert die Nummer des Bildes, das gerade 
+angezeigt wird.
+F&uuml;r Rechtecke steuert es die Farbe.
+</UL>
+
+</BODY>
+
+</HTML>

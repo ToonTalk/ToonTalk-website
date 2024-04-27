@@ -1,0 +1,49 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Installing ToonTalk on a Networked Server</title>
+</head>
+
+<body>
+
+<p align="center"><strong><font face="Comic Sans MS"><big><big>Installing ToonTalk on a
+Networked Server</big></big></font></strong></p>
+
+<p><font face="Comic Sans MS">Unfortunately, the product CD-ROM installation script works
+only under very special conditions when it is installed on a network. The following is
+more complicated than it should be but it works.</font> 
+
+<ol>
+  <li><font face="Comic Sans MS">Copy the entire CD-ROM to the server on the directory of your
+    choice. (You'll be able to delete much of it on the final step below.) Note if you later
+    move these files to a different directory, you'll need to repeat this entire procedure.</font></li>
+  <li><font face="Comic Sans MS">Replace the setup.ins file in the Install directory with <a
+    href="ftp://ftp.toontalk.com/ftp/setup.ins">a new version that you can download from the
+    web site</a>. It should be about 71 KB.</font></li>
+  <li><font face="Comic Sans MS">Go to each computer that will run ToonTalk and run
+    install\setup.exe from the network directory you chose in step 1. If you have a fast
+    network, you should be able to choose the &quot;Compact&quot; option and still get good
+    performance. Otherwise, you'll want to install parts of ToonTalk on the local disks using
+    either the &quot;Typical Install&quot; or the &quot;Custom Install&quot; option.</font></li>
+  <li><font face="Comic Sans MS">You can now safely delete all the directories and files
+    EXCEPT the ToonTalk directory (about 141 MB) from the network server.</font></li>
+</ol>
+
+<p><font face="Comic Sans MS">If you also would like the ToonTalk Users directory to be on
+the network server, you'll have to edit the toontalk.ini file on the Windows directory of
+each local machine. The &quot;Directories&quot; entry for &quot;MainDir&quot; should be
+the networked directory. It should look the same as the &quot;CDROMdir&quot; entry if you
+installed things following the steps listed above.</font></p>
+
+<p><font face="Comic Sans MS">Please report any problems to <a
+href="mailto:support@toontalk.com">support@toontalk.com</a>.</font></p>
+
+<p align="center"><small><font face="Comic Sans MS"><a href="toontalk.htm">home</a> | <a
+href="http://www.toontalk.com/English/search.htm">search</a> | <a href="buy.htm">purchase</a> | <a href="doc.htm">manual</a>
+| <a href="whatsnew.htm">news</a> | <a href="infodesk.htm">info</a> | <a href="faq.htm">faq</a>
+| <a href="support.htm">support</a> | <a href="free.htm">downloads</a> | <a
+href="press.htm">press</a> | <a href="address.htm">contact us</a></font></small></p>
+ 
+</body>
+</html>

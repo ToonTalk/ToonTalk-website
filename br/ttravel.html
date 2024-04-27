@@ -1,0 +1,50 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>ToonTalk Time Travel</title>
+</head>
+
+<body>
+
+<p align="center"><big><strong><font face="Comic Sans MS">Time Travel in ToonTalk for
+Undo, Instant Replay, and better Demos</font></strong></big></p>
+
+<p><font face="Comic Sans MS">Starting with Beta 21 (or version 2.0) you can use time
+travel while using ToonTalk. Time travel enables you to pause ToonTalk and then go back in
+time either for an instant replay or to take over and do things differently (a kind of
+undo ability). </font></p>
+
+<p><font face="Comic Sans MS">For the time being, time travel <em>is not enabled by
+default</em>. This is because it consumes disk space and may introduce new bugs. To enable
+it, edit your toontalk.ini file to have entries for GenerateLogs and SecondsBetweenLogs in
+the Switches section. For example, GenerateLogs=100 and SecondsBetweenLogs=5 will enable
+time travel where you can travel in time in 5 second increments and the furthest you can
+travel back in time is 500 seconds (5x100). Note that sometimes ToonTalk is doing
+something that can't be interrupted so some segments will be greater than 5 seconds in
+practice.</font></p>
+
+<p><font face="Comic Sans MS">When time travel is enabled the only difference is what
+happens when you press the <em>Pause</em> button on the keyboard. You'll see controls like
+those for a VCR appear. (The following picture will be redone with the right color
+palette.)</font></p>
+
+<p align="center"><img src="../ttravel.gif" alt="TTRAVEL.GIF (4640 bytes)" WIDTH="312"
+HEIGHT="64"></p>
+
+<p align="left"><font face="Comic Sans MS">The numbers underneath show the segment number
+and the date and time it began. The first button jumps to the oldest segment. The '&lt;'
+button jumps back one segment. The next button does stops replay (only if the 'GO' button
+has been pressed to&nbsp; start replay). The '&gt;' button jumps forward one segment if
+you have gone back in time already. The '&gt;&gt;' button jumps to the newest segment. If
+you have pressed 'GO' then the 'X' button removes the buttons but continues to show the
+replay. (Displaying the buttons does slow down the replay.) If the 'GO' button hasn't been
+pressed then the 'X' button removes the buttons and resumes ToonTalk from the current
+place in time. </font></p>
+
+<p align="left"><font face="Comic Sans MS">If you add &quot;-resume 1&quot; to the command
+line of your ToonTalk icon or Start Menu item, then ToonTalk will start where you last
+left off. As you resume where you left off you will be adding segments to your time travel
+record. (This will have a better interface soon.)</font></p>
+</body>
+</html>

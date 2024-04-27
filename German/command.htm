@@ -1,0 +1,179 @@
+<HTML>
+
+<HEAD>
+
+<TITLE>ToonTalk Kommandozeilenoptionen</TITLE>
+
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000">
+
+<P>
+<CENTER><B><FONT SIZE=4>ToonTalk Kommandozeilenoptionen</FONT></B></CENTER>
+<P>
+Wenn Du ToonTalk &uuml;ber  startest, wirst 
+Du zuerst nach Deinem Namen gefragt.
+Alternativ kannst Du bei ToonTalk Deinen Namen
+auch in der Kommandozeile eingeben. 
+Fast alle Optionen, die im folgenden beschrieben werden,
+k&ouml;nnen aber auch durch das 
+<A HREF="options.htm">
+Optionsnotizbuch</A>, das Du
+in ToonTalk auf Seite 10 Deines 
+<A HREF="notebook.htm">Hauptnotizbuches</A>
+findest, gesetzt werden.
+<P>
+<B><I><P>NUR F&Uuml;R FORTGESCHRITTENE BENUTZER:</B></I> </P>
+Du kannst die ToonTalk Startkonfiguration aber auch
+einstellen, wenn Du das Windows Programm Item (Windows 3.1) oder
+die Verkn&uuml;pfung (Windows 95) mit dem Namen
+&quot;Start ToonTalk&quot; editierst (Alt-Enter bei 
+selektiertem Symbol.)
+Nach dem Teil der TT16.exe (oder TT32.exe falls Du die <A
+HREF="tt32.htm">32-Bit Version</A> ausf&uuml;hrst) aufruft
+kannst Du jede der folgenden
+Optionen abgetrennt durch Leerzeichen anf&uuml;gen.
+Die Voreinstellungen sollen aber ausreichen.
+<UL>
+<LI>-n &lt;Name&gt;<br>
+Ein Name kann von
+beliebiger L&auml;nge sein und kann Leerzeichen und Sonderzeichen beinhalten.
+Die ersten 8 Buchstaben des Namens werden als Dateiname f&uuml;r die
+Datei verwendet in der das Programm gespeichert wird. 
+Die Voreinstellung f&uuml;r den Namen ist
+&quot;Kein Name&quot;.
+<LI><A NAME="HeadLook">-h &lt;kopf&gt;<br>
+Der Kopf kann 0 (Kahl), 1 (Haar) oder 2 (Helm) sein. Voreinstellung ist 2.
+<LI>-s &lt;Sound&gt; <br>
+Der Wert 0 stellt den Ton ab.
+Falls das System abst&uuml;rzt, kann das unter Umst&auml;nden an dem
+Zusammenspiel zwischen Soundtreiber und ToonTalk liegen.
+Es kann sein, da&szlig; das Setzen auf 0 das Problem dann l&ouml;st. 
+Das Problem sollte dann auch dem Hersteller mitgeteilt werden.
+<LI>-f &lt;Vollbild&gt; <br>
+Volllbilddarstellung kann 0 sein (320x240 kleiner
+Bildschirm), 1 (Vollbild mit Fenster-Grafik Shutdown) oder 2
+(640x480, normales Fenster). 1 sieht meistens ein bi&szlig;sschen
+ansprechender aus und ist auf einigen Computern auch
+ein bi&szlig;chen schneller.
+Auf einigen Computern h&auml;ngt dann allerdings die Anwendung wenn ein Fehler
+auftritt. Falls das der Falls ist,  mu&szlig; der Computer leider neu gestartet werden.
+1 funktioniert auch trotz niedriger Bildschirmaufl&ouml;sung und 
+Anzahl der Farben. 1 funtioniert nicht unter Windows NT.
+Mit 1 funktionieren die Windows &lt;alt&gt;-Kommandos nicht.
+<LI>-o &lt;Name Ausgabe Log-Datei&gt; <br>
+Es wird alles in der Datei
+abgespeichert, was mit ToonTalk gemacht wird.
+Mit -i kann neu die Aufzeichnung wiederholt werden. Hiermit kann nach einem
+Fehler gesucht werden. An die gegebene Datei wird die Erweiterung .DMO 
+angeh&auml;ngt.
+<LI>-i &lt;Name Eingabe Log-Datei&gt; <br>
+Wiederholt alle aufgezeichneten
+Aktionen, wenn die Option -o verwendet wird. -I macht dasselbe.
+Es wird dann allerdings die originale Aufzeichnungsgeschwindigkeit
+verlangsamt, wenn es auf einem schnelleren Computer ausgef&uuml;hrt wird.
+<LI>-c &lt;Stadtgr&ouml;&szlig;e&gt;<br>
+ Die Voreinstellung der
+Gr&ouml;&szlig;e der Stadt ist 10x10 Bl&ouml;cke
+(jeder Block entspricht 4 H&auml;usern). Die gr&ouml;&szlig;te Stadt ist
+255x255. Wenn eine negative Zahl eingegeben wird, wird ToonTalk mit einer
+Zufallsbelegung von H&auml;usern gestartet.
+<LI>-b &lt;0, 1, 2 oder 3&gt;. <br>
+Beschreibt wie viele Maustasten
+zur Verf&uuml;gung stehen. Voreinstellung ist 1.
+Siehe auch <A HREF="mouse.htm">Maustasten</A>
+f&uuml;r weitere Details.
+<LI>-r &lt;prozentuale Lesegeschwindigkeit&gt; <br>
+Die Lesegeschwindigkeit
+bestimmt wie lange ein Text in der Sprechblase verweilt.
+Voreinstellung ist 100 Prozent. Gr&ouml;&szlig;ere Zahlen f&uuml;hren
+dazu, da&szlig; der Text schneller wechselt.
+<LI>-l &lt;Schriftgr&ouml;&szlig;e der Sprechblase&gt; <br>
+Voreinstellung
+ist 100 Prozent. 
+<LI>-e &lt;Schrifttyp&gt; <br>
+Schrift, die von Marty benutzt wird.
+Wenn der Schrifttyp ein Leerzeichen enth&auml;lt, wie z.B. bei New Modern,
+wird er zu einem Wort z.B. new_modern zusammengef&uuml;gt.
+<LI>-m &lt;als Cache benutzter Speicher&gt; <br>
+Die Voreinstellung ist 100
+(verwendet 25% des freien Speichers). Gro&szlig;e Zahlen beschleunigen
+die Anwendung etwas, la&szlig;en aber weniger Speicher f&uuml;r andere Dinge.
+<LI>-u &lt;zur Verf&uuml;gung gestelltes Benutzerprofil&gt;<br>
+1 bedeutet, da&szlig; die Operationen, die ein Benutzer durchgef&uuml;hrt hat,
+in einer Datei mir der Erweiterung .usr aufgezeichnet und die Hilfe 
+entsprechend 
+angepa&szlig;t wird.  0 stellt die Aufzeichnung ab. 1 ist Voreinstellung.
+<LI>-a &lt;Anweisungsstufe&gt; <br>
+Von 0 bis 5. Bei 0 erz&auml;hlt Marty
+alles, was er wei&szlig;. Bei 5 sagt er nichts. 2 ist die Voreinstellung.
+<LI>-t &lt;Vorl&auml;ufiger Benutzer&gt; <br>
+1 bedeutet, da&szlig; keine 
+Benutzerdatei f&uuml;r Notizb&uuml;cher gelesen oder generiert wird.
+0 ist die Voreinstellung. 
+<LI>-q &lt;ToonTalk Geschwindigkeit&gt; <br>
+100 ist die Voreinstellung.
+Gr&ouml;&szlig;ere Zahlen beschleunigen die Animation.
+<LI>-y &lt;Maximale Bildwechselrate in Millisekunden&gt;<br>
+0 ist die Voreinstellung.
+20 bedeutet z.B. eine Bildwechselrate von maximal 20 Bildern pro
+Sekunde - auch auf sehr schnellen Computern.
+<LI>-k &lt;Debuggerstufe&gt; <br>
+Option zur Fehlersuche. Bei 1 erz&auml;hlt
+Marty mehr. Die Datei
+&lt;BENUTZER&gt;.log enth&auml;lt dann mehr Informationen &uuml;ber aufgetretene
+Probleme. Die Voreinstellung ist 0.
+<LI>-bird &lt;von au&szlig;erhalb V&ouml;gel zur&uuml;ckkehren sehen&gt;<br>
+Bei 0 brauchen V&ouml;gel keine Zeit, um nach dem Transport
+von Gegenst&auml;nden zu ihrem Nest zur&uuml;ckzukehren, wenn der Programmierer
+von au&szlig;sserhalb eines Hauses zuschaut. Die Voreinstellung ist 1.
+<LI>-j &lt;f&uuml;hrt die japanische Version von Windows 3.1 aus&gt;<br>
+1 bedeutet, da&szlig; kein Titel angezeigt wird. Dies scheint eine
+Inkompatibilit&auml;t zwischen
+Win 3.1J und WinG von Microsoft zu beheben: 
+Beim ersten Mal wird kein Text angezeigt. 
+<LI>-puzzle &lt;Dateiname&gt;<br>
+Started ToonTalk mit einem <A HREF="make_pzl.htm">R&auml;tsel</A>
+durch den gegebenen Dateinamen.
+<LI>-next_puzzle <br>
+Started ToonTalk mit dem n&auml;chsten R&auml;tsel
+bez&uuml;glich eines bestimmten Benutzernamens. 
+Es startet mit dem ersten R&auml;tsel, 
+wenn noch kein R&auml;tsel gel&ouml;st wurde.
+<LI>-autodemo &lt;0, 1 oder 2&gt;. <br>
+0 ist die Voreinstellung und schaltet
+den automatischen Demomodus aus. 1 bedeutet, da&szlig;, wenn 30
+Sekunden nichts passiert, das System immer wieder 
+die Einf&uuml;hrungstour zeigt.
+Im Zustand  &quot;Abenteuer spielen&quot; oder &quot;freies Spiel&quot; 
+wartet das System 120 Sekunden.
+Dies wird in einer Zeile in der Datei toontalk.ini im Windows-Verzeichnis
+eingestellt: &quot;AutoDemoMaxIdle=120&quot;. Bei der Option -autodemo
+2 werden alle Beispiele durchlaufen werden, wenn 
+nichts passiert.
+<LI>-subtitles &lt;Geschwindigkeit&gt;<br>
+Falls bei einer Demonstration Untertitel gezeigt werden, dann werden
+sie mit einer Lesegeschwindigkeit, deren Voreinstellung 100 ist,
+gezeigt. Wenn die Geschwindigkeit 0 ist, werden keine Untertitel gezeigt.
+Die Sprache f&uuml;r die Untertitel wird durch
+&quot;SubtitlesSuffix=ust&quot; im Abschnitt &quot;Executables&quot;
+von toontalk.ini eingestellt.  Wobei ,,ust'' das Suffix f&uuml;r
+amerikanische und englische Untertitel und ,,set'' das Suffix
+f&uuml;r schwedische Untertitel ist.
+<LI><A NAME="TextToSpeech">-speak &lt;0, 1&gt; 1 schaltet den
+Text nach Sprache Konverter an, falls die 32-Bit Version benutzt
+wird. 0 schaltet ihn ab. 1 ist die Voreinstellung der
+32-Bit Version und 0 die der 16-Bit Version.  </A> 
+<LI>-balloon &lt;0,1&gt; 1 schaltet Martys Sprechblase an.
+Default is 1. 
+<LI>-tts_uses_ds &lt;0,1&gt; Bei 1 benutzt der Text-nach-Sprache
+Konverter DirectSound. 
+Die Option erlaubt simultane Sprache und Soundeffekte.
+Die Voreinstellung ist 0, da auf vielen Systemen dies sehr lange 
+Verz&ouml;gerungen und Hintergrundzischen verursachen kann.
+Diese Option ist nur f&uuml;r die 32-Bit Version.
+Probier es aus, wie es sich auf Deinem System anh&ouml;rt.
+</UL>
+
+</BODY>
+
+</HTML>

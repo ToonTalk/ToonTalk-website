@@ -1,0 +1,55 @@
+<HTML>
+	<HEAD>
+		<TITLE>ToonTalk har stannat</TITLE>
+		<META content="Microsoft FrontPage 5.0" name="GENERATOR">
+		<LINK href="../dialog.css" type="text/css" rel="stylesheet">
+			<script language="javascript" id="clientEventHandlersJS">
+<!--
+// Translators: please translate the following 
+var ToonTalkStopped = "ToonTalk har stannats.";
+
+function sendBack(which_button) {
+    window.returnValue = which_button; 
+    window.close();
+}
+
+//-->
+			</script>
+	</HEAD>
+	<BODY>
+		<P align="center"><script>
+if (window.dialogArguments == "") {
+   document.writeln(ToonTalkStopped); // needs to be translated (or pass in from ToonTalk)
+} else {
+   document.writeln(window.dialogArguments);
+};
+			</script></P>
+		<P align="center">
+			<TABLE id="Table1" height="0" cellSpacing="1" cellPadding="1" width="300" border="0">
+				<TR>
+					<TD><INPUT onclick="sendBack('1')" type="button" value="Tillbaka till ToonTalk" name="Button1"></TD>
+					<TD>
+						<INPUT onclick="sendBack('2')" type="button" value="Komma tillbaka senare" name="Button2"></TD>
+					<TD>
+						<INPUT onclick="sendBack('3')" type="button" value="Avsluta ToonTalk" name="Button3"></TD>
+				</TR>
+			</TABLE>
+		</P>
+		<P align="center">&nbsp; <INPUT id="Button2" onclick="sendBack('102')" type="button" value="Hoppa &ouml;ver detta uppdrag" name="Button1"></P>
+		<P align="left">Du kommer spara hur l&aring;ngt du kommit med uppdragen s&aring; n&auml;sta g&aring;ng du startar Uppdrag kommer du b&ouml;rja med det uppdrag som &auml;r i tur f&ouml;r dig att forts&auml;tta  med.</P>
+		<DIV align="center">&nbsp;</DIV>
+		<DIV align="center">
+			<INPUT id="SaveIt" onclick="if (DontSaveMediaToo.checked) { sendBack('7') } else { sendBack('8')}" type="button" value="Spara det du h&aring;ller i din hand som en fil" name="SaveIt">&nbsp;</DIV>
+		<DIV align="center">&nbsp;</DIV>
+
+		<!--
+		<DIV align="center">&nbsp;</DIV>
+		<DIV align="center">
+			<INPUT id="FileName" type="file" name="FileName"></DIV>
+
+//-->
+		<P align="center">
+			<INPUT id="DontSaveMediaToo" type="checkbox" name="DontSaveMediaToo" value="ON">Jag t&auml;nker inte skicka detta till n&aring;gon p&aring; n&aring;gon annan dator s&aring; jag vill ha en s&aring; liten fil som m&ouml;jligt.</P>
+
+	</BODY>
+</HTML>

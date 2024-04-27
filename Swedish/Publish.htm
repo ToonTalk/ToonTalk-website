@@ -1,0 +1,157 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+	<head>
+		<title>Do you want to put your file on the web site?</title>
+		<meta content="Microsoft Visual Studio.NET 7.0" name="GENERATOR">
+		<meta content="http://schemas.microsoft.com/intellisense/ie5" name="vs_targetSchema">
+		<link rel="stylesheet" type="text/css" href="../dialog.css">
+		<script language="javascript" src="../common.js"></script>
+		<script language="javascript" src="../agent.js"></script>
+		<script language="javascript" src="strings.js"></script>
+		<script language="javascript" id="clientEventHandlersJS">
+<!--
+
+// translators -- just translate the following:
+
+var greeting1 = "Hi";
+var greeting2 = "Hello";
+var whatIsYourName = "What is your name on the WebLabs site? | Please type your WebLabs user name here.";
+
+// translators -- ignore the rest
+
+function loadBody() 	{
+	//get the arguments
+//	var arrArgs = new Array();
+//   arrArgs = window.dialogArguments.split(";");
+	defaultName = currentParameter("name");
+	if (defaultName != 0) {
+	   UserName.value = defaultName;
+	};
+	defaultPassword = currentParameter("password");
+	if (defaultPassword != 0) {
+	   Password.value = defaultPassword;
+	};
+   initialUserName = UserName.value; 
+   mostRecentUserName = initialUserName;
+   UserName.select();
+//     agentStart(); // for now
+}
+
+function sendBack(which_button) {
+	if (which_button == 1) { // want to publish
+		window.returnValue = UserName.value + ":" + Password.value;
+	 } else if (which_button == 12) { // want to see folder
+	   window.returnValue = "."; 
+	 };
+//	 agentEnd();	
+    window.close();
+}
+
+// and the rest is specific to Microsoft Agent:
+
+var nameWaitID = -1;
+var initialUserName = null;
+var mostRecentUserName = null;
+var checkUserNameEvery = 500; // milliseconds
+
+var greetedByName = false;
+var introducedSelf = false;
+
+var GREETING = 1;
+var EXPLAIN_NAME_FIELD = 2;
+var WAIT_FOR_NAME_CHANGE = 3;
+var EXPLAIN_APPEARANCE_BUTTONS = 4;
+var WAITING_TO_START_TOONTALK = 5;
+
+function mainLoop() {
+	if (Agent1 == null || interrupted) return;
+	if (enterState(GREETING)) {
+		if (initialUserName == UserName.value) { // name hasn't changed
+			say(greeting);
+			if (!introducedSelf) {
+				say(introduction1 + " " + Agent1.name + " " + introduction2 + ".");
+				introducedSelf = true;
+//				breakhere();
+			};
+		};
+	} else if (enterState(EXPLAIN_NAME_FIELD)) {
+	   if (initialUserName == UserName.value) { // name hasn't changed
+			moveNearNameField();
+			say(whatIsYourName);
+			if (nameWaitID < 0) { // yet to be initialized
+				nameWaitID = setInterval("waitForNameChange()",checkUserNameEvery);
+				nextStateWhenIdle = false;
+			};
+			changeState(WAIT_FOR_NAME_CHANGE);
+	   } else {
+	      // name has already been changed
+	      changeState(EXPLAIN_APPEARANCE_BUTTONS);
+		};
+	} else if (enterState(WAIT_FOR_NAME_CHANGE)) {
+		moveNearNameField(); // should be no-op if already there but maybe went off to explain something else
+	   // do nothing special -- could be idle	
+	} else if (enterState(EXPLAIN_APPEARANCE_BUTTONS)) {
+		nextStateWhenIdle = true; // no longer waiting for name
+		if (!greetedByName) {
+			say(greeting1 + " " + UserName.value + "|" + greeting2 + " " + UserName.value);
+			greetedByName = true;
+		}
+		Agent1.MoveTo(Bald.offsetLeft+Bald.offsetWidth+10,Bald.offsetTop);
+		Agent1.GestureAt(Bald.offsetLeft,Bald.offsetTop+Bald.offsetHeight/2);
+		say(explainAppearanceButtons);
+	}
+}
+
+function waitForNameChange() {
+   debug("waitForNameChange " + initialUserName + " " + mostRecentUserName + " " + UserName.value);
+	if (initialUserName == UserName.value) {
+	   // no change so wait
+	} else if (mostRecentUserName == UserName.value) {
+	   // hasn't changed in checkUserNameEvery milliseconds
+	   clearInterval(nameWaitID); // so stop this
+	   nameWaitID = -1;
+	   changeState(EXPLAIN_APPEARANCE_BUTTONS);
+	   resumeMainLoop();
+	} else if (currentState != WAIT_FOR_NAME_CHANGE) {
+		clearInterval(nameWaitID); // stop this since moved on to next state
+		nameWaitID = -1;
+	} else {
+		mostRecentUserName = UserName.value;	
+	};
+}
+
+function moveNearNameField() {
+	Agent1.MoveTo(UserName.offsetLeft-175,UserName.offsetTop-UserName.offsetHeight/2,2000); // at double speed
+}
+
+
+-->
+
+		</script>
+		<Script Language="JavaScript" For="AgentControl" Event="Click(CharacterID, Button, Shift, X, Y)">
+<!--
+		reactToAgentClicked(CharacterID, Button, Shift, X, Y);
+-->
+
+		</Script>
+		<Script Language="JavaScript" For="AgentControl" Event="IdleStart(CharacterID)">
+<!--
+      idleAgent(CharacterID);
+-->
+		</Script>
+	</head>
+	<body onload="loadBody()">
+		<OBJECT id="AgentControl" codeBase="#VERSION=2,0,0,0" classid="clsid:D45FD31B-5C6E-11D1-9EC1-00C04FD7081F"
+			VIEWASTEXT>
+		</OBJECT>
+		<P align="left">Hi. If you want to save&nbsp;your file&nbsp;to your clipboard on 
+			the WebLabs web site then enter your name and password below.</P>
+		<P align="left">Enter your WebLabs user name here:<input id="UserName" type="text" class="text" size="99" name="UserName" style="WIDTH: 630px; HEIGHT: 32px"></P>
+		<P align="left">Enter your WebLabs password here:&nbsp;&nbsp;<INPUT class="text" id="Password" style="WIDTH: 630px; HEIGHT: 32px" type="password" size="99"
+				name="Password"></P>
+		<P align="center">
+			<INPUT id="Button1" onclick="sendBack(1)" type="button" value="Put file on web site" name="Button1">&nbsp;&nbsp;&nbsp;<INPUT id="Button5" onclick="sendBack('12')" type="button" value="Just see the folder with your file"
+				name="Button5" style="WIDTH: 295px; HEIGHT: 34px"> &nbsp;&nbsp;&nbsp; <INPUT id="Button2" onclick="sendBack(2)" type="button" value="Do nothing just now" name="Button2">
+		</P>
+	</body>
+</html>

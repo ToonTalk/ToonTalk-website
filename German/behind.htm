@@ -1,0 +1,593 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.5 [en] (WinNT; I) [Netscape]">
+   <meta name="Template" content="C:\PROGRAM FILES\MICROSOFT OFFICE\OFFICE\html.dot">
+   <title>Behind the Scenes of the ToonTalk Puzzle Game</title>
+</head>
+<body link="#0000FF" vlink="#800080">
+
+<center><u>Zur Zeit ist die nur englische Originalversion verf&uuml;gbar</u>
+<br><b><font face="Comic Sans MS"><font size=+3>Behind the Scenes of the
+Puzzle Game</font></font></b></center>
+
+<p><font face="Comic Sans MS"><font size=-1>Following is a look behind
+the scenes of the Puzzle Game within ToonTalk. Are you wondering how you
+are learning computer programming while having fun? Take a look at the
+explanations of each puzzle and you’ll be surprised at how much you’ve
+learned or can learn while playing ToonTalk.</font></font>
+<center>
+<p><b><font face="Comic Sans MS">Level #1 - Numbers (mostly powers of 2)</font></b></center>
+
+<p><b><font face="Comic Sans MS"><font size=-1>Puzzle #1 – Marty needs
+a box with a 1 and 2 inside.</font> This introduces ToonTalk boxes that
+are for holding things. Computer scientists call these <i>data structures</i>.
+Boxes closely resemble what they call <i>arrays</i>, <i>vectors</i>, and
+<i>tuples</i>. The numbers are an example of what computer scientists call
+<i>atomic data types</i>. To solve this puzzle you need to figure out how
+to put things in boxes (i.e. how to <i>initialize elements of a vector</i>).</font></b>
+<p><b><font face="Comic Sans MS"><font size=-1>Puzzle #2 – Marty needs
+a 4.</font> This puzzle introduces Bammer the Mouse who does arithmetic
+and other basic operations. In solving this puzzle you will discover how
+to express the addition of two numbers.</font></b>
+<p><b><font face="Comic Sans MS"><font size=-1>Puzzle #3 – Marty needs
+a box with 8, 16, and 32 inside.</font> This introduces a way to combine
+boxes to make bigger boxes. It also illustrates how to express addition
+of a number that is in a box. In computer science terminology you learn
+how to <i>concatenate vectors</i> and how to <i>operate on an element of
+a data structure</i>.</font></b>
+<p><b><font face="Comic Sans MS"><font size=-1>Puzzle #4 – Marty needs
+a number bigger than 1,000.</font> This puzzle introduces the ToonTalk
+magic wand which is used to copy ToonTalk objects. Like all ToonTalk tools,
+the wand can be used as part of a program and as a tool within the programming
+environment. This puzzle is interesting mathematically since it relies
+upon repeated doubling to grow from 1 to 1,024 in only 10 steps. It is
+intentionally a bit tedious, to provide motivation for automating tasks
+like this later.</font></b>
+<p><b><font face="Comic Sans MS"><font size=-1>Puzzle #5 – Marty needs
+a zero.</font> This puzzle introduces Dusty the Vacuum. Dusty is a tool
+used here to remove things. The zero is buried under things that only Dusty
+can remove.</font></b>
+<p><b><font face="Comic Sans MS"><font size=-1>Puzzle #6 – Marty needs
+a –1.</font> To solve this puzzle the player needs to guess (or receive
+hints from Marty) that the button on Dusty’s nose can be changed by clicking
+on it. This use of buttons to change the behavior of tools is used throughout
+ToonTalk. An observant player might notice that this use of Dusty to suck
+things up and then later spit them out corresponds very closely to <i>cut
+and paste</i> in many window-based interfaces.</font></b>
+<p><b><font face="Comic Sans MS"><font size=-1>Puzzle #7 – Marty needs
+a blank number pad.</font> This puzzle introduces blank number pads which
+are used in later puzzles. A blank number pad is a way of expressing <i>the
+type of a data structure. </i>In this case, it indicates some data whose
+<i>type</i>
+is <i>number</i>.</font></b>
+<p><b><font face="Comic Sans MS"><font size=-1>Puzzle #8 – Marty needs
+a box with two zeroes.</font> In training the robot in this puzzle, you
+are constructing your first program. The program constructed is equivalent
+to a textual program like this:</font></b>
+<p><font face="Times New Roman"><font size=-1>while (sizeOf(box) = 1 and
+box[0] = 1) do</font></font>
+<blockquote><font face="Times New Roman"><font size=-1>box := concat(box,
+copy(box));</font></font></blockquote>
+<font face="Times New Roman"><font size=-1>endwhile;</font></font>
+<p><font face="Comic Sans MS"><font size=-1>The reason that even young
+children can construct this program without help, is that the puzzle constrains
+the world so that the amount of searching a player needs to do to find
+a solution isn’t too large. Here the robot’s memory is limited to remembering
+only two steps, and the robot already has a magic wand.</font></font>
+<p><b><font face="Comic Sans MS"><font size=-1>Puzzle #9 – Marty needs
+a number greater than a billion.</font> The solution to this puzzle builds
+upon the experience of solving puzzles 4, 7, and 8. To solve this puzzle
+you need to train a robot to do what you did manually in puzzle #4. During
+puzzle #4 you had to repeat a sequence of actions 10 times. Here you simply
+train the robot to do one sequence and he'll do it the needed 30 times.
+In order to get the robot to work repeatedly, you need to learn about how
+to make the robot less fussy about the kind of box he’ll work on. In computer
+science jargon this is called <i>relaxing the predicate of the conditional</i>.
+The textual program equivalent of the robot trained in this puzzle is:</font></b>
+<p><font face="Times New Roman"><font size=-1>repeat 30</font></font>
+<blockquote><font face="Times New Roman"><font size=-1>if (sizeOf(box)
+= 1 and isNumber(box[0])) then</font></font></blockquote>
+
+<blockquote>
+<blockquote><font face="Times New Roman"><font size=-1>Box[0] := box[0]
++ copy(box[0]);</font></font></blockquote>
+<font face="Times New Roman"><font size=-1>endif;</font></font></blockquote>
+<font face="Comic Sans MS"><font size=-1><b>Puzzle #10 - Marty needs a
+box inside a box. </b>To solve this puzzle, you need to place a box inside
+a box inside a box. This is what computer scientists call <i>a recursive
+data structure, since elements of the structure can be of the same type
+as the whole structure</i>. If you place one of the boxes in the wrong
+hole, then Marty informs you that the elements need to be in the correct
+location. This is because a box is <i>an ordered indexed collection</i>.</font></font>
+<p><font face="Comic Sans MS"><font size=-1><b>Puzzle #11 - Marty needs
+a box with 3 zeros. </b>Like puzzle #2, you need to connect (<i>concatenate</i>)
+two boxes (<i>vectors</i>). Here you will discover that boxes cannot be
+connected when they are a part of another box. You discover that boxes
+can be removed, connected, and then put back. One solution corresponds
+to the code fragment:</font></font>
+<p><font face="Times New Roman"><font size=-1>temp1 := box[0];</font></font>
+<p><font face="Times New Roman"><font size=-1>temp2 := box[1];</font></font>
+<p><font face="Times New Roman"><font size=-1>temp1 := concat(temp1,temp2);</font></font>
+<p><font face="Times New Roman"><font size=-1>box[1] := temp1;</font></font>
+<p><font face="Comic Sans MS"><font size=-1><b>Puzzle #12 - Marty needs
+a box with 6 zeros.</b> This puzzle resembles puzzle #11. The operation
+of connecting boxes is repeated 3 times. This is to prepare you for the
+next puzzle where a robot needs to be trained to repeatedly connect boxes.</font></font>
+<p><font face="Comic Sans MS"><font size=-1><b>Puzzle #13 - Marty needs
+a box with 10 zeros.</b> In solving this puzzle, you train a robot to repeatedly
+extend a box. This introduces <i>a programming technique commonly used
+when incrementally creating a data structure</i>. The trained robot corresponds
+to the textual program:</font></font>
+<p><font face="Times New Roman"><font size=-1>repeat 4</font></font>
+<blockquote><font face="Times New Roman"><font size=-1>if (sizeOf(box)
+= 2 and sizeOf(box[0]) = 1 and box[0][0] = 0) then</font></font>
+<blockquote><font face="Times New Roman"><font size=-1>temp1 := copy(box[0]);</font></font>
+<p><font face="Times New Roman"><font size=-1>temp1 := concat(temp1,box[1]);</font></font>
+<p><font face="Times New Roman"><font size=-1>box[1] := temp;</font></font></blockquote>
+<font face="Times New Roman"><font size=-1>endif;</font></font></blockquote>
+<font face="Comic Sans MS"><font size=-1>The robot in this puzzle can remember
+up to 20 steps but the puzzle can be solved with only 4.</font></font>
+<p><font face="Comic Sans MS"><font size=-1><b>Puzzle #14 - Marty needs
+a box containing 1, 2, 4, 8, 16, and 32.</b> Solving this puzzle involves
+repeatedly extending a box with numbers that are twice the size of the
+previous number.</font></font>
+<p><font face="Comic Sans MS"><font size=-1><b>Puzzle #15 - Marty needs
+a box containing 1, 2, 4, 8, 16, and so on all the way up to 1,073,741,824.</b>
+Solving this puzzle builds upon puzzles #9, #13, and #14. It is a good
+example of how one often needs to combine different programming techniques
+to reach a goal. Here is the equivalent textual program:</font></font>
+<p><font face="Times New Roman"><font size=-1>repeat 30</font></font>
+<blockquote><font face="Times New Roman"><font size=-1>if (sizeOf(box)
+= 2 and sizeOf(box[0]) = 1 and isNumber(box[0][0])) then</font></font>
+<blockquote><font face="Times New Roman"><font size=-1>box[0][0] := box[0][0]
++ copy(box[0][0]);</font></font>
+<p><font face="Times New Roman"><font size=-1>temp1 := copy(box[0]);</font></font>
+<p><font face="Times New Roman"><font size=-1>temp2 := box[1];</font></font>
+<p><font face="Times New Roman"><font size=-1>temp2 := concat(temp2,temp1);</font></font>
+<p><font face="Times New Roman"><font size=-1>box[1] := temp2;</font></font></blockquote>
+<font face="Times New Roman"><font size=-1>endif;</font></font></blockquote>
+<font face="Comic Sans MS"><font size=-1><b>Puzzle #16 - Marty needs the
+year you were born.</b> The powers of 2 are <i>a basis set of the positive
+integers</i>. In other words, any whole number can be expressed as the
+sum of numbers which are the power of 2 and no number in the sum occurs
+more than once. Hence the lack of the magic wand in this puzzle.</font></font>
+<p><font face="Comic Sans MS"><font size=-1><b>Puzzle #17 - Marty needs
+the year you were born in binary.</b> You need to do exactly the same thing
+here as he or she did when solving puzzle #17. This actually can be a much
+easier puzzle than #16. The trick is to notice that wherever you need a
+1, find a number with a 1 in that position.</font></font>
+<p><font face="Comic Sans MS"><font size=-1><b>Puzzles #18, #19, and #20</b>
+- Intentionally left blank.</font></font>
+<center>
+<p><b><font face="Comic Sans MS">Level #2 - Letters and Words</font></b></center>
+
+<p><font face="Comic Sans MS"><font size=-1><b>Puzzle #21 - Marty needs
+a box with A, B, and C. </b>This puzzle introduces text pads (<i>a new
+data type</i>). In solving this puzzle, you will discover what the addition
+operation does when applied to letters.</font></font>
+<p><font face="Comic Sans MS"><font size=-1><b>Puzzle #22 - Marty needs
+a box with A, B, C, D, E, and F. </b>This puzzle is similar to puzzle #14
+but the same technique is now applied to letters rather than numbers.</font></font>
+<p><font face="Comic Sans MS"><font size=-1><b>Puzzle #23 - Marty needs
+a box with A, B, C, and so on up to Z.</b> This puzzle builds upon puzzles
+#15 and #22. Like #15, you needs to train a robot to do one step in such
+a way that when he's done he'll be ready to do the next step. The equivalent
+textual program is:</font></font>
+<p><font face="Times New Roman"><font size=-1>repeat 20</font></font>
+<blockquote><font face="Times New Roman"><font size=-1>if (sizeOf(box)
+= 3 and box[0] = 1 and sizeOf(box[1]) = 1 and isText(box[1][0])) then</font></font>
+<blockquote><font face="Times New Roman"><font size=-1>temp1 := copy(box[1]);</font></font>
+<p><font face="Times New Roman"><font size=-1>box[1][0] := box[1][0] +
+copy(box[0]);</font></font>
+<p><font face="Times New Roman"><font size=-1>temp2 := box[2];</font></font>
+<p><font face="Times New Roman"><font size=-1>temp2 := concat(temp2,temp1);</font></font>
+<p><font face="Times New Roman"><font size=-1>box[2] := temp2;</font></font></blockquote>
+<font face="Times New Roman"><font size=-1>endif;</font></font></blockquote>
+<font face="Comic Sans MS"><font size=-1><b>Puzzle #24 - Marty needs a
+box with a, b, c, and so on up to z.</b> This puzzle is trivial because
+the robot that was trained in the previous puzzle can create the box needed
+here. All the robot needs, is to be given a different box to begin with.
+A robot is what is called <i>a procedure</i> by computer scientists. And
+<i>this procedure </i>has<i> one argument</i> - the box that is given to
+the robot. A very important aspect of a procedure is that it can be reused
+by <i>passing
+</i>it different<i> arguments</i>.</font></font>
+<p><font face="Comic Sans MS"><font size=-1><b>Puzzle #25 - Marty needs
+a box with the alphabet that is small enough to see all at once.</b> This
+puzzle introduces a new tool - Pumpy The Bike Pump. Pumpy changes the size
+of things. This is useful in 'Free Play' for managing screen real estate.
+It is also an easy and direct way to change the size of pictures.</font></font>
+<p><font face="Comic Sans MS"><font size=-1><b>Puzzle #26 - Marty needs
+a box with a period, question mark, and comma.</b> This puzzle illustrates
+that text pads are not limited to letters of the alphabet but include punctuation
+as well. Letters, punctuation, and special symbols (like $) are called
+<i>characters</i> in most programming languages. This puzzle also dramatically
+illustrates that the size of objects in ToonTalk doesn't influence on how
+they behave (their <i>semantics</i>).</font></font>
+<p><font face="Comic Sans MS"><font size=-1><b>Puzzle #27 -Marty needs
+the box with punctuation to be big enough to see its contents.</b> This
+puzzle introduces a <i>keyboard accelerator</i> - in this case, a way to
+create a sound to call for Pumpy to jump into your hand. Keyboard accelerators
+are common in many different kinds of user interfaces.</font></font>
+<p><font face="Comic Sans MS"><font size=-1><b>Puzzle #28 - Marty needs
+the word "start".</b> This puzzle introduces what computer scientists call
+<i>strings</i> - i.e. <i>sequences of characters</i>. To solve this puzzle
+you need to discover that letters and strings can be concatenated to form
+longer strings.</font></font>
+<p><font face="Comic Sans MS"><font size=-1><b>Puzzles #29 and #30</b>
+- Intentionally left blank.</font></font>
+<center>
+<p><b><font face="Comic Sans MS">Level #3 - Mathematics of Time</font></b></center>
+
+<p><font face="Comic Sans MS"><font size=-1><b>Puzzle #31 - Marty needs
+a box with your birthday.</b> To solve this puzzle, you needs to discover
+that the keyboard can be used to change the value of strings and numbers.
+This is a kind of <i>direct manipulation of data</i>.</font></font>
+<p><font face="Comic Sans MS"><font size=-1><b>Puzzle #32 - Marty wants
+to know the number of minutes in a day.</b> This puzzle illustrates that
+repeated addition is multiplication. The equivalent textual program is:</font></font>
+<p><font face="Times New Roman"><font size=-1>repeat 24</font></font>
+<blockquote><font face="Times New Roman"><font size=-1>if (sizeOf(box)
+= 2 and isNumber(box[0]) and isNumber(box[1])) then</font></font>
+<blockquote><font face="Times New Roman"><font size=-1>box[1] := box[1]
++ copy(box[0]);</font></font></blockquote>
+<font face="Times New Roman"><font size=-1>endif;</font></font></blockquote>
+<font face="Comic Sans MS"><font size=-1><b>Puzzle #33 - Marty wants to
+know the number of seconds in an hour.</b> The robot from puzzle #32 is
+re-used here, as the only difference is how many times the instructions
+should be repeated.</font></font>
+<p><font face="Comic Sans MS"><font size=-1><b>Puzzle #34 - Marty needs
+a box showing a set of scales that shows two numbers are the same. </b>This
+puzzle introduces scales which are a way of expressing <i>numeric comparisons</i>.
+It also introduces the use of negative numbers for subtraction.</font></font>
+<p><font face="Comic Sans MS"><font size=-1><b>Puzzle #35 - Marty needs
+another box with a scale showing that two numbers are the same.</b> This
+puzzle differs from the previous, because now a robot is doing the work.
+What is important to note here is that the robot stops when the scale is
+no longer titled to the left. This example shows how to use <i>a comparison
+predicate in a conditional</i>. Since this robot has a wand with unlimited
+magic, he stops only when the box no longer matches the box in his thought
+bubble. This is what computer scientists call a <i>while loop</i>. The
+textual equivalent is:</font></font>
+<p><font face="Times New Roman"><font size=-1>while (sizeof(box) = 4 and
+box[1] = '>' and isNumber(box[0]) and isNumber(box[2]) and isNumber(box[3]))
+then</font></font>
+<blockquote><font face="Times New Roman"><font size=-1>box[2] := box[2]
++ copy(box[3]);</font></font></blockquote>
+<font face="Times New Roman"><font size=-1>endwhile;</font></font>
+<p><font size=-1><font face="Comic Sans MS">The expression "</font><font face="Terminal">box[1]
+= '>'</font><font face="Comic Sans MS">" is unusual. In this case it is
+equivalent to the more common "</font><font face="Terminal">box[0] > box[2]</font><font face="Comic Sans MS">",
+since the scale is always displaying the relationship between its neighboring
+data.</font></font>
+<p><font face="Comic Sans MS"><font size=-1><b>Puzzle #36 - Marty needs
+a box with 24 zeros.</b> This puzzle combines puzzles #13 and #35.&nbsp;
+It shows how to use the <i>while loop</i> like a <i>for statement</i>.
+This is an important technique for repeating something a number of times
+when you don't know how many times it will need to be repeated until the
+program runs.</font></font>
+<p><font face="Comic Sans MS"><font size=-1>Computer scientists analyze
+programs to find <i>invariants</i>. These are relationships that hold after
+every cycle. Here there is invariant that the first hole of the box is
+a number which is the size (i.e. number of holes) of the box in the sixth
+hole. The textual equivalent of the robot is:</font></font>
+<p><font face="Times New Roman"><font size=-1>while (sizeof(box) = 6 and
+box[1] = '&lt;' and isNumber(box[0]) and isNumber(box[2]) and isNumber(box[3]))
+do</font></font>
+<blockquote><font face="Times New Roman"><font size=-1>temp1 := copy(box[4]);</font></font>
+<p><font face="Times New Roman"><font size=-1>temp2 := box[5];</font></font>
+<p><font face="Times New Roman"><font size=-1>temp2 := concat(temp2,temp1);</font></font>
+<p><font face="Times New Roman"><font size=-1>box[5] := temp2;</font></font>
+<p><font face="Times New Roman"><font size=-1>box[0] := box[0] + copy(box[3]);</font></font></blockquote>
+<font face="Times New Roman"><font size=-1>endwhile;</font></font>
+<p><font face="Comic Sans MS"><font size=-1>or equivalently:</font></font>
+<p><font face="Times New Roman"><font size=-1>if (sizeof(box) = 6 and box[1]
+= '&lt;' and isNumber(box[0]) and isNumber(box[2]) and isNumber(box[3]))
+then</font></font>
+<blockquote><font face="Times New Roman"><font size=-1>for (; box[0] &lt;
+box[2]; box[0] := box[0] + copy(box[3])) do</font></font>
+<blockquote><font face="Times New Roman"><font size=-1>temp1 := copy(box[4]);</font></font>
+<p><font face="Times New Roman"><font size=-1>temp2 := box[5];</font></font>
+<p><font face="Times New Roman"><font size=-1>temp2 := concat(temp2,temp1);</font></font>
+<p><font face="Times New Roman"><font size=-1>box[5] := temp2;</font></font></blockquote>
+<font face="Times New Roman"><font size=-1>endfor;</font></font></blockquote>
+<font face="Times New Roman"><font size=-1>endif;</font></font>
+<p><font face="Comic Sans MS"><font size=-1><b>Puzzle #37 - Marty wants
+to know how many hours there are in a year.</b> This is similar to puzzle
+#32 except that now, you are training a more generally useful robot. That
+is because this robot computes the product of the first 2 numbers and keeps
+it in the sixth hole. The <i>invariant</i> in this program is that the
+number in the sixth hole is the product of the numbers in the first and
+fourth holes. The robot stops when the numbers in the second and fourth
+hole are the same. The textual equivalent of this is:</font></font>
+<p><font face="Times New Roman"><font size=-1>while (sizeof(box) = 6 and
+box[1] > box[3] and isNumber(box[0]) and isNumber(box[1]) and isNumber(box[3])
+and isNumber(box[4]) and isNumber(box[5])) do</font></font>
+<blockquote><font face="Times New Roman"><font size=-1>box[5] := box[5]
++ copy(box[0]);</font></font>
+<p><font face="Times New Roman"><font size=-1>box[3] := box[3] + copy(box[4]);</font></font></blockquote>
+<font face="Times New Roman"><font size=-1>endwhile;</font></font>
+<p><font face="Comic Sans MS"><font size=-1><b>Puzzle #38 - Marty wants
+to know how many seconds are in a day.</b> To solve this puzzle, you use
+the robot trained in the previous puzzle to multiply 60 times 24 resulting
+in 1,440. The player then uses the robot again to multiply 60 times 1,440.
+This can be done by placing the 60 in either the first or second hole and
+the 1,440 in the other. The robot will compute the product correctly in
+either case but it will be much faster if the 1,440 is in the first hole.
+This happens, because the robot multiplies by repeatedly adding the first
+number. The amount of work the robot must do is proportional to the number
+in the second hole. In computer science terminology, we say <i>the</i>
+<i>program's complexity is linear with the second argument</i>.</font></font>
+<p><font face="Comic Sans MS"><font size=-1><b>Puzzle #39 - Marty wants
+to know how many seconds are in a year.</b> Like the previous puzzle, this
+one repeatedly uses the robot trained in puzzle #37 to compute 365x24x60x60.</font></font>
+<p><font face="Comic Sans MS"><font size=-1><b>Puzzle #40</b> - Intentionally
+left blank.</font></font>
+<center>
+<p><b><font face="Comic Sans MS">Level #4 - Computing the Time</font></b></center>
+
+<p><font face="Comic Sans MS"><font size=-1><b>Puzzle #41 - Marty needs
+the days of the week.</b> This puzzle introduces birds and their nests.
+To a computer scientist a bird and her nest is <i>a communication channel</i>.
+A bird is <i>the right or capability to send message</i>s<i> on a channel
+</i>and her nest <i>the right to receive messages on that channel</i>.
+This example also illustrates that messages in ToonTalk are <i>queued</i>
+in a <i>first-in first-out fashion</i>.</font></font>
+<p><font face="Comic Sans MS"><font size=-1><b>Puzzle #42 - Marty needs
+a box with a nest with integers starting from 2</b>. The robot trained
+in solving this puzzle is what computer scientists call a <i>generator</i>.
+Here the robot generates <i>a stream of integers</i>. This generator is
+<i>an infinite generator</i> since it doesn't stop. The textual equivalent
+of this robot is:</font></font>
+<p><font face="Times New Roman"><font size=-1>while (sizeOf(box) = 3 and
+isNumber(box[0]) and isNumber(box[1]) and isSendCapability(box[2])) do</font></font>
+<blockquote><font face="Times New Roman"><font size=-1>transmit(box[2],copy(box[0]));
+<i>// transmit a copy of box[0] on the channel of box[2]</i></font></font>
+<p><font face="Times New Roman"><font size=-1>box[0] := box[0]+copy(box[1]);</font></font></blockquote>
+<font face="Times New Roman"><font size=-1>endwhile;</font></font>
+<p><font face="Comic Sans MS"><font size=-1><b>Puzzle #43 - Marty needs
+the sum of the numbers in the nest.</b> Here you train a robot to be a
+<i>consumer</i>. Many <i>stream-oriented programs</i> involve <i>consumers</i>
+and <i>generators</i>. This puzzle illustrates how to <i>receive messages</i>.
+The textual equivalent is:</font></font>
+<p><font face="Times New Roman"><font size=-1>while (sizeOf(box) = 2 and
+isNumber(peek(box[0])) and isNumber(box[1])) do</font></font>
+<blockquote><i><font face="Times New Roman"><font size=-1>// we "peek"
+at the communication channel in box[0] to see if a number is there</font></font></i>
+<p><font face="Times New Roman"><font size=-1>box[1] := box[1] + receive(box[0]);</font></font>
+<p><i><font face="Times New Roman"><font size=-1>// "receive" removes the
+top element in the queue and returns it</font></font></i></blockquote>
+<font face="Times New Roman"><font size=-1>endwhile;</font></font>
+<p><font face="Comic Sans MS"><font size=-1><b>Puzzle #44 - Marty needs
+a box with 3 numbers that aren't changing.</b> Here, you are introduced
+to sensors. A sensor is updated on every cycle so it displays the most
+recent value of what it is sensing. What this sensor is sensing is intended
+to be a mystery until puzzle #48. This puzzle teaches a ToonTalk programming
+technique of "freezing a sensor" by dropping it on a zero.</font></font>
+<p><font face="Comic Sans MS"><font size=-1><b>Puzzle #45 - Marty needs
+a box with a nest full of numbers that aren't changing.</b> This puzzle
+combines puzzles #42 and #44 to produce <i>a stream of sensor values</i>.
+The textual equivalent is:</font></font>
+<p><font face="Times New Roman"><font size=-1>while (sizeOf(box) = 3 and
+isNumber(box[0]) and isSendCapability(box[1]) and box[2] = 0) do</font></font>
+<blockquote><font face="Times New Roman"><font size=-1>temp1 := copy(box[2]);</font></font>
+<p><font face="Times New Roman"><font size=-1>temp1 := temp1 + copy(box[0]);</font></font>
+<p><font face="Times New Roman"><font size=-1>transmit(box[1],temp1);</font></font></blockquote>
+<font face="Times New Roman"><font size=-1>endwhile;</font></font>
+<p><font face="Comic Sans MS"><font size=-1><b>Puzzle #46 - Marty wants
+to know the sum of the numbers in the nest.</b> The robot trained in puzzle
+#43 works fine with this stream of numbers.</font></font>
+<p><font face="Comic Sans MS"><font size=-1><b>Puzzle #47 - Marty wants
+the number that results from waiting 8 seconds.</b> Here you run the robot
+from puzzle #43 and the robot from puzzle #45 <i>in parallel</i>, in other
+words, at the same time.</font></font>
+<p><font face="Comic Sans MS"><font size=-1><b>Puzzle #48 - Marty wants
+the number that results from waiting 14 seconds. </b>To solve this puzzle,
+you need to <i>spawn a new process</i> by loading the truck with a robot
+and box. This is the preferred method of running programs in parallel -
+doing it within a single house is harder to control and gets messy quickly.
+Here you will learn that the sensor measures the number of milliseconds
+since the last ToonTalk cycle. Hence the sum of the numbers measures how
+much time has passed. If you left for exactly 8 seconds on puzzle #47 the
+number would have been 8,000. Here if you went away for exactly 14 seconds
+the number would be 14,000. The reason you need to get out of sight is
+that the birds slow down for your benefit so you can watch them. Slow birds
+interfere here with measuring time accurately.</font></font>
+<p><font face="Comic Sans MS"><font size=-1><b>Puzzle #49 - Marty wants
+you to get rid of the other house.</b> To solve this puzzle you need to
+discover how to <i>terminate a process</i>.</font></font>
+<p><font face="Comic Sans MS"><font size=-1><b>Puzzle #50 - Marty wants
+the results from waiting 10 seconds.</b> This time you need to train a
+single robot to do what the robots in puzzles #47 and #48 accomplished.
+Programmers often make a special program that does the same as the combination
+of two general programs. They do this because the computer needs to do
+fewer steps to run the special program. Here the generator and consumer
+processes can be combined into a faster and much simpler process. The textual
+equivalent is:</font></font>
+<p><font face="Times New Roman"><font size=-1>while (sizeOf(box) = 2 and
+isNumber(box[1]) and isNumber(box[2])) do</font></font>
+<blockquote><font face="Times New Roman"><font size=-1>box[1] := box[1]
++ copy(box[0]);</font></font></blockquote>
+<font face="Times New Roman"><font size=-1>endwhile;</font></font>
+<p><font face="Comic Sans MS"><font size=-1><b>Puzzle #51 - Marty needs
+the box after the 3 second timer goes off.</b> This puzzle combines puzzles
+#35 and #50 to measure time until some comparison is no longer true. The
+reason the box has 6 holes rather than 4 becomes apparent later. Here is
+the textual form:</font></font>
+<p><font face="Times New Roman"><font size=-1>while (sizeOf(box) = 6 and
+isNumber(box[0]) and isNumber(box[1]) and isNumber(box[3])and box[1] &lt;
+box[3]) do</font></font>
+<blockquote><font face="Times New Roman"><font size=-1>box[3] := box[3]
++ milliseconds_since_last_cycle();</font></font></blockquote>
+<font face="Times New Roman"><font size=-1>endwhile;</font></font>
+<p><font face="Comic Sans MS"><font size=-1><b>Puzzle #52 - Marty needs
+-10.</b> This puzzle illustrates the repeated use of -1 to <i>decrement
+a counter</i>. It is equally valid to view this as adding a negative number
+or subtracting a positive one. The textual equivalent is:</font></font>
+<p><font face="Times New Roman"><font size=-1>while (sizeOf(box) = 3 and
+isNumber(box[0]) and isNumber(box[1])) do</font></font>
+<blockquote><font face="Times New Roman"><font size=-1>box[0] := box[0]
++ copy(box[1]);</font></font></blockquote>
+<font face="Times New Roman"><font size=-1>endwhile;</font></font>
+<p><font face="Comic Sans MS"><font size=-1><b>Puzzle #53- Marty wants
+the secret word.</b> This puzzle introduces teams of robots. When a box
+is given to a robot and that box doesn't match the box in the robot's thought
+bubble then the robot will leave the box for the next robot in the team,
+if there is one. In procedural programming languages, this corresponds
+to what computer scientists call <i>if-then-else statements</i>. In object-oriented
+programming languages, a team corresponds to <i>the behavior of an object</i>
+where each robot corresponds to <i>a method</i>. In logic programming languages,
+a team corresponds to <i>a predicate</i> and each robot to <i>a clause</i>.
+The team constructed in this puzzle is equivalent to the following procedural
+textual program:</font></font>
+<p><font face="Times New Roman"><font size=-1>procedure team(Box box)</font></font>
+<blockquote><font face="Times New Roman"><font size=-1>if (sizeOf(box)
+= 3 and box[0] = 0 and box[1] = -1 and box[2] = 'a') then</font></font>
+<blockquote><font face="Times New Roman"><font size=-1>run_secret_procedure(box);</font></font></blockquote>
+
+<blockquote><font face="Times New Roman"><font size=-1>team(box);</font></font></blockquote>
+<font face="Times New Roman"><font size=-1>else if (sizeOf(box) = 3 and
+isNumber(box[0]) and isNumber(box[1])) then</font></font>
+<blockquote><font face="Times New Roman"><font size=-1>box[0] := box[0]
++ copy(box[1]);</font></font>
+<p><font face="Times New Roman"><font size=-1>team(box);</font></font></blockquote>
+<font face="Times New Roman"><font size=-1>endif;</font></font></blockquote>
+<font face="Times New Roman"><font size=-1>endprocedure;</font></font>
+<p><font face="Comic Sans MS"><font size=-1><b>Puzzle #54 - Marty wants
+an alarm clock.</b> Here the robot trained for puzzle #51 is used together
+with the one trained here to implement a message send delayed by a number
+of seconds. The equivalent textual program is:</font></font>
+<p><font face="Times New Roman"><font size=-1>procedure team(Box box)</font></font>
+<blockquote><font face="Times New Roman"><font size=-1>if&nbsp; (sizeOf(box)
+= 6 and isNumber(box[0]) and isNumber(box[1]) and isNumber(box[3])and box[1]
+&lt; box[3]) then</font></font>
+<blockquote><font face="Times New Roman"><font size=-1>box[3] := box[3]
++ milliseconds_since_last_cycle();</font></font>
+<p><font face="Times New Roman"><font size=-1>team(box);</font></font></blockquote>
+<font face="Times New Roman"><font size=-1>else if&nbsp; (sizeOf(box) =
+6 and isNumber(box[0]) and isNumber(box[1]) and isNumber(box[3]) and isSendCapability(box[4])
+and isText(box[5])) then</font></font>
+<blockquote><font face="Times New Roman"><font size=-1>transmit(box[4],box[5]);</font></font>
+<p><font face="Times New Roman"><font size=-1>team(box);</font></font></blockquote>
+<font face="Times New Roman"><font size=-1>endif;</font></font></blockquote>
+<font face="Times New Roman"><font size=-1>endprocedure;</font></font>
+<p><font face="Comic Sans MS"><font size=-1>If you don't vacuum away the
+scale in the thought bubble of the new robot then we won't work in the
+rare case where box[1] = box[3]. The odds of this happening are 1 out of
+the average cycle duration which ranges between 10 and 100 depending upon
+the speed of the computer involved.</font></font>
+<p><font face="Comic Sans MS"><font size=-1><b>Puzzles #55, #56, #57, #58,
+#59,and #60</b> - Intentionally left blank.</font></font>
+<center>
+<p><b><font face="Comic Sans MS"><font size=+1>Level #5 - Building a Clock</font></font></b></center>
+
+<p><font face="Comic Sans MS"><font size=-1><b>Puzzle #61 - Marty wants
+a number that keeps getting bigger.</b> The solution to this puzzle is
+the same as puzzle #50. Here, however, the number being changed has a special
+property so that changes to it show up on the other number as well. This
+is what computer scientists call <i>shared state</i>. Shared state is known
+to cause problems in concurrent programs. In ToonTalk, however, remote
+controls work only within a single house so these problems are avoided.</font></font>
+<p><font face="Comic Sans MS"><font size=-1><b>Puzzle #62 - Marty&nbsp;
+wants the number to increase by 1,000 every second.</b> The solution to
+this puzzle requires placing the robot and his box on the back of the number.
+Many software development systems provide user interface objects that can
+have programs associated with them. In ToonTalk, you can put robots on
+the back of pictures to give them any behavior you program. The reason
+that the solution to this puzzle keeps time correctly, while the solution
+to the previous one didn't, is that in the previous puzzle the robot was
+going slow so you could observe him.</font></font>
+<p><font face="Comic Sans MS"><font size=-1><b>Puzzle #63 - Marty wants
+a number that increases by 1 every second.</b> The solution to this builds
+upon the programming techniques used in level #4. One of the <i>invariants</i>
+of this robot is that the number in the third hole should be 1 less than
+1,000 times the number in the fourth hole. Another <i>invariant</i> is
+that the fourth number will be 1/1000th of the value of the first number.
+The textual form of this robot is:</font></font>
+<p><font face="Times New Roman"><font size=-1>while (sizeof(box) = 6 and
+box[0] > box[2] and isNumber(box[0]) and isNumber(box[2]) and isNumber(box[3])
+and isNumber(box[4])&nbsp; and isNumber(box[5])) do</font></font>
+<blockquote><font face="Times New Roman"><font size=-1>box[2] := box[2]
++ copy(box[5]);</font></font>
+<p><font face="Times New Roman"><font size=-1>box[3] := box[3] + copy(box[4]);</font></font>
+<p><font face="Times New Roman"><font size=-1>update_display(box[3]); <i>//
+update the display to show the new value of box[3]</i></font></font></blockquote>
+<font face="Times New Roman"><font size=-1>endwhile;</font></font>
+<p><font face="Comic Sans MS"><font size=-1><b>Puzzle #64 - Marty wants
+a number that increases by 1 every minute.</b> This puzzle reuses the robot
+from the previous puzzle. The numbers have been changed so that the robot
+ensures that the fourth number is 1/60th of the first number.</font></font>
+<p><font face="Comic Sans MS"><font size=-1><b>Puzzle #65 - Marty needs
+a box with hours, minutes, and seconds timers.</b> Constructing the hour
+timer is the same as constructing the minute timer in the previous puzzle.</font></font>
+<p><font face="Comic Sans MS"><font size=-1><b>Puzzle #66 - Marty wants
+the seconds timer to go back to 0 when it reaches 60.</b> After the robot
+runs the first number will be the remainder after dividing what was there
+by 60. Computing the remainder of the division is implemented by repeated
+subtraction. It is worth noting that this process is <i>running in parallel</i>
+with the earlier constructed process that makes the number be 1/1000th
+of the milliseconds timer. This robot is equivalent to:</font></font>
+<p><font face="Times New Roman"><font size=-1>while (sizeOf(box) = 4 and
+box[0] > box[2] and isNumber(box[0]) and isNumber(box[2]) and isNumber(box[3])
+do</font></font>
+<blockquote><font face="Times New Roman"><font size=-1>box[0] := box[0]
++ copy(box[3]);</font></font></blockquote>
+<font face="Times New Roman"><font size=-1>endwhile;</font></font>
+<p><font face="Comic Sans MS"><font size=-1><b>Puzzle #67 - Marty wants
+the minutes timer to go back to 0 when it reaches 60.</b> The solution
+to this puzzle requires noticing that the same robot is needed here as
+with the previous puzzle and that you can use the magic wand to copy the
+needed robot.</font></font>
+<p><font face="Comic Sans MS"><font size=-1><b>Puzzle #68 - Marty wants
+the hours timer to go back to 0 when it reaches 24.</b> The solution to
+this puzzle is the same as the previous puzzle and additionally you must
+change the numbers so that the robot behaves correctly. This tests your
+understanding of the previous two puzzles.</font></font>
+<p><font face="Comic Sans MS"><font size=-1><b>Puzzle #69 - Marty wants
+the digital clock to show the right time.</b> To solve this puzzle, you
+simply <i>initialize</i> the values of the timers to the current time.</font></font>
+<p><font face="Comic Sans MS"><font size=-1><b>Puzzle #70 - Marty wants
+a nicer looking digital clock.</b> Most modern software not only needs
+to compute correctly, but it also should display information to users in
+an appealing and effective manner. Here, you need to make the clock look
+more attractive.</font></font>
+<p><font face="Comic Sans MS"><font size=-1><b>Puzzle #71 - Marty wants
+a box showing the time of your birth.</b> This is needed for the next puzzle.</font></font>
+<p><font face="Comic Sans MS"><font size=-1><b>Puzzle #72 - Marty wants
+to know how many seconds until you are a round number of millions of seconds
+old.</b> Here, you should drop the number showing your age in seconds on
+the zero to freeze the number. If you try to subtract with the timer then
+the number continues to get larger even when it is negative. Neglecting
+to do so will only affect the answer by a few seconds.</font></font>
+<p><font face="Comic Sans MS"><font size=-1><b>Puzzle #73 - Marty wants
+to know how many minutes until you are a round number of millions of seconds
+old.</b> This puzzle illustrates how ToonTalk, like most programming languages,
+can perform division <i>primitively</i>. Since the ship's computer was
+broken before you couldn't directly multiply or divide numbers and had
+to program those operations using addition and subtraction.</font></font>
+<p><font face="Comic Sans MS"><font size=-1><b>Puzzle #74 - Marty wants
+to know how many days until you are a round number of millions of seconds
+old.</b> Here, you need to type the division operation rather than use
+a&nbsp; pre-defined one.</font></font>
+<br>&nbsp;
+<br>&nbsp;
+<p><font face="Comic Sans MS"><font size=-1>If you have reached the end
+of the puzzle game, you should have learned enough to build a wide variety
+of programs in 'Free Play'. You can learn more by watching some of the
+demo movies ('See Demos'). Please <a href="contribp.htm">share what you
+build</a> with others.</font></font>
+<br>&nbsp;
+<br>&nbsp;
+<br>
+<center>
+<p><font face="Comic Sans MS"><font size=-1><a href="toontalk.htm">home</a>
+| <a href="search.htm">search</a> | <a href="buy.htm">purchase</a> | <a href="doc.htm">manual</a>
+| <a href="whatsnew.htm">news</a> | <a href="infodesk.htm">info</a> | <a href="faq.htm">faq</a>
+| <a href="support.htm">support</a> | <a href="free.htm">downloads</a>
+| <a href="press.htm">press</a> | <a href="address.htm">contact us</a></font></font></center>
+
+<p><br>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=iso-8859-1">
+		<title>V&auml;lja en  inst&auml;llning i ToonTalk</title>
+		<meta content="Microsoft Visual Studio.NET 7.0" name="GENERATOR">
+		<meta content="http://schemas.microsoft.com/intellisense/ie5" name="vs_targetSchema">
+		<script language="javascript" src="../common.js"></script>
+		<script language="javascript" src="../agent.js"></script>
+		<script language="javascript" src="strings.js"></script>
+		<script language="javascript" id="clientEventHandlersJS"><!--
+// translators -- just translate the following  text in quotes:
+
+var greeting = "Hi. Please enter a new value for ";
+
+// translators -- ignore the rest
+
+function loadBody() 	{
+	oldValue = currentParameter("old_value");
+   OptionValue.value = oldValue;
+   category = currentParameter("category");
+   keyName = currentParameter("key_name");
+   initialOptionValue = OptionValue.value; // for Agent1 - new on 070504
+   mostRecentOptionValue = initialOptionValue;
+   OptionValue.select();
+//     agentStart(); 
+}
+
+function sendBackOK() {
+    window.returnValue = "-set_option(" + category + "," + keyName + "," + OptionValue.value + ")";
+//	 agentEnd();	
+    window.close();
+}
+
+function sendBackCancel() {
+    window.returnValue = "-set_option(" + category + "," + keyName + "," + oldValue + ")"; // need to send this back??
+//	 agentEnd();	
+    window.close();
+}
+
+// and the rest is specific to Microsoft Agent:
+
+var nameWaitID = -1;
+var initialUserName = null;
+var mostRecentUserName = null;
+var checkUserNameEvery = 500; // milliseconds
+
+var greetedByName = false;
+var introducedSelf = false;
+
+var GREETING = 1;
+var EXPLAIN_NAME_FIELD = 2;
+var WAIT_FOR_NAME_CHANGE = 3;
+var EXPLAIN_APPEARANCE_BUTTONS = 4;
+var WAITING_TO_START_TOONTALK = 5;
+
+function mainLoop() {
+	if (Agent1 == null || interrupted) return;
+	if (enterState(GREETING)) {
+		if (initialUserName == UserName.value) { // name hasn't changed
+			say(greeting);
+			if (!introducedSelf) {
+				say(introduction1 + " " + Agent1.name + " " + introduction2 + ".");
+				introducedSelf = true;
+//				breakhere();
+			};
+		};
+	} else if (enterState(EXPLAIN_NAME_FIELD)) {
+	   if (initialUserName == UserName.value) { // name hasn't changed
+			moveNearNameField();
+			say(whatIsYourName);
+			if (nameWaitID < 0) { // yet to be initialized
+				nameWaitID = setInterval("waitForNameChange()",checkUserNameEvery);
+				nextStateWhenIdle = false;
+			};
+			changeState(WAIT_FOR_NAME_CHANGE);
+	   } else {
+	      // name has already been changed
+	      changeState(EXPLAIN_APPEARANCE_BUTTONS);
+		};
+	} else if (enterState(WAIT_FOR_NAME_CHANGE)) {
+		moveNearNameField(); // should be no-op if already there but maybe went off to explain something else
+	   // do nothing special -- could be idle	
+	} else if (enterState(EXPLAIN_APPEARANCE_BUTTONS)) {
+		nextStateWhenIdle = true; // no longer waiting for name
+		if (!greetedByName) {
+			say(greeting1 + " " + UserName.value + "|" + greeting2 + " " + UserName.value);
+			greetedByName = true;
+		}
+		Agent1.MoveTo(Bald.offsetLeft+Bald.offsetWidth+10,Bald.offsetTop);
+		Agent1.GestureAt(Bald.offsetLeft,Bald.offsetTop+Bald.offsetHeight/2);
+		say(explainAppearanceButtons);
+	}
+}
+
+function waitForNameChange() {
+   debug("waitForNameChange " + initialUserName + " " + mostRecentUserName + " " + UserName.value);
+	if (initialUserName == UserName.value) {
+	   // no change so wait
+	} else if (mostRecentUserName == UserName.value) {
+	   // hasn't changed in checkUserNameEvery milliseconds
+	   clearInterval(nameWaitID); // so stop this
+	   nameWaitID = -1;
+	   changeState(EXPLAIN_APPEARANCE_BUTTONS);
+	   resumeMainLoop();
+	} else if (currentState != WAIT_FOR_NAME_CHANGE) {
+		clearInterval(nameWaitID); // stop this since moved on to next state
+		nameWaitID = -1;
+	} else {
+		mostRecentUserName = UserName.value;	
+	};
+}
+
+//var explainedTimeTravel = false;
+
+function explainTimeTravel() {
+	if (Agent1 == null) return;
+	explanationID = setTimeout("reallyExplainTimeTravel()",mouseOverWait);
+}
+
+function reallyExplainTimeTravel() {
+   Agent1.stop();
+//	if (!explainedTimeTravel) {
+	   explainedTimeTravel = true;
+	   Agent1.MoveTo(TimeTravel.offsetLeft+50,TimeTravel.offsetTop-100);
+	   Agent1.GestureAt(TimeTravel.offsetLeft,TimeTravel.offsetTop);
+	   if (TimeTravel.disabled) {
+	      say(timeTravelDisabled);
+	   } else if (TimeTravel.checked) {
+	      say(timeTravelOn);
+	   } else {
+			say(timeTravelOff);
+	   };
+	   if (!TimeTravel.checked && !TimeTravel.disabled) {
+	   	say(timeTravelDescription);
+	      say(timeTravelTryIt);
+	   };
+//	};
+}
+
+function moveNearNameField() {
+	Agent1.MoveTo(UserName.offsetLeft-175,UserName.offsetTop-UserName.offsetHeight/2,2000); // at double speed
+}
+
+
+
+// -->
+		</script>
+		<script language="JavaScript" for="AgentControl" event="Click(CharacterID, Button, Shift, X, Y)"><!--
+reactToAgentClicked(CharacterID, Button, Shift, X, Y);
+
+// -->
+		</script>
+		<script language="JavaScript" for="AgentControl" event="IdleStart(CharacterID)"><!--
+idleAgent(CharacterID);
+
+// -->
+		</script>
+		<link rel="stylesheet" type="text/css" href="../dialog.css">
+	</head>
+
+	<body onload="loadBody()">
+		<center>
+			<p>
+			<script><!--
+document.writeln(greeting + currentParameter("key_name"))
+// -->
+			</script>
+			</p>
+		</center>
+		<center>
+			<p><input id="OptionValue" type="text" class="text" size="171" value="None given" name="OptionValue" style="WIDTH: 630px; HEIGHT: 44px"></p>
+		</center>
+		<center>
+			<p><input id="Button1" type="button" value="OK" name="OK" onclick="sendBackOK()"> <input id="Button2" type="button" value="Avbryt" name="Cancel" onclick="sendBackCancel()"></center>
+	</body>
+
+</html>

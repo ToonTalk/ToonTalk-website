@@ -1,0 +1,193 @@
+<HTML>
+<HEAD>
+  <META NAME="GENERATOR" CONTENT="Adobe PageMill 2.0 Win">
+  <TITLE>ToonTalk - Concorr&ecirc;ncia e o ToonTalk</TITLE>
+  <link rel="stylesheet" type="text/css" href="ToonTalk.css">
+</head>
+
+<body link="#0000ff" vlink="#800080" bgcolor="#ffffff">
+
+<div align="center">
+<a name="topo"></a>
+<table width=468 cellspacing=0 cellpadding=0 border=0><tr><td>
+
+<p>
+<table cellspacing=0 cellpadding=0 border=0><tr>
+          <td>
+<div align=center>
+<div align=center>
+<A class=menu href="toontalk.html" onmouseover="window.status=' Início'; return true">início</a><span class=bola> •</span>
+<A class=menu href="search.html" onmouseover="window.status=' Busca'; return true">busca</a><span class=bola> •</span>
+<A class=menu href="buy.html" onmouseover="window.status=' Compra'; return true">compra</a><span class=bola> •</span>
+<A class=menu href="doc.html" onmouseover="window.status=' Manual'; return true">manual</a><span class=bola> •</span>
+<A class=menu href="whatsnew.html" onmouseover="window.status=' Novidades'; return true">novidades</a><span class=bola> •</span>
+<A class=menu href="faq.html" onmouseover="window.status=' Dúvidas'; return true">dúvidas</a><span class=bola> •</span>
+<A class=menu href="support.html" onmouseover="window.status=' Suporte'; return true">suporte</a><span class=bola> •</span>
+<A class=menu href="free.html" onmouseover="window.status=' Download'; return true">download</a><span class=bola> •</span>
+<A class=menu href="press.html" onmouseover="window.status=' Imprensa'; return true">imprensa</a><span class=bola> •</span>
+<A class=menu href="address.html" onmouseover="window.status=' Contato'; return true">contato</a>
+<hr size=1></div>
+    </td></tr>
+</table>
+
+<H2>Concorr&ecirc;ncia e o ToonTalk</H2>
+
+<P>Antes que eu tente explicar a computa&ccedil;&atilde;o concorrente no
+ToonTalk e por que &eacute; dif&iacute;cil estender linguagens seq&uuml;enciais
+para que sejam concorrentes, explicarei a rela&ccedil;&atilde;o entre concorr&ecirc;ncia,
+paralelismo e computa&ccedil;&atilde;o distribu&iacute;da. Os processos
+paralelos s&atilde;o aqueles que est&atilde;o rodando dentro do mesmo sistema
+computacional. O sistema tipicamente tem mais de um processador. Os processos
+distribu&iacute;dos s&atilde;o aqueles que rodam tipicamente em diferentes
+sistemas computacionais conectados via rede. A distin&ccedil;&atilde;o entre
+paralelo e distribu&iacute;do &eacute; importante porque a computa&ccedil;&atilde;o
+distribu&iacute;da est&aacute; tipicamente a caminho do limite organizacional
+ou de seguran&ccedil;a. Portanto apenas a computa&ccedil;&atilde;o distribu&iacute;da
+precisa se preocupar com seguran&ccedil;a, aloca&ccedil;&atilde;o de recursos,
+recupera&ccedil;&atilde;o de falhas de hardware e coisas semelhantes. Em
+discuss&otilde;es em que a distin&ccedil;&atilde;o n&atilde;o &eacute; importante,
+eu fa&ccedil;o refer&ecirc;ncia a processos concorrentes, isto &eacute;,
+processos que podem ser tanto paralelos quanto distribu&iacute;dos.</P>
+
+<P>O ToonTalk &eacute; uma linguagem de programa&ccedil;&atilde;o concorrente
+plena. Isto porque todas as subcomputa&ccedil;&otilde;es s&atilde;o expressas
+como processos novos, independentes. Se um rob&ocirc; precisa que outros
+rob&ocirc;s realizem alguma subcomputa&ccedil;&atilde;o, ele deve ser treinado
+para carregar um caminh&atilde;o com aqueles outros rob&ocirc;s. A nova
+casa constru&iacute;da pela equipe no caminh&atilde;o &eacute; um novo processo.
+Diferentemente de linguagens convencionais (C, Java, Logo, Lisp, Fortran,
+Cobol, Perl, Basic etc.), n&atilde;o h&aacute; um modo de expressar uma
+chamada de subrotina no ToonTalk. Uma chamada para um procedimento transfere
+o controle para o procedimento de tal forma que o programa principal, ap&oacute;s
+a chamada do procedimento, tem de esperar at&eacute; que o procedimento
+termine. Quando o procedimento termina, ele retorna (algumas vezes retornando
+um valor). O programa principal pode ent&atilde;o reiniciar onde estava
+quando o procedimento foi chamado. Pode-se obter o comportamento equivalente
+no ToonTalk treinando um rob&ocirc; para carregar um caminh&atilde;o com
+rob&ocirc;s e uma caixa com um pombo nela. O rob&ocirc; deve colocar o ninho
+do pombo nesta caixa e n&atilde;o fazer nada mais. Aquele rob&ocirc; ou
+outros membros da equipe devem ser programados para procurar por algo no
+ninho. Conseq&uuml;entemente, este processo ser&aacute; suspenso at&eacute;
+que os rob&ocirc;s que foram colocados no caminh&atilde;o d&ecirc;em algo
+ao pombo. Os rob&ocirc;s aguardando no ninho ver&atilde;o o que foi entregue
+e retomar&atilde;o a computa&ccedil;&atilde;o. Em outras palavras, uma chamada
+de subrotina ou de procedimento no ToonTalk &eacute; apenas um padr&atilde;o
+muito especial do uso de caminh&otilde;es, pombos e rob&ocirc;s. O ToonTalk
+apenas fornece ao programador a capacidade mais geral de expressar a gera&ccedil;&atilde;o
+de novos processos.</P>
+
+<P>A aus&ecirc;ncia de subrotinas no ToonTalk o torna muito mais adequado
+para ter um n&uacute;mero muito maior de processos do que as linguagens
+de programa&ccedil;&atilde;o convencionais. A raz&atilde;o para isso &eacute;
+que todos implementam chamadas de subrotina utilizando uma estrutura de
+dados chamada de pilha. As pilhas s&atilde;o um meio muito efetivo de implementar
+chamadas de procedimentos, inclusive chamadas recursivas. O problema &eacute;
+que cada processo (mesmo se suspenso) precisa de sua pr&oacute;pria pilha.
+Isto torna os processos algo custoso. Um processo no ToonTalk s&oacute;
+precisa de 2 indicadores: para o programa (a equipe de rob&ocirc;s) e para
+os dados (a caixa). N&atilde;o h&aacute; pilha; n&atilde;o h&aacute; nada
+mais. Eu testei o ToonTalk com dezenas de milhares de casas (isto &eacute;,
+processos). Em contraste, quando utilizei Java, o sistema parou de funcionar
+quando eu tinha apenas algumas centenas de processos.</P>
+
+<P>As linguagens convencionais t&ecirc;m <I>estado compartilhado</I>. As
+mesmas vari&aacute;veis, estruturas de dados e objetos podem ser acessados
+a partir de diferentes processos (processos que compartilham dados s&atilde;o
+freq&uuml;entemente chamados &quot;threads&quot;). O estado compartilhado
+&eacute; necess&aacute;rio nestas linguagens de forma que os &quot;threads&quot;
+trabalhem em conjunto. Este compartilhamento entre processos independentes
+concorrentes &eacute;, entretanto, muito perigosa. Ela leva &agrave; concorr&ecirc;ncia
+entre processos (&quot;race conditions&quot;). Considere uma vari&aacute;vel,
+<I>A</I>, que se sup&otilde;e que represente o saldo atual de uma conta
+de poupan&ccedil;a. (<I>A</I> poderia ser uma vari&aacute;vel global ou
+um exemplo de vari&aacute;vel de um objeto &#150; ambos os tipos de vari&aacute;veis
+t&ecirc;m esse problema.) Uma subrotina foi escrita para sacar <I>X</I>
+de <I>A</I> depois de verificar se <I>X</I> &eacute; menor ou igual a <I>A.</I>
+Ela o faz atualizando A para <I>A-X</I>. Em outras palavras, a rotina permite
+uma retirada apenas se houver fundos suficientes na conta. Agora nos permita
+introduzir a concorr&ecirc;ncia. Suponha que h&aacute; uma conta com dez
+reais e um processo gostaria de retirar 9 reais e outro processo quer retirar
+8 reais. Com azar ambas as retiradas podem ocorrer. E ainda pior, o saldo
+pode ser 1 real, 2 reais ou -7 reais depois do processamento das duas retiradas.
+Como? Considere este cen&aacute;rio:</P>
+
+<P>O processo 1 verifica que <I>X</I> &eacute; menor que <I>A</I> e calcula
+<I>A-X</I> igual a 1, mas antes de atribuir 1 para <I>A</I>, o processo
+2 se inicia e v&ecirc; que <I>A</I> ainda &eacute; dez, e portanto processa
+a retirada inteira e ajusta <I>A</I> para 2. O processo 1 &eacute; retomado
+onde parou e ajusta <I>A</I> para 1.</P>
+
+<P>Ent&atilde;o como as linguagens convencionais lidam com concorr&ecirc;ncia
+entre processos? Elas introduzem novas id&eacute;ias de programa&ccedil;&atilde;o:
+bloqueios ou regi&otilde;es cr&iacute;ticas. Por exemplo, o procedimento
+de retirada poderia obter um bloqueio em <I>A</I> de forma que nenhum outro
+processo pudesse acess&aacute;-lo. Poderia ent&atilde;o, com seguran&ccedil;a,
+compar&aacute;-lo a <I>X</I>, calcular <I>A- X</I> e ajustar <I>A</I> ao
+resultado. N&atilde;o apenas isso acrescenta complexidade &agrave; tarefa
+de fazer programas, mas pode levar a novos problemas: especialmente &quot;deadlock&quot;.
+Suponha que o processo 1 bloqueie <I>A</I> e ent&atilde;o necessita encontrar
+o valor de B que &eacute; bloqueado pelo processo 2. Ent&atilde;o o processo
+1 &eacute; suspenso e espera que o processo 2 libere B. Mas o que acontece
+se o processo 2 precisa ent&atilde;o acessar o valor de <I>A</I>? <I>A</I>
+est&aacute; bloqueado, ent&atilde;o o processo 2 tamb&eacute;m &eacute;
+suspenso. Isso &eacute; freq&uuml;entemente chamado de <I>espera circular</I>.
+Voc&ecirc; poderia pensar que seria simples programar de forma tal que se
+evitasse esta esp&eacute;cie de depend&ecirc;ncia m&uacute;tua. Mas o ciclo
+de depend&ecirc;ncia pode envolver centenas de processos.</P>
+
+<P>Ent&atilde;o por que o ToonTalk n&atilde;o sofre desses problemas? A
+raz&atilde;o &eacute; que o ToonTalk n&atilde;o tem estado compartilhado.
+Uma caixa s&oacute; pode existir em um lugar. E os rob&ocirc;s na mesma
+casa fazem turnos - eles nunca trabalham na mesma caixa ao mesmo tempo.
+A aus&ecirc;ncia de estados compartilhados &eacute; a forma pela qual o
+ToonTalk evita concorr&ecirc;ncia ou deadlock. Mas isso n&atilde;o limita
+a expressividade da linguagem? Poderia, se n&atilde;o fosse pelos pombos.
+O fato de que c&oacute;pias do mesmo pombo voam para o mesmo ninho proporciona
+um meio para comunica&ccedil;&atilde;o muitos-para-um que pode ser usado
+em vez do estado compartilhado. Como exemplo, considere o exemplo do ToonTalk
+da conta banc&aacute;ria. M&uacute;ltiplos processos podem retirar dinheiro
+da mesma conta. Cada processo tem uma c&oacute;pia de um pombo cujo ninho
+est&aacute; na caixa que est&aacute; representando a conta banc&aacute;ria.
+Os rob&ocirc;s em casas diferentes podem dar aos pombos solicita&ccedil;&otilde;es
+de retiradas da conta, dando aos pombos, caixas contendo a quantia de dinheiro
+a ser retirada. N&oacute;s n&atilde;o sabemos qual caixa terminar&aacute;
+no topo do ninho &#150; mas todas elas ser&atilde;o empilhadas no ninho
+(Em outras palavras, as solicita&ccedil;&otilde;es s&atilde;o enfileiradas
+no ninho). Os rob&ocirc;s trabalhando na conta ver&atilde;o uma caixa aparecer
+no ninho para uma solicita&ccedil;&atilde;o de retirada. Eles ir&atilde;o
+processar a solicita&ccedil;&atilde;o antes de come&ccedil;ar a nova solicita&ccedil;&atilde;o.
+N&atilde;o h&aacute; problema, mesmo se o c&aacute;lculo do novo saldo exigir
+um novo subc&aacute;lculo. O rob&ocirc; carregar&aacute; o caminh&atilde;o
+com rob&ocirc;s e uma caixa para calcular o novo saldo. E ent&atilde;o ele
+colocar&aacute; o ninho que receber&aacute; o resultado no local onde o
+saldo atual est&aacute; mantido. A pr&oacute;xima solicita&ccedil;&atilde;o
+n&atilde;o ser&aacute; processada at&eacute; que o subc&aacute;lculo d&ecirc;
+ao pombo o novo saldo e o ninho apropriado seja coberto.</P>
+
+<P>Em resumo, tentativas de adicionar concorr&ecirc;ncia &agrave;s linguagens
+com subrotinas e estado compartilhado conduzem &agrave; complexidade, implementa&ccedil;&otilde;es
+custosas de processos e erros que s&atilde;o muito dif&iacute;ceis de localizar.
+O ToonTalk, em contraste, foi projetado desde o in&iacute;cio para ser concorrente.
+No ToonTalk n&atilde;o h&aacute; a necessidade de introduzir bloqueios ou
+regi&otilde;es cr&iacute;ticas, os processos custam muito pouco e concorr&ecirc;ncias
+e deadlocks s&atilde;o evitados.</P>
+
+<div align=center>
+<A class=menu href="toontalk.html" onmouseover="window.status=' Início'; return true">início</a><span class=bola> •</span>
+<A class=menu href="search.html" onmouseover="window.status=' Busca'; return true">busca</a><span class=bola> •</span>
+<A class=menu href="buy.html" onmouseover="window.status=' Compra'; return true">compra</a><span class=bola> •</span>
+<A class=menu href="doc.html" onmouseover="window.status=' Manual'; return true">manual</a><span class=bola> •</span>
+<A class=menu href="whatsnew.html" onmouseover="window.status=' Novidades'; return true">novidades</a><span class=bola> •</span>
+<A class=menu href="faq.html" onmouseover="window.status=' Dúvidas'; return true">dúvidas</a><span class=bola> •</span>
+<A class=menu href="support.html" onmouseover="window.status=' Suporte'; return true">suporte</a><span class=bola> •</span>
+<A class=menu href="free.html" onmouseover="window.status=' Download'; return true">download</a><span class=bola> •</span>
+<A class=menu href="press.html" onmouseover="window.status=' Imprensa'; return true">imprensa</a><span class=bola> •</span>
+<A class=menu href="address.html" onmouseover="window.status=' Contato'; return true">contato</a>
+<hr size=1></div>
+    </td></tr>
+</table>
+</CENTER>
+</BODY>
+<!--  FuturArte Editora Ltda.                                     Divertire  -->
+</HTML>
+
